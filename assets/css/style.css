@@ -11,6 +11,39 @@
     
 }
 .card-deck{
+    margin-top: 200px;
+    
+}
+.circle-section{
+    font-family: Yusei Magic,sans-serif;
+    font-weight: 400;
     margin-top: 50px;
+    margin-left: 300px;
+    margin-bottom: 50px;
+}
+.icon_rep{
+    width: 60px;
+    margin-left: 70px;
+    margin-bottom:50px;
+    border: transparent black;
+    box-shadow: 5px 10px 18px #888888;
+}
+.icons h3{
+    justify-content: center;
+    margin-left: 30px;
+}
+.center{
+    margin: 0;
+    margin-top: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-weight: 400;
+    font-size: 30px;
+    font-family:Raleway,sans-serif;
+    background-image: linear-gradient(#40f5ff,#ff87ff);
+    
 }
   
