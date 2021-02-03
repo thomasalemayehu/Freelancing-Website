@@ -1,98 +1,170 @@
-.bg-gradiant{
-    height: 100vh;
-    width: 100%;
-    background-image: linear-gradient(#40f5ff,#ff87ff);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.perfect{
-    font-family: Raleway,sans-serif;
-    font-size: 40px;
-    margin-top: 150px;
-    color: white;
-    
+
+/* Dynamic Classes */
+.hide {
+  display: none;
 }
-.card-deck{
-    margin-top: 200px;
-    
+
+.show {
+  display: block;
 }
-.circle-section{
-    font-family: Yusei Magic,sans-serif;
-    font-weight: 400;
-    margin-top: 50px;
-    margin-left: 300px;
-    margin-bottom: 50px;
+
+/* Login and Sign Up Styles */
+.login-container,
+.sign-up-container {
+  margin-top: 5%;
 }
-.icon_rep{
-    width: 60px;
-    margin-left: 70px;
-    margin-bottom:50px;
-    border: transparent black;
-    box-shadow: 5px 10px 18px #888888;
+.login-image-container,
+.sign-up-image-container {
+  padding-right: 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.icons h3{
-    justify-content: center;
-    margin-left: 30px;
+.login-form,
+.sign-up-form {
+  padding-left: 15%;
+  padding-right: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 100%;
+  /* background: rgb(231, 225, 225); */
+  /* box-shadow: 3px 3px 10px; */
 }
-.center{
-    margin: 0;
-    margin-top: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    font-weight: 400;
-    font-size: 30px;
-    font-family:Raleway,sans-serif;
-    background-image: linear-gradient(#40f5ff,#ff87ff);
-    
+.login-title,
+.sign-up-title {
+  margin-bottom: 4%;
 }
-.illustration{
-    width: 100%;
+.label {
+  font-weight: normal;
 }
-.app{
-    margin-top: 100px;
-    padding: 64px 32px;
+.input-requirements {
+  padding-left: 5%;
+  font-size: 0.75rem;
+  font-style: italic;
+  text-align: left;
+  list-style: disc;
+  list-style-position: inside;
+  margin: 10px auto;
+  color: rgb(150, 150, 150);
 }
-.app-title{
-    font-family: Raleway,sans-serif;
-    font-weight: 600;
+.submit-button {
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  outline: none;
+  margin-top: 5%;
 }
-.search-container{
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 24px;
-    size: 50px;
+.redirect {
+  text-align: center;
+  margin-top: 8%;
 }
-.content{
-    margin-top: 100px;
+
+/* Promo Page Style */
+.bg-gradiant {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(#40f5ff, #ff87ff);
 }
-.miss-title{
-    font-family: Raleway,sans-serif;
+.perfect {
+  font-family: Raleway, sans-serif;
+  font-size: 40px;
+  margin-top: 150px;
+  color: white;
+}
+.card-deck {
+  margin-top: 200px;
+}
+.circle-section {
+  font-family: Yusei Magic, sans-serif;
+  font-weight: 400;
+  margin-top: 50px;
+  margin-left: 300px;
+  margin-bottom: 50px;
+}
+.icon_rep {
+  width: 60px;
+  margin-left: 70px;
+  margin-bottom: 50px;
+  border: transparent black;
+  box-shadow: 5px 10px 18px #888888;
+}
+.icons h3 {
+  justify-content: center;
+  margin-left: 30px;
+}
+.center {
+  margin: 0;
+  margin-top: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-weight: 400;
+  font-size: 30px;
+  font-family: Raleway, sans-serif;
+  background-image: linear-gradient(#40f5ff, #ff87ff);
+}
+.illustration {
+  width: 100%;
+}
+.app {
+  margin-top: 100px;
+  padding: 64px 32px;
+}
+.app-title {
+  font-family: Raleway, sans-serif;
+  font-weight: 600;
+}
+.search-container {
+  float: none;
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin: 0;
+  padding: 24px;
+  size: 50px;
+}
+.content {
+  margin-top: 100px;
+}
+.miss-title {
+  font-family: Raleway, sans-serif;
 }
 .badge-pill {
-    padding-right: .6em;
-    padding-left: .6em;
-    border-radius: 10rem;
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
 }
 .badge {
-    display: inline-block;
-    padding: .25em .4em;
-    font-size: 75%;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border: solid black;
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border: solid black;
 }
-    .home-section.wg-experience .card-body {
-        padding: .5rem;
-    }
-    .m-2 .border.exp-fill {
-        
-        border-radius: 100%;
-        border: solid black;
-    }
+.home-section.wg-experience .card-body {
+  padding: 0.5rem;
+}
+.m-2 .border.exp-fill {
+  border-radius: 100%;
+  border: solid black;
+}
