@@ -50,13 +50,14 @@ function validateConfirmPassword() {
 
 // Password Hashing Function
 function hashPassword(password) {
-  let hashedPassword = "";
-  let salt = "jobberBRT";
-  password = `${salt}${password}${salt}`;
-  for (let i = 0; i < password.length; i++) {
-    hashedPassword += password.charCodeAt(i);
-  }
-  return hashedPassword;
+  //   let hashedPassword = "";
+  //   let salt = "jobberBRT";
+  //   password = `${salt}${password}${salt}`;
+  //   for (let i = 0; i < password.length; i++) {
+  //     hashedPassword += password.charCodeAt(i);
+  //   }
+  //   return hashedPassword;
+  return password;
 }
 
 //   Adding New User to DB
