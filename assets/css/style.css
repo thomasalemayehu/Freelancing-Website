@@ -116,7 +116,7 @@
   margin-bottom: 10%;
 }
 .circle-section {
-  font-family: Yusei Magic, sans-serif;
+  font-family: Raleway, sans-serif;
   font-weight: 400;
   margin-top: 8%;
   margin-bottom: 5%;
@@ -161,6 +161,7 @@
 }
 .explore-title {
   margin-bottom: 5%;
+  font-family: Raleway,sans-serif;
 }
 .explore-inner {
   margin-top: 6%;
@@ -288,4 +289,13 @@
   padding: 15px 40px;
   border: none;
   border-radius: 50px;
+}
+.c-title{
+  font-family: Raleway,sans-serif;
+  margin-bottom: 50px;
+}
+/*vertical line*/
+.vl{
+  border-left: 1px solid;
+  height: 100px;
 }
