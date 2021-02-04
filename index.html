@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOBBER HOME PAGE</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
-    
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobber</title>
+    <!-- Fontawesome Link -->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+      <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler03"
             aria-controls="navbarToggler03" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,8 +55,10 @@
             <input class="form-control mr-sm-3" type="search" placeholder="Find Service" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        
-
+    
+    
+    
+    
         <div class="collapse navbar-collapse" id="navbarToggler03">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item">
@@ -39,11 +70,24 @@
                 <li class="nav-item active">
                     <a class="nav-link text-secondary" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#" >Explore</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Explore
+                    </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#" tabindex="-1" >Join In</a>
+                    <a class="nav-link text-secondary" href="#" tabindex="-1">Join In</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-secondary" href="#" tabindex="-1">Messages</a>
@@ -52,90 +96,347 @@
                     <a class="nav-link text-secondary" href="#" tabindex="-1">List</a>
                 </li>
             </ul>
-                
+    
         </div>
     </nav>
     <nav class="navbar navbar-light bg-light sticky-top">
-        <a class="navbar-brand" href="#">Graphics And Design</a>
+        <a class="navbar-brand" href="#">Graphics & Design</a>
         <a class="navbar-brand" href="#">Digital Marketing</a>
-        <a class="navbar-brand" href="#">Software Engineer</a>
+        <a class="navbar-brand" href="#">Programming & Development</a>
+        <a class="navbar-brand" href="#">Music & Audio</a>
+        <a class="navbar-brand" href="#">Business</a>
+        <a class="navbar-brand" href="#">Lifestyle</a>
         <a class="navbar-brand" href="#">Writting And Translation</a>
         <a class="navbar-brand" href="#">Video And Animation</a>
     </nav>
-    <section id="cards">
-    <div class="jumbotron">
-    <div class=" container-fluid bg-gradiant">
-        <div class="row">
-            <div class="perfect col-lg-6 col-md-6">
-                <p>A perfect freelance services place for your business!</p>
-            </div>
+
+
+    <!-- Landing Page -->
+    <div class="container-fluid bg-gradiant">
+      <div class="row">
+        <div class="perfect col-7">
+          <p>A perfect freelance services place for your business!</p>
         </div>
-        
-            <div class="search-container">
-              <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-              </form>
-            </div>
-          
+      </div>
+
+      <div class="search-container row">
+        <form class="col-7 search-form">
+          <input
+            type="text"
+            placeholder="Search.."
+            name="search"
+            class="form-control search-input"
+          />
+          <button type="submit" class="search-button">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
     </div>
 
+    <!-- How it works Section -->
     <section>
-        <div class="container">
-            <h3 class="circle-section">Get It Done with Jobber </h3>
-            <div class="row">
-                <div class="col-md-3 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br> <h3>Post a Job</h3> <p>Create your free job posting and start receiving Quotes within hours.</p></div>
-                <div class="col-md-3 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br> <h3>Post a Job</h3> <p>Create your free job posting and start receiving Quotes within hours.</p></div>
-                <div class="col-md-3 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br> <h3>Post a Job</h3> <p>Create your free job posting and start receiving Quotes within hours.</p></div>
-                <div class="col-md-3 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br> <h3>Post a Job</h3> <p>Create your free job posting and start receiving Quotes within hours.</p></div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                <button type="button" class="btn btn-info center">See how it works</button>
-                </div>
-            </div>
+      <div class="container-fluid how-it-works-container">
+        <h3 class="circle-section text-center">Get It Done with Jobber</h3>
+        <div class="row how-it-works-content-container">
+          <div class="col-md-3 icons">
+            <img
+              class="icon_rep img-fluid"
+              src="./assets/image/Post Image.svg"
+              alt=""
+            /><br />
+            <h4>Post a Job</h4>
+            <p>
+              Create your free job posting and start receiving Quotes within
+              hours.
+            </p>
+          </div>
+          <div class="col-md-3 icons">
+            <img
+              class="icon_rep img-fluid"
+              src="./assets/image/Resume Icon.svg"
+              alt=""
+            /><br />
+            <h4>Bids Come to You</h4>
+            <p>
+              Create your free job posting and start receiving Quotes within
+              hours.
+            </p>
+          </div>
+          <div class="col-md-3 icons">
+            <img
+              class="icon_rep img-fluid"
+              src="./assets/image/Profile Icon.svg"
+              alt=""
+            /><br />
+            <h4>Review Profiles</h4>
+            <p>
+              Create your free job posting and start receiving Quotes within
+              hours.
+            </p>
+          </div>
+          <div class="col-md-3 icons">
+            <img
+              class="icon_rep img-fluid"
+              src="./assets/image/Collaborate Icon.svg"
+              alt=""
+            /><br />
+            <h4>Collaborate Easily</h4>
+            <p>
+              Create your free job posting and start receiving Quotes within
+              hours.
+            </p>
+          </div>
         </div>
-    </section>
-    <section>
-            <div class="container">
-                <div class="card-deck">
-                    <div class="card">
-                        <img class="card-img-top" src="assets/image/image1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                                content. This content is a little bit longer.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="assets/image/image1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="assets/image/image1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                                content. This card has even longer content than the first to show that equal height action.</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
     </section>
 
-    <footer class="footer mt-auto py-3">
+    <!-- Explore Section -->
+    <section>
+      <div class="container-fluid explore-container">
+        <div class="h3 text-center explore-title">Explore the marketplace</div>
+        <div class="row">
+          <a class="col-3 explore-catagories">
+            <img
+              src="./assets/image/Graphics Icon.svg"
+              class="img-fluid explore-images"
+              alt=""
+            />
+            <p class="explore-description">Graphics & Design</p>
+          </a>
+          <a class="col-3 explore-catagories">
+            <img
+              src="./assets/image/Programming Icon.svg"
+              alt=""
+              class="img-fluid explore-images"
+            />
+            <p class="explore-description">Programming & Development</p>
+          </a>
+          <a class="col-3 explore-catagories">
+            <img
+              src="./assets/image/Video and Animation Icon.svg"
+              alt=""
+              class="img-fluid explore-images"
+            />
+            <p class="explore-description">Video and Motion Animation</p>
+          </a>
+          <a class="col-3 explore-catagories">
+            <img
+              src="./assets/image/Digital Marketing.svg"
+              alt=""
+              class="img-fluid explore-images"
+            />
+            <p class="explore-description">Digital Marketing</p>
+          </a>
+        </div>
+
+        <div class="row explore-inner">
+          <a class="col-3 explore-catagories">
+            <img
+              src="./assets/image/Music and Audio.svg"
+              class="img-fluid explore-images"
+              alt=""
+            />
+            <p class="explore-description">Music & Audio</p>
+          </a>
+          <a class="col-3 explore-catagories">
+            <img
+              src="./assets/image/Writing and Transaltion.svg"
+              alt=""
+              class="img-fluid explore-images"
+            />
+            <p class="explore-description">Writing and Translations</p>
+          </a>
+          <a class="col-3 explore-catagories">
+            <img
+              src="./assets/image/Business Icon.svg"
+              alt=""
+              class="img-fluid explore-images"
+            />
+            <p class="explore-description">Business</p>
+          </a>
+          <a class="col-3 explore-catagories">
+            <img
+              src="./assets/image/Lifestyle Icon.svg"
+              alt=""
+              class="img-fluid explore-images"
+            />
+            <p class="explore-description">Lifestyle</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="app-title">
+              A whole world of freelance talent at your fingertips
+            </h3>
+
+            <p class="app-desc">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto,
+              debitis a placeat porro in nobis velit nisi cupiditate.
+              Perferendis libero possimus molestias vero tempore expedita, quos
+              fuga vel accusamus similique.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img
+              class="illustration"
+              src="./assets/image/undraw_my_app_re_gxtj.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-4 section-heading">
+            <h1 class="miss-title">Achievements</h1>
+          </div>
+          <div class="col-12 col-lg-8">
+            <div class="row">
+              <div class="col-auto text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                  <div class="col">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+                <div class="m-2">
+                  <span class="badge badge-pill border exp-fill">&nbsp;</span>
+                </div>
+                <div class="row h-50">
+                  <div class="col border-right">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+              </div>
+              <div class="col py-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-text"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row experience">
+              <div class="col-auto text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                  <div class="col">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+                <div class="m-2">
+                  <span class="badge badge-pill border exp-fill">&nbsp;</span>
+                </div>
+                <div class="row h-50">
+                  <div class="col border-right">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+              </div>
+              <div class="col py-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-text"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row experience">
+              <div class="col-auto text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                  <div class="col">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+                <div class="m-2">
+                  <span class="badge badge-pill border exp-fill">&nbsp;</span>
+                </div>
+                <div class="row h-50">
+                  <div class="col border-right">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+              </div>
+              <div class="col py-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-text"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row experience">
+              <div class="col-auto text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                  <div class="col">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+                <div class="m-2">
+                  <span class="badge badge-pill border exp-fill">&nbsp;</span>
+                </div>
+                <div class="row h-50">
+                  <div class="col border-right">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+              </div>
+              <div class="col py-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-text"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row experience">
+              <div class="col-auto text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                  <div class="col">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+                <div class="m-2">
+                  <span class="badge badge-pill border exp-fill">&nbsp;</span>
+                </div>
+                <div class="row h-50">
+                  <div class="col border-right">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+              </div>
+              <div class="col py-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-text"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row experience">
+              <div class="col-auto text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                  <div class="col">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+                <div class="m-2">
+                  <span class="badge badge-pill border exp-fill">&nbsp;</span>
+                </div>
+                <div class="row h-50">
+                  <div class="col border-right">&nbsp;</div>
+                  <div class="col">&nbsp;</div>
+                </div>
+              </div>
+              <div class="col py-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-text"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer mr-auto py-1">
         <div class="container">
             <h2 class="text-secondary">Fiver</h2>
             <span class="text-muted"><i class="fa fa-copyright"></i>&nbsp; fiver international LTD.2021</span>
@@ -146,12 +447,8 @@
             <span class="text-muted"><i class="fa fa-instagram"></i></span>&nbsp;
             <span class="text-muted"><i class="fa fa-telegram"></i></span>&nbsp;
             <span class="text-muted"><i class="fa fa-pinterest"></i></span>&nbsp;
-            
+    
         </div>
     </footer>
-
-            
-    <script src="./Assets/js/app.js"></script>
-</body>
-
+  </body>
 </html>

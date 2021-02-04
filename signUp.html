@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bulma CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+
+    <!-- Fontawesome Link -->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+
+    <!-- Link Local CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >Disabled</a
+              >
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sign Up Body -->
+    <div class="container sign-up-container">
+      <div class="row">
+        <div class="col-6 sign-up-image-container">
+          <img src="./assets/image/Sign Up Image.svg" alt="" />
+        </div>
+        <div class="col-6">
+          <form action="" class="sign-up-form">
+            <div class="h4 sign-up-title">Sign Up for Jobber</div>
+            <!-- Username Input -->
+            <div class="field">
+              <label class="label">Username :</label>
+              <div class="control has-icons-left has-icons-right">
+                <input
+                  class="input user-name-input"
+                  type="text"
+                  placeholder="Enter Username"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </div>
+              <ul class="input-requirements hide">
+                <li>At least 6 characters long</li>
+                <li>No special characters and numbers</li>
+              </ul>
+              <label for="" class="userNameErrorLabel"></label>
+            </div>
+
+            <!-- Password Input -->
+            <div class="field">
+              <label class="label">Password :</label>
+              <div class="control has-icons-left has-icons-right">
+                <input
+                  class="input password-input"
+                  type="password"
+                  placeholder="Enter Password"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-unlock"></i>
+                </span>
+              </div>
+              <ul class="input-requirements hide">
+                <li>
+                  At least 8 characters long (and less than 14 characters)
+                </li>
+                <li>Contains at least 1 number</li>
+                <li>Contains at least 1 lowercase letter</li>
+                <li>Contains at least 1 uppercase letter</li>
+                <li>Contains a special character (e.g. @ !)</li>
+              </ul>
+              <label for="" class="passwordErrorLabel"></label>
+            </div>
+
+            <!-- Password Confirm Input -->
+            <div class="field">
+              <label class="label">Confirm Password</label>
+              <div class="control has-icons-left has-icons-right">
+                <input
+                  class="input password-confirm-input"
+                  type="password"
+                  placeholder="Enter Password"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-unlock"></i>
+                </span>
+              </div>
+              <ul class="input-requirements hide">
+                <li>
+                  At least 8 characters long (and less than 14 characters)
+                </li>
+                <li>Contains at least 1 number</li>
+                <li>Contains at least 1 lowercase letter</li>
+                <li>Contains at least 1 uppercase letter</li>
+                <li>Contains a special character (e.g. @ !)</li>
+                <li>Must match Password Value</li>
+              </ul>
+              <!-- <label for="" class="passwordErrorLabel">Incorrect</label> -->
+            </div>
+
+            <!-- Submit Button -->
+            <input type="submit" value="Sign Up" class="submit-button" />
+
+            <p class="redirect">
+              Already a user? <a href="./login.html">Sign In Here.</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="footer mr-auto py-1">
+      <div class="container">
+        <h2 class="text-secondary">Fiver</h2>
+        <span class="text-muted"><i class="fa fa-copyright"></i>&nbsp; fiver international LTD.2021</span>
+        <hr>
+        <span class="text-muted"><i class="fa fa-facebook-f"></i></span>&nbsp;
+        <span class="text-muted"><i class="fa fa-twitter"></i></span>&nbsp;
+        <span class="text-muted"><i class="fa fa-google-plus-g"></i></span>&nbsp;
+        <span class="text-muted"><i class="fa fa-instagram"></i></span>&nbsp;
+        <span class="text-muted"><i class="fa fa-telegram"></i></span>&nbsp;
+        <span class="text-muted"><i class="fa fa-pinterest"></i></span>&nbsp;
+    
+      </div>
+    </footer>
+    <!-- Bootstrap Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Local JS Link -->
+    <script src="./assets/js/signUp.js"></script>
+    <script src="./assets/js/model.js"></script>
+  </body>
+</html>
