@@ -146,14 +146,37 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                        <input type="text" class="form-control" id="address2" placeholder="Apartment or House Number">
+                    <hr class="mb-4">
+                    <h3>Skills</h3>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="graphics">
+                        <label class="custom-control-label" for="graphics">Graphics And Design</label>
                     </div>
-
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="Web_development">
+                        <label class="custom-control-label" for="Web_development">Web Development</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="Writting">
+                        <label class="custom-control-label" for="Writing">Writting content</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="Mobile">
+                        <label class="custom-control-label" for="same-address">Mobile Programing</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="Digital">
+                        <label class="custom-control-label" for="Digital">Digital Marketing</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="software">
+                        <label class="custom-control-label" for="software">Software Engineering</label>
+                    </div>
+                    <hr class="mb-4">
+                    <h3>Education</h3>
                     <div class="row">
                         <div class="col-md-5 mb-3">
-                            <label for="country">Country</label>
+                            <label for="country of college">Country of college</label>
                             <select class="custom-select d-block w-100" id="country" required>
                                 <option value="">Choose...</option>
                                 <option>Ethiopia</option>
@@ -167,21 +190,165 @@
                             <select class="custom-select d-block w-100" id="state" required>
                                 <option value="">Choose...</option>
                                 <option>Addis Ababa</option>
+                                <option>Bahir Dar</option>
+                                <option>Gonder</option>
+                                <option>Jima</option>
+                                <option>Hawassa</option>
+                                <option>Mekele</option>
+                                <option>Dire Dawa</option>
+                                <option>Nazreth</option>
+                                <option>Arba Minch</option>
+                                <option>Ambo</option>
                             </select>
                             <div class="invalid-feedback">
                                 Please provide a valid state.
                             </div>
+                        <label for="year">Year OF Graduation</label>
+                        <select class="custom-select d-block w-100" id="year" required>
+                            <option value="">Choose...</option>
+                            <option>2018</option>
+                            <option>2017</option>
+                            <option>2016</option>
+                            <option>2015</option>
+                            <option>2014</option>
+                            <option>2013</option>
+                            <option>2012</option>
+                            <option>2011</option>
+                            <option>2010</option>
+                            <option>2009</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid Year.
                         </div>
-                        <hr class="mb-4">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="save-info">
-                            <label class="custom-control-label" for="save-info">Save this information for next
-                                time</label>
+
+
+                        <label for="Major">Major</label>
+                        <select class="custom-select d-block w-100" id="Major" required>
+                            <option value="">Choose...</option>
+                            <option>Graphics And Design</option>
+                            <option>Software</option>
+                            <option> Digital Marketing</option>
+                            <option>Web development</option>
+                            <option>Writting content</option>
+                            <option>Mobile Programing</option>
+                            <option>Civil Engineering</option>
+                            <option>Chemical Engineering</option>
+                            <option>BioMedical</option>
+                            <option>Electrical Engineering</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid Major.
                         </div>
-                        <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue And Submit</button>
+                    </div>
+                    </div>
+
+
+
+                    <hr class="mb-4">
+                    <h3>Certification</h3>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <label for="country of college Certification">Country of college Certification</label>
+                            <select class="custom-select d-block w-100" id="country" required>
+                                <option value="">Choose...</option>
+                                <option>Ethiopia</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="Certification">Certification</label>
+                            <select class="custom-select d-block w-100" id="Certification" required>
+                                <option value="">Choose...</option>
+                                <option>Diploma</option>
+                                <option>Bsc Degree</option>
+                                <option>Msc(masters)</option>
+                                <option>Doctorate(Dr.)</option>
+                                <option>Phd</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please provide a valid Certification.
+                            </div>
+                        <label for="year">Year OF Certification</label>
+                        <select class="custom-select d-block w-100" id="year" required>
+                            <option value="">Choose...</option>
+                            <option>2018</option>
+                            <option>2017</option>
+                            <option>2016</option>
+                            <option>2015</option>
+                            <option>2014</option>
+                            <option>2013</option>
+                            <option>2012</option>
+                            <option>2011</option>
+                            <option>2010</option>
+                            <option>2009</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid Year.
+                        </div>
+                    </div>
+                </div>
+
+                    <hr class="mb-4">
+                    <h3>Description</h3>
+                    <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" id="description" placeholder="Write a short description about yourself and
+                         what you do here. Include general experience if any " required>
+                    </div>
+
+
+                    
+                    <hr class="mb-4">
+                    <h3>Language</h3>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="amharic">
+                        <label class="custom-control-label" for="amharic">Amharic</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="English">
+                        <label class="custom-control-label" for="English">English</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="French">
+                        <label class="custom-control-label" for="French">French</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="Spanish">
+                        <label class="custom-control-label" for="Spanish">Spanish</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="German">
+                        <label class="custom-control-label" for="German">German</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="Mandarine">
+                        <label class="custom-control-label" for="software">Mandarine</label>
+                    </div>
+
+
+                    <hr class="mb-4">
+                    <h3>Select Your Avatar</h3>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br>
+                                </div>
+                                <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br>
+                                </div>
+                                <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br>
+                                </div>
+                                <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br>
+                                </div>
+                            </div>
+                    
+
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Continue And Submit</button>
                 </form>
             </div>
+        </div>
+    </div>
             <footer class="footer mt-auto py-3">
                 <div class="container">
                     <h2 class="text-secondary">Fiver</h2>
