@@ -299,3 +299,31 @@
   border-left: 1px solid;
   height: 100px;
 }
+/*profile page css*/
+.profile-card{
+  width: 400px;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+}
+.pro-ic{
+  color: #3aabab;
+  margin-right: 15px;
+  margin-left: 10px;
+}
+.pro-name{
+  color: #3aabab;
+  text-align: center;
+}
+.progress{
+ color: #3aabab;
+ border-radius: 16px;
+
+}
+.progress-bar{
+  padding: 0.1em 16px;
+  border-radius: 16px;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(#3aabab, 0, 0, 1.0);
+}
