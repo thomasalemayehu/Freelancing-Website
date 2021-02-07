@@ -12,7 +12,39 @@
 .show {
   display: block;
 }
+
 /* Promo Page Style */
+
+
+/* Navigation Section */
+.navbar {
+  background: none !important;
+  background-color: none !important;
+}
+.navbar-nav {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-brand {
+  width: 160px;
+}
+.nav-link {
+  font-size: 20px;
+  padding: 0;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: white !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.sign-up-item {
+  content: "";
+  border: 0.5px solid white;
+  padding: 0.5%;
+}
 /* Landing Page */
 .bg-gradiant {
   height: 100vh;
@@ -265,6 +297,28 @@
   text-align: center;
   color: #fff;
   background-color: rgba(#3aabab, 0, 0, 1);
+}
+/*Footer Section */
+.footer-social-icons {
+  fill: rgba(0, 0, 0, 0.65);
+}
+.footer {
+  padding-left: 3%;
+  padding-right: 3%;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+.footer-bottom-container {
+  display: flex;
+  justify-content: space-between;
+}
+.socials-container {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
 }
 
 /* Login and Sign Up Styles */
