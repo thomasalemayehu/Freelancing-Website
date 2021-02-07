@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- Fontawesome Link -->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >Disabled</a
+              >
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+     <!-- Message for unsupported screen sizes -->
+     <h3 class="no-support-device">Sorry, We will soon support your screen size.</h3>
+
+    <!-- Body -->
+    <section class="container-fluid page-wrapper">
+     
+      <!-- Welcome Area -->
+      <div class="row inner-page-wrapper d-flex align-items-center">
+        <div
+          class="col-12 col-md-12 col-lg-4 col-xl-3 welcome-card order-2 order-lg-1"
+        >
+          <h5 class="welcome-card-greeting">Good Morning User</h5>
+          <h1 class="welcome-card-time">10:13</h1>
+          <p class="welcome-card-quote">
+            "Lorem ipsum, dolor sit amet consectetur adipisicing. Lorem ipsum
+            dolor sit amet consectetur."
+          </p>
+          <em class="welcome-card-quote-person">John Doe</em>
+        </div>
+
+        <div
+          class="col-12 col-md-12 col-lg-7 col-xl-8 order-1 order-lg-2 welcome-statstics-main-container"
+        >
+          <div class="container-fluid welcome-statistics-container">
+            <div
+              class="row welcome-statistics-card d-flex align-items-center flex-row justify-content-center"
+            >
+              <p class="col-4 welcome-statistics">
+                <span class="welcome-statstics-main"
+                  >76M
+                  <br />
+                </span>
+                Users
+              </p>
+              <p class="col-4 welcome-statistics">
+                <span class="welcome-statstics-main"
+                  >60K
+                  <br />
+                </span>
+                Jobs
+              </p>
+              <p class="col-4 welcome-statistics">
+                <span class="welcome-statstics-main"
+                  >4 Gigs
+                  <br />
+                </span>
+                Per minute
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Most Popular Slide -->
+      <div class="container-fluid cards-container">
+        <p class="job-box-titles">Most Popular</p>
+        <div class="row">
+          <div class="col-12">
+            <div
+              id="mostPouplarControls"
+              class="carousel slide"
+              data-ride="carousel"
+              data-interval="false"
+            >
+              <div class="carousel-inner">
+                <!-- Carousel 1 -->
+                <div class="carousel-item active">
+                  <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carousel 2 -->
+                <div class="carousel-item">
+                  <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Carousel 3 -->
+                <div class="carousel-item ">
+                  <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <a
+                class="carousel-control-prev"
+                href="#mostPouplarControls"
+                role="button"
+                data-slide="prev"
+              >
+                <i class="fas fa-chevron-left"></i>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a
+                class="carousel-control-next"
+                href="#mostPouplarControls"
+                role="button"
+                data-slide="next"
+              >
+                <i class="fas fa-chevron-right"></i>
+
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 1 -->
+      <div class="container-fluid cards-container">
+        <p class="job-box-titles">Your Category</p>
+        <div class="row">
+          <div class="col-12">
+            
+            <div
+              id="category_1_Controls"
+              class="carousel slide"
+              data-ride="carousel"
+              data-interval="false"
+            >
+              <div class="carousel-inner">
+                <!-- Carousel 1 -->
+                <div class="carousel-item active">
+                  <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carousel 2 -->
+                <div class="carousel-item">
+                  <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Carousel 3 -->
+                <div class="carousel-item ">
+                  <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <a
+                class="carousel-control-prev"
+                href="#category_1_Controls"
+                role="button"
+                data-slide="prev"
+              >
+                <i class="fas fa-chevron-left"></i>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a
+                class="carousel-control-next"
+                href="#category_1_Controls"
+                role="button"
+                data-slide="next"
+              >
+                <i class="fas fa-chevron-right"></i>
+
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Category 2 -->
+       <div class="container-fluid cards-container">
+        <p class="job-box-titles">Your Category</p>
+        <div class="row">
+          <div class="col-12">
+            <div
+              id="category_2_Controls"
+              class="carousel slide"
+              data-ride="carousel"
+              data-interval="false"
+            >
+              <div class="carousel-inner">
+                <!-- Carousel 1 -->
+                <div class="carousel-item active">
+                  <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Carousel 2 -->
+                <div class="carousel-item">
+                  <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Carousel 3 -->
+                <div class="carousel-item ">
+                  <div class="row">
+                    <!-- Card 1 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box">
+                        <div class="job-box-header">Graphics and Design</div>
+                        <div class="job-box-sub-header">Username</div>
+                        <p class=job-"box-description">
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Dolorum, tenetur! Lorem ipsum dolor sit amet
+                          consectetur adipisicing elit. Dolorum, tenetur! Lorem
+                          ipsum dolor
+                        </p>
+
+                        <div class="job-box-container">
+                          <div class="job-bookmark-container">
+                            <i class="far fa-bookmark"></i>
+                          </div>
+                          <div class="job-pricing-container">
+                            Starting At
+                            <span class="job-pricing-container-price">$30</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <a
+                class="carousel-control-prev"
+                href="#category_2_Controls"
+                role="button"
+                data-slide="prev"
+              >
+                <i class="fas fa-chevron-left"></i>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a
+                class="carousel-control-next"
+                href="#category_2_Controls"
+                role="button"
+                data-slide="next"
+              >
+                <i class="fas fa-chevron-right"></i>
+
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!--waypoints library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <!--counter-up library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
