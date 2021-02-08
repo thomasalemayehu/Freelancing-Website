@@ -15,9 +15,11 @@
 
 /* Promo Page Style */
 
-
 /* Navigation Section */
 .navbar {
+  background-color: white !important;
+}
+.nav-bar-transparent {
   background: none !important;
   background-color: none !important;
 }
@@ -35,9 +37,12 @@
   padding: 0;
   text-transform: capitalize;
   text-decoration: none;
-  color: white !important;
+
   font-weight: 600;
   letter-spacing: 1px;
+}
+.nav-link-transparent {
+  color: white !important;
 }
 
 .sign-up-item {
@@ -112,6 +117,11 @@
 .icons {
   display: flex;
   flex-direction: column;
+  transition: 5s all;
+  -webkit-transition: 5s all;
+  -moz-transition: 5s all;
+  -ms-transition: 5s all;
+  -o-transition: 5s all;
 }
 .icons h4 {
   text-align: center;
@@ -134,27 +144,34 @@
   margin-bottom: 5%;
   font-family: Raleway, sans-serif;
 }
-.explore-inner {
+/* .explore-inner {
   margin-top: 6%;
-}
+} */
 .explore-catagories {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  text-decoration: none;
 }
 .explore-images {
   width: 50px;
 }
-.card-deck {
-  margin-top: 200px;
+.explore-description {
+  text-decoration: none;
+  color: black;
+  text-align: center;
 }
+/* .card-deck {
+  margin-top: 200px;
+} */
+
+/* About Us Page */
 .illustration {
   width: 100%;
 }
 .app {
-  margin-top: 100px;
-  padding: 64px 32px;
+  margin-top: 5%;
 }
 .app-title {
   font-family: Raleway, sans-serif;
@@ -162,41 +179,13 @@
 }
 
 .content {
-  margin-top: 100px;
+  margin-top: 9%;
 }
-.miss-title {
-  font-family: Raleway, sans-serif;
-}
-.badge-pill {
-  padding-right: 0.6em;
-  padding-left: 0.6em;
-  border-radius: 10rem;
-}
-.badge {
-  display: inline-block;
-  padding: 0.25em 0.4em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border: solid black;
-}
-.home-section.wg-experience .card-body {
-  padding: 0.5rem;
-}
-.m-2 .border.exp-fill {
-  border-radius: 100%;
-  border: solid black;
-}
-/* counter up*/
-.one {
-  padding-top: 120px;
-}
-.one .container {
-  z-index: 10;
-  position: relative;
+
+.acheivements-page-inner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .single {
   box-shadow: 0px 20px 60px 0px rgba(42, 40, 51, 0.05);
@@ -219,6 +208,7 @@
   border-radius: 50%;
   background-image: linear-gradient(#40f5ff, #ff87ff);
 }
+
 .inner {
   width: 100%;
   height: 100%;
@@ -266,11 +256,49 @@
   font-family: Raleway, sans-serif;
   margin-bottom: 50px;
 }
+/* About Page */
 /*vertical line*/
 .vl {
   border-left: 1px solid;
   height: 100px;
 }
+/* .miss-title {
+  font-family: Raleway, sans-serif;
+  background-color: yellow;
+} */
+/* .badge-pill {
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+  -webkit-border-radius: 10rem;
+  -moz-border-radius: 10rem;
+  -ms-border-radius: 10rem;
+  -o-border-radius: 10rem;
+} */
+/* .badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border: solid black;
+} */
+/* .home-section.wg-experience .card-body {
+  padding: 0.5rem;
+} */
+/* .m-2 .border.exp-fill {
+  border-radius: 100%;
+  border: solid black;
+} */
+/* counter up*/
+
+/* .one .container {
+  z-index: 10;
+  position: relative;
+} */
 /*profile page css*/
 .profile-card {
   width: 400px;
@@ -528,13 +556,76 @@
     text-align: center;
   }
   .page-wrapper,
-  .navbar {
+  .navbar,
+  .bg-gradiant,
+  .how-it-works-container,
+  .explore-container,
+  .app,
+  .acheivements-page-wrapper,
+  .footer {
     display: none;
   }
 }
 
 /* Xs Query */
 @media screen and (min-width: 349px) and (max-width: 576px) {
+  /* body {
+    background-color: salmon;
+  } */
+  /* Navigation */
+  .navbar {
+    background-color: white !important;
+  }
+  .navbar-brand {
+    width: 130px;
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 30vh;
+    margin-top: 6%;
+  }
+  .nav-link {
+    font-size: 16px;
+    padding-right: 5%;
+    color: black !important;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+  }
+  /* Navigation */
+
+  /* Landing Page */
+  .bg-gradiant {
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .perfect {
+    font-size: 32px;
+  }
+  /* Explore Page */
+  .explore-images {
+    width: 45px;
+  }
+  .explore-description {
+    font-size: 12px;
+  }
+  /* Explore Page */
+
+  /* About Page */
+  .gap {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5%;
+    font-weight: 400;
+  }
+  /* Landing Page */
   .welcome-card {
     padding-left: 8%;
     padding-right: 8%;
@@ -623,6 +714,12 @@
     -o-transform: translateX(60%);
     height: 20px;
     width: 20px;
+  }
+  /* .footer {
+    display: none;
+  } */
+  .socials-container {
+    width: 35%;
   }
 }
 /* S Query */

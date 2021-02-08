@@ -37,18 +37,21 @@
       rel="stylesheet"
     />
 
+    <!-- Animate On Scroll CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <!-- Linking Local CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/animations.css" />
+    <link rel="stylesheet" href="./assets/css/animation.css" />
   </head>
 
   <body>
-    <!-- Navigation -->
-
     <!-- Navigation Section -->
-    <nav class="navbar navbar-expand-lg py-0 m-0 navbar-dark fixed-top">
+    <nav
+      class="navbar navbar-expand-lg py-0 m-0 navbar-dark fixed-top nav-bar-transparent"
+    >
       <div class="container-fluid py-3 px-4 navigation-container">
-        <a class="navbar-brand" href="#"> Jobber</a>
+        <img class="navbar-brand" src="./assets/image/Jobber Logo.svg" />
         <button
           class="navbar-toggler"
           type="button"
@@ -64,25 +67,42 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#home-section"
+              <a
+                class="nav-link nav-link-transparent"
+                aria-current="page"
+                href="#home-section"
                 >Home</a
               >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#how-it-works-section">How it works</a>
+              <a
+                class="nav-link nav-link-transparent"
+                href="#how-it-works-section"
+                >How it works</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#explore-section">Explore</a>
+              <a class="nav-link nav-link-transparent" href="#explore-section"
+                >Explore</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about-section">About us</a>
+              <a class="nav-link nav-link-transparent" href="#about-us-section"
+                >About us</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./login.html">Login</a>
+              <a class="nav-link nav-link-transparent" href="./login.html"
+                >Login</a
+              >
             </li>
             <li class="nav-item sign-up-item">
-              <a class="nav-link sign-up-link" href="./signUp.html">Sign Up</a>
+              <a
+                class="nav-link n av-link-transparent sign-up-link"
+                href="./signUp.html"
+                >Sign Up</a
+              >
             </li>
           </ul>
         </div>
@@ -109,7 +129,7 @@
             name="search"
             class="form-control search-input"
           />
-          <button type="submit" class="search-button">
+          <button type="button" class="search-button">
             <i class="fa fa-search"></i>
           </button>
         </form>
@@ -120,7 +140,7 @@
       <div class="container-fluid how-it-works-container">
         <h3 class="circle-section text-center">Get It Done with Jobber</h3>
         <div class="row how-it-works-content-container">
-          <div class="col-md-3 icons">
+          <div class="col-md-3 icons" data-aos="flip-left">
             <img
               class="icon_rep img-fluid"
               src="./assets/image/Post Image.svg"
@@ -132,7 +152,7 @@
               hours.
             </p>
           </div>
-          <div class="col-md-3 icons">
+          <div class="col-md-3 icons" data-aos="flip-left">
             <img
               class="icon_rep img-fluid"
               src="./assets/image/Resume Icon.svg"
@@ -144,7 +164,7 @@
               hours.
             </p>
           </div>
-          <div class="col-md-3 icons">
+          <div class="col-md-3 icons" data-aos="flip-left">
             <img
               class="icon_rep img-fluid"
               src="./assets/image/Profile Icon.svg"
@@ -156,7 +176,7 @@
               hours.
             </p>
           </div>
-          <div class="col-md-3 icons">
+          <div class="col-md-3 icons" data-aos="flip-left">
             <img
               class="icon_rep img-fluid"
               src="./assets/image/Collaborate Icon.svg"
@@ -176,7 +196,8 @@
       <div class="container-fluid explore-container">
         <div class="h3 text-center explore-title">Explore the marketplace</div>
         <div class="row">
-          <a class="col-6 explore-catagories">
+          <!-- Graphics -->
+          <a class="col-6 explore-catagories" href="#">
             <img
               src="./assets/image/Graphics Icon.svg"
               class="img-fluid explore-images"
@@ -184,7 +205,9 @@
             />
             <p class="explore-description">Graphics & Design</p>
           </a>
-          <a class="col-6 explore-catagories">
+
+          <!-- Development -->
+          <a class="col-6 explore-catagories" href="#">
             <img
               src="./assets/image/Programming Icon.svg"
               alt=""
@@ -192,7 +215,9 @@
             />
             <p class="explore-description">Programming & Development</p>
           </a>
-          <a class="col-6 explore-catagories">
+
+          <!-- Video  -->
+          <a class="col-6 explore-catagories" href="#">
             <img
               src="./assets/image/Video and Animation Icon.svg"
               alt=""
@@ -200,7 +225,9 @@
             />
             <p class="explore-description">Video and Motion Animation</p>
           </a>
-          <a class="col-6 explore-catagories">
+
+          <!-- Marketing -->
+          <a class="col-6 explore-catagories" href="#">
             <img
               src="./assets/image/Digital Marketing.svg"
               alt=""
@@ -210,8 +237,9 @@
           </a>
         </div>
 
-        <div class="row explore-inner">
-          <a class="col-6 explore-catagories">
+        <!-- Music and Audio -->
+        <div class="row">
+          <a class="col-6 explore-catagories" href="#">
             <img
               src="./assets/image/Music and Audio.svg"
               class="img-fluid explore-images"
@@ -219,7 +247,9 @@
             />
             <p class="explore-description">Music & Audio</p>
           </a>
-          <a class="col-6 explore-catagories">
+
+          <!-- Writing -->
+          <a class="col-6 explore-catagories" href="#">
             <img
               src="./assets/image/Writing and Transaltion.svg"
               alt=""
@@ -227,7 +257,8 @@
             />
             <p class="explore-description">Writing and Translations</p>
           </a>
-          <a class="col-6 explore-catagories">
+          <!-- Business -->
+          <a class="col-6 explore-catagories" href="#">
             <img
               src="./assets/image/Business Icon.svg"
               alt=""
@@ -235,7 +266,8 @@
             />
             <p class="explore-description">Business</p>
           </a>
-          <a class="col-6 explore-catagories">
+          <!-- Life Style -->
+          <a class="col-6 explore-catagories" href="#">
             <img
               src="./assets/image/Lifestyle Icon.svg"
               alt=""
@@ -250,7 +282,7 @@
     <section class="app" id="about-us-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6" data-aos="fade-right">
             <h3 class="app-title">
               A whole world of freelance talent at your fingertips
             </h3>
@@ -263,10 +295,10 @@
             </p>
           </div>
           <!--<div class="vl col-md-4"></div>  add a vertical line inside here-->
-          <div class="col-md-6">
+          <div class="col-md-6" data-aos="">
             <img
-              class="illustration"
-              src="./assets/image/undraw_my_app_re_gxtj.svg"
+              class="illustration img-fluid"
+              src="./assets/image/Mobile App.jpg"
               alt=""
             />
           </div>
@@ -284,7 +316,9 @@
           <br />
           <br />
           <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div
+              class="col-lg-3 col-md-6 col-sm-6 acheivements-page-inner-wrapper"
+            >
               <div class="single">
                 <div class="inner">
                   <h3 class="count counter">200</h3>
@@ -292,7 +326,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div
+              class="col-lg-3 col-md-6 col-sm-6 acheivements-page-inner-wrapper"
+            >
               <div class="single">
                 <div class="inner">
                   <h3 class="count counter">200</h3>
@@ -300,7 +336,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div
+              class="col-lg-3 col-md-6 col-sm-6 acheivements-page-inner-wrapper"
+            >
               <div class="single">
                 <div class="inner">
                   <h3 class="count counter">200</h3>
@@ -308,7 +346,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div
+              class="col-lg-3 col-md-6 col-sm-6 acheivements-page-inner-wrapper"
+            >
               <div class="single">
                 <div class="inner">
                   <h3 class="count counter">200</h3>
@@ -426,10 +466,14 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <!--waypoints library-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <!--counter-up library-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <!-- Animate On Scroll CDN -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Link to Local CSS -->
     <script src="./assets/js/app.js"></script>
   </body>
