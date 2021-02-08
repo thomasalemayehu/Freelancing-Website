@@ -1,0 +1,4 @@
+.explore-catagories:hover > .explore-description {
+  font-style: italic;
+  letter-spacing: 1.5px;
+}
