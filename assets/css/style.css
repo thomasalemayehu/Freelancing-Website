@@ -17,11 +17,18 @@
 
 /* Navigation Section */
 .navbar {
-  background-color: white !important;
+  background-color: black !important;
 }
 .nav-bar-transparent {
   background: none !important;
   background-color: none !important;
+}
+.bg-white {
+  background: transparent !important;
+  transition: 0.5s ease;
+}
+.bg-white.scrolled {
+  background: white !important;
 }
 .navbar-nav {
   width: 60%;
@@ -42,33 +49,37 @@
   letter-spacing: 1px;
 }
 .nav-link-transparent {
-  color: white !important;
+  color: black !important;
 }
 
 .sign-up-item {
   content: "";
-  border: 0.5px solid white;
+  border: 0.5px solid black;
   padding: 0.5%;
 }
 /* Landing Page */
-.bg-gradiant {
-  height: 100vh;
-  width: 100%;
-  background-image: linear-gradient(#40f5ff, #ff87ff);
-  padding-left: 5%;
-}
+
 .perfect {
   font-family: Raleway, sans-serif;
   font-size: 50px;
   margin-top: 15%;
-  color: white;
+  color: black;
   padding: 0;
+  margin-left: 320px;
+  margin-bottom: 25px;
+  border: rgba(64, 245, 255, 0.4) solid 10px;
+}
+.perfect h1{
+  font-weight: 900;
+  font: bold;
+  padding-left: 100px;
 }
 .search-form {
   padding: 0;
   margin: 0;
   display: flex;
   justify-content: space-between;
+  margin-left: 320px;
 }
 .search-input {
   height: 50px;
@@ -206,7 +217,7 @@
   left: 10px;
   right: 10px;
   border-radius: 50%;
-  background-image: linear-gradient(#40f5ff, #ff87ff);
+  
 }
 
 .inner {
@@ -247,10 +258,13 @@
   font-weight: 400;
 }
 .btn-danger {
-  background-image: linear-gradient(#40f5ff, #ff87ff);
+  background-color: black;
+  color: aqua;
   padding: 15px 40px;
   border: none;
   border-radius: 50px;
+  margin-bottom: 30px;
+  font-size: 20px;
 }
 .c-title {
   font-family: Raleway, sans-serif;
