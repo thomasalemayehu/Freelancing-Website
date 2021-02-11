@@ -1,224 +1,214 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <title>Join In</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
 
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
+    <!-- Bulma CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+
+    <!-- Fontawesome Link -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <!-- Link Local CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<body >
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler03"
-            aria-controls="navbarToggler03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand disabled" aria-disabled="true" href="#">Navbar</a>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-3" type="search" placeholder="Find Service" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    
-    
-    
-    
-        <div class="collapse navbar-collapse" id="navbarToggler03">
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link text-success" href="#" tabindex="-1">Pro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-primary" href="#" tabindex="-1">Try business</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link text-secondary" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Explore
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#" tabindex="-1">Join In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#" tabindex="-1">Messages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#" tabindex="-1">List</a>
-                </li>
-            </ul>
-    
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">
+                        Search
+                    </button>
+                </form>
+            </div>
         </div>
     </nav>
-    <nav class="navbar navbar-light bg-light sticky-top">
-        <a class="navbar-brand" href="#">Graphics & Design</a>
-        <a class="navbar-brand" href="#">Digital Marketing</a>
-        <a class="navbar-brand" href="#">Programming & Development</a>
-        <a class="navbar-brand" href="#">Music & Audio</a>
-        <a class="navbar-brand" href="#">Business</a>
-        <a class="navbar-brand" href="#">Lifestyle</a>
-        <a class="navbar-brand" href="#">Writting And Translation</a>
-        <a class="navbar-brand" href="#">Video And Animation</a>
-    </nav>
-    <div class="container bg-light">
-        <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-2"
-                src="data:image/png;base64,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"
-                alt="" width="72" height="72">
-            <h2>Join form</h2>
-            <p class="lead">Welcome</p>
-        </div>
 
+    <!-- Sign Up Body -->
+    <div class="container sign-up-container">
         <div class="row">
-
-            <div class="col-md-8 order-md-1">
-                <h4 class="mb-3">User Date</h4>
-                <form class="needs-validation" novalidate>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="firstName">First name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
+            <div class="col-6 sign-up-image-container">
+                <img src="./assets/image/REG.svg" alt="" />
+            </div>
+            <div class="col-6">
+                <form action="" class="sign-up-form">
+                    <div class="h4 sign-up-title">User Data</div>
+                    <!-- Username Input -->
+                    <div class="field">
+                        <label class="label">First Name :</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input user-name-input" type="text" placeholder="Enter firstname" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="lastName">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Valid last name is required.
-                            </div>
-                        </div>
+                        <ul class="input-requirements hide">
+                            <li>No special characters and numbers</li>
+                        </ul>
+                        <label for="" class="userNameErrorLabel"></label>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="username">Username</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
-                            </div>
-                            <input type="text" class="form-control" id="username" placeholder="Username" required>
-                            <div class="invalid-feedback" style="width: 100%;">
-                                Your username is required.
-                            </div>
+                    <div class="field">
+                        <label class="label">Last Name :</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input user-name-input" type="text" placeholder="Enter lastname" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
                         </div>
+                        <ul class="input-requirements hide">
+                            <li>No special characters and numbers</li>
+                        </ul>
+                        <label for="" class="userNameErrorLabel"></label>
+                    </div>
+                    <div class="field">
+                        <label class="label">Username :</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input user-name-input" type="text" placeholder="Enter Username" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                        <ul class="input-requirements hide">
+                            <li>At least 6 characters long</li>
+                            <li>No special characters and numbers</li>
+                        </ul>
+                        <label for="" class="userNameErrorLabel"></label>
+                    </div>
+                    <div class="field">
+
+                        <label class="label">Email :</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input user-name-input" type="text" placeholder="you@gmail.com" />
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-at"></i>
+                            </span>
+                        </div>
+                        <ul class="input-requirements hide">
+                            <li>Enter A Valid Email</li>
+                        </ul>
+                        <label for="" class="userNameErrorLabel"></label>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email">Email </label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                    <!-- Password Input -->
+                    <div class="field">
+                        <label class="label">Address :</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input address-input" type="text" placeholder="Enter Current Address" />
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-map-marker-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="jumbotron">
+            <div class="col-lg-12">
+                <h3>Skills</h3>
+                <hr class="mb-4">
+
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="graphics">
+                    <label class="custom-control-label" for="graphics">Graphics And Design</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="Web_development">
+                    <label class="custom-control-label" for="Web_development">Web Development</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="Writting">
+                    <label class="custom-control-label" for="Writing">Writting content</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="Mobile">
+                    <label class="custom-control-label" for="same-address">Mobile Programing</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="Digital">
+                    <label class="custom-control-label" for="Digital">Digital Marketing</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="software">
+                    <label class="custom-control-label" for="software">Software Engineering</label>
+                </div>
+                <h3>Education</h3>
+                <hr class="mb-4">
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <label for="country of college">Country of college</label>
+                        <select class="custom-select d-block w-100" id="country" required>
+                            <option value="">Choose...</option>
+                            <option>Ethiopia</option>
+                        </select>
                         <div class="invalid-feedback">
-                            Please enter a valid email address.
+                            Please select a valid country.
                         </div>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="Bole , Gerji" required>
+                    <div class="col-md-4 mb-3">
+                        <label for="state">State</label>
+                        <select class="custom-select d-block w-100" id="state" required>
+                            <option value="">Choose...</option>
+                            <option>Addis Ababa</option>
+                            <option>Bahir Dar</option>
+                            <option>Gonder</option>
+                            <option>Jima</option>
+                            <option>Hawassa</option>
+                            <option>Mekele</option>
+                            <option>Dire Dawa</option>
+                            <option>Nazreth</option>
+                            <option>Arba Minch</option>
+                            <option>Ambo</option>
+                        </select>
                         <div class="invalid-feedback">
-                            Please enter your current address.
+                            Please provide a valid state.
                         </div>
-                    </div>
-
-                    <hr class="mb-4">
-                    <h3>Skills</h3>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="graphics">
-                        <label class="custom-control-label" for="graphics">Graphics And Design</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Web_development">
-                        <label class="custom-control-label" for="Web_development">Web Development</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Writting">
-                        <label class="custom-control-label" for="Writing">Writting content</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Mobile">
-                        <label class="custom-control-label" for="same-address">Mobile Programing</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Digital">
-                        <label class="custom-control-label" for="Digital">Digital Marketing</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="software">
-                        <label class="custom-control-label" for="software">Software Engineering</label>
-                    </div>
-                    <hr class="mb-4">
-                    <h3>Education</h3>
-                    <div class="row">
-                        <div class="col-md-5 mb-3">
-                            <label for="country of college">Country of college</label>
-                            <select class="custom-select d-block w-100" id="country" required>
-                                <option value="">Choose...</option>
-                                <option>Ethiopia</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a valid country.
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="state">State</label>
-                            <select class="custom-select d-block w-100" id="state" required>
-                                <option value="">Choose...</option>
-                                <option>Addis Ababa</option>
-                                <option>Bahir Dar</option>
-                                <option>Gonder</option>
-                                <option>Jima</option>
-                                <option>Hawassa</option>
-                                <option>Mekele</option>
-                                <option>Dire Dawa</option>
-                                <option>Nazreth</option>
-                                <option>Arba Minch</option>
-                                <option>Ambo</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please provide a valid state.
-                            </div>
                         <label for="year">Year OF Graduation</label>
                         <select class="custom-select d-block w-100" id="year" required>
                             <option value="">Choose...</option>
@@ -256,36 +246,35 @@
                             Please provide a valid Major.
                         </div>
                     </div>
-                    </div>
+                </div>
 
-
-
-                    <hr class="mb-4">
-                    <h3>Certification</h3>
-                    <div class="row">
-                        <div class="col-md-5 mb-3">
-                            <label for="country of college Certification">Country of college Certification</label>
-                            <select class="custom-select d-block w-100" id="country" required>
-                                <option value="">Choose...</option>
-                                <option>Ethiopia</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a valid country.
-                            </div>
+                <!--Certification-->
+                <h3>Certification</h3>
+                <hr class="mb-4">
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <label for="country of college Certification">Country of college Certification</label>
+                        <select class="custom-select d-block w-100" id="country" required>
+                            <option value="">Choose...</option>
+                            <option>Ethiopia</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid country.
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="Certification">Certification</label>
-                            <select class="custom-select d-block w-100" id="Certification" required>
-                                <option value="">Choose...</option>
-                                <option>Diploma</option>
-                                <option>Bsc Degree</option>
-                                <option>Msc(masters)</option>
-                                <option>Doctorate(Dr.)</option>
-                                <option>Phd</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please provide a valid Certification.
-                            </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="Certification">Certification</label>
+                        <select class="custom-select d-block w-100" id="Certification" required>
+                            <option value="">Choose...</option>
+                            <option>Diploma</option>
+                            <option>Bsc Degree</option>
+                            <option>Msc(masters)</option>
+                            <option>Doctorate(Dr.)</option>
+                            <option>Phd</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid Certification.
+                        </div>
                         <label for="year">Year OF Certification</label>
                         <select class="custom-select d-block w-100" id="year" required>
                             <option value="">Choose...</option>
@@ -305,81 +294,143 @@
                         </div>
                     </div>
                 </div>
+                <!--description-->
+                <h3>Description</h3>
+                <hr class="mb-4">
 
-                    <hr class="mb-4">
-                    <h3>Description</h3>
-                    <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control" id="description" placeholder="Write a short description about yourself and
-                         what you do here. Include general experience if any " required>
-                    </div>
-
-
-                    
-                    <hr class="mb-4">
-                    <h3>Language</h3>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="amharic">
-                        <label class="custom-control-label" for="amharic">Amharic</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="English">
-                        <label class="custom-control-label" for="English">English</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="French">
-                        <label class="custom-control-label" for="French">French</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Spanish">
-                        <label class="custom-control-label" for="Spanish">Spanish</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="German">
-                        <label class="custom-control-label" for="German">German</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Mandarine">
-                        <label class="custom-control-label" for="software">Mandarine</label>
-                    </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control" id="description" placeholder="Write a short description about yourself and what you do here. Include general experience if any " required>
+                </div>
 
 
-                    <hr class="mb-4">
-                    <h3>Select Your Avatar</h3>
-                    <section>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br>
-                                </div>
-                                <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br>
-                                </div>
-                                <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br>
-                                </div>
-                                <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/icon.png" alt=""><br>
-                                </div>
+                <!--langaguge-->
+                <h3>Language</h3>
+                <hr class="mb-4">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="amharic">
+                    <label class="custom-control-label" for="amharic">Amharic</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="English">
+                    <label class="custom-control-label" for="English">English</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="French">
+                    <label class="custom-control-label" for="French">Oromiffa</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="Spanish">
+                    <label class="custom-control-label" for="Spanish">Tigrigna</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="German">
+                    <label class="custom-control-label" for="German">French</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="Mandarine">
+                    <label class="custom-control-label" for="software">Spanish</label>
+                </div>
+
+                <h3>Select Your Avatar</h3>
+                <hr class="mb-4">
+
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/male3.png" alt=""><br>
                             </div>
-                    
-
-                    <hr class="mb-4">
-                    <button class="btn btn-info btn-lg btn-block" type="submit">Continue And Submit</button>
-                </form>
+                            <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/female.png" alt=""><br>
+                            </div>
+                            <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/civil.png" alt=""><br>
+                            </div>
+                            <div class="col-md-6 icons"> <img class="icon_rep" src="./assets/image/female2.png" alt=""><br>
+                            </div>
+                        </div>
+                        <button class="btn btn-info btn-lg btn-block" type="submit">Continue And Submit</button>
+                        </form>
+                    </div>
             </div>
         </div>
+
     </div>
-            <footer class="footer mt-auto py-3">
-                <div class="container">
-                    <h2 class="text-secondary">Fiver</h2>
-                    <span class="text-muted"><i class="fa fa-copyright"></i>&nbsp; fiver international LTD.2021</span>
-                    <hr>
-                    <span class="text-muted"><i class="fa fa-facebook-f"></i></span>&nbsp;
-                    <span class="text-muted"><i class="fa fa-twitter"></i></span>&nbsp;
-                    <span class="text-muted"><i class="fa fa-google-plus-g"></i></span>&nbsp;
-                    <span class="text-muted"><i class="fa fa-instagram"></i></span>&nbsp;
-                    <span class="text-muted"><i class="fa fa-telegram"></i></span>&nbsp;
-                    <span class="text-muted"><i class="fa fa-pinterest"></i></span>&nbsp;
-            
+
+
+
+
+
+
+    <!-- Footer Section -->
+    <footer class="footer mt-3">
+        <div class="container-fluid">
+            <h2 class="ms-2">Jobber</h2>
+
+            <div class="footer-bottom-container">
+                <span class="text-muted copy-right">&copy; Jobber Freelance. 2021</span>
+                <div class="socials-container">
+                    <a class="text-muted socials-icons" href="#">
+                        <svg width="20" height="17" viewBox="0 0 20 17" xmlns="http://www.w3.org/2000/svg"
+                            class="footer-social-icons">
+                            <path
+                                d="M20 1.875C19.25 2.25 18.5 2.375 17.625 2.5C18.5 2 19.125 1.25 19.375 0.25C18.625 0.75 17.75 1 16.75 1.25C16 0.5 14.875 0 13.75 0C11.625 0 9.75 1.875 9.75 4.125C9.75 4.5 9.75 4.75 9.875 5C6.5 4.875 3.375 3.25 1.375 0.75C1 1.375 0.875 2 0.875 2.875C0.875 4.25 1.625 5.5 2.75 6.25C2.125 6.25 1.5 6 0.875 5.75C0.875 7.75 2.25 9.375 4.125 9.75C3.75 9.875 3.375 9.875 3 9.875C2.75 9.875 2.5 9.875 2.25 9.75C2.75 11.375 4.25 12.625 6.125 12.625C4.75 13.75 3 14.375 1 14.375C0.625 14.375 0.375 14.375 0 14.375C1.875 15.5 4 16.25 6.25 16.25C13.75 16.25 17.875 10 17.875 4.625C17.875 4.5 17.875 4.25 17.875 4.125C18.75 3.5 19.5 2.75 20 1.875Z">
+                            </path>
+                        </svg>
+                    </a>
+
+                    <a class="text-muted socials-icons" href="#">
+                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                            class="footer-social-icons">
+                            <path
+                                d="M20 10.0022C20.0004 8.09104 19.4532 6.2198 18.4231 4.61003C17.393 3.00026 15.9232 1.71938 14.1877 0.919062C12.4522 0.118741 10.5237 -0.167503 8.63053 0.0942223C6.73739 0.355948 4.9589 1.15468 3.50564 2.39585C2.05237 3.63701 0.985206 5.26863 0.430495 7.0975C-0.124217 8.92636 -0.143239 10.8759 0.37568 12.7152C0.894599 14.5546 1.92973 16.2067 3.35849 17.476C4.78726 18.7453 6.54983 19.5786 8.4375 19.8772V12.8922H5.89875V10.0022H8.4375V7.79843C8.38284 7.28399 8.44199 6.76382 8.61078 6.2748C8.77957 5.78577 9.05386 5.33986 9.4142 4.96866C9.77455 4.59746 10.2121 4.31007 10.6959 4.12684C11.1797 3.94362 11.6979 3.86905 12.2137 3.90843C12.9638 3.91828 13.7121 3.98346 14.4525 4.10343V6.56718H13.1925C12.9779 6.53911 12.7597 6.55967 12.554 6.62733C12.3484 6.69498 12.1607 6.80801 12.0046 6.95804C11.8486 7.10807 11.7283 7.29127 11.6526 7.49408C11.577 7.69689 11.5479 7.91411 11.5675 8.12968V10.0047H14.3412L13.8975 12.8947H11.5625V19.8834C13.9153 19.5112 16.058 18.3114 17.6048 16.4999C19.1516 14.6884 20.001 12.3842 20 10.0022Z">
+                            </path>
+                        </svg>
+                    </a>
+
+                    <a class="text-muted socials-icons" href="#">
+                        <svg width="21" height="20" viewBox="0 0 21 20" xmlns="http://www.w3.org/2000/svg"
+                            class="footer-social-icons">
+                            <path
+                                d="M19.125 0H0.875C0.375 0 0 0.375 0 0.875V19.25C0 19.625 0.375 20 0.875 20H19.25C19.75 20 20.125 19.625 20.125 19.125V0.875C20 0.375 19.625 0 19.125 0ZM5.875 17H3V7.5H6V17H5.875ZM4.5 6.25C3.5 6.25 2.75 5.375 2.75 4.5C2.75 3.5 3.5 2.75 4.5 2.75C5.5 2.75 6.25 3.5 6.25 4.5C6.125 5.375 5.375 6.25 4.5 6.25ZM17 17H14V12.375C14 11.25 14 9.875 12.5 9.875C11 9.875 10.75 11.125 10.75 12.375V17.125H7.75V7.5H10.625V8.75C11 8 12 7.25 13.375 7.25C16.375 7.25 16.875 9.25 16.875 11.75V17H17Z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="text-muted socials-icons" href="#">
+                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                            class="footer-social-icons">
+                            <path
+                                d="M10 0C4.5 0 0 4.5 0 10C0 14.25 2.625 17.875 6.375 19.25C6.25 18.5 6.25 17.25 6.375 16.375C6.5 15.625 7.5 11.375 7.5 11.375C7.5 11.375 7.25 10.875 7.25 10C7.25 8.625 8.125 7.5 9.125 7.5C10 7.5 10.375 8.125 10.375 8.875C10.375 9.75 9.875 11 9.5 12.25C9.25 13.25 10 14 11 14C12.75 14 14.125 12.125 14.125 9.375C14.125 7 12.375 5.25 10 5.25C7.125 5.25 5.5 7.375 5.5 9.625C5.5 10.5 5.875 11.375 6.25 11.875C6.25 12.125 6.25 12.25 6.25 12.375C6.125 12.75 6 13.375 6 13.5C6 13.625 5.875 13.75 5.625 13.625C4.375 13 3.625 11.25 3.625 9.75C3.625 6.625 5.875 3.75 10.25 3.75C13.75 3.75 16.375 6.25 16.375 9.5C16.375 13 14.25 15.75 11.125 15.75C10.125 15.75 9.125 15.25 8.875 14.625C8.875 14.625 8.375 16.5 8.25 17C8 17.875 7.375 19 7 19.625C8 19.875 9 20 10 20C15.5 20 20 15.5 20 10C20 4.5 15.5 0 10 0Z">
+                            </path>
+                        </svg>
+                    </a>
+
+                    <a class="text-muted socials-icons" href="#">
+                        <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                            class="footer-social-icons">
+                            <path
+                                d="M15.1814 6.06504C15.8442 6.06504 16.3814 5.52778 16.3814 4.86504C16.3814 4.2023 15.8442 3.66504 15.1814 3.66504C14.5187 3.66504 13.9814 4.2023 13.9814 4.86504C13.9814 5.52778 14.5187 6.06504 15.1814 6.06504Z">
+                            </path>
+                            <path
+                                d="M10 15C7.2425 15 5 12.7575 5 10C5 7.2425 7.2425 5 10 5C12.7575 5 15 7.2425 15 10C15 12.7575 12.7575 15 10 15ZM10 7.5C8.62125 7.5 7.5 8.62125 7.5 10C7.5 11.3787 8.62125 12.5 10 12.5C11.3787 12.5 12.5 11.3787 12.5 10C12.5 8.62125 11.3787 7.5 10 7.5Z">
+                            </path>
+                            <path
+                                d="M15 20H5C2.43 20 0 17.57 0 15V5C0 2.43 2.43 0 5 0H15C17.57 0 20 2.43 20 5V15C20 17.57 17.57 20 15 20ZM5 2.5C3.83125 2.5 2.5 3.83125 2.5 5V15C2.5 16.1912 3.80875 17.5 5 17.5H15C16.1688 17.5 17.5 16.1688 17.5 15V5C17.5 3.83125 16.1688 2.5 15 2.5H5Z">
+                            </path>
+                        </svg>
+                    </a>
                 </div>
-            </footer>
+            </div>
         </div>
-    </div>
+    </footer>
+    <!-- Bootstrap Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+
+    <!-- Local JS Link -->
+    <script src="./assets/js/signUp.js"></script>
+    <script src="./assets/js/model.js"></script>
 </body>
+
 </html>
