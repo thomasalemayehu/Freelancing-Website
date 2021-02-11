@@ -1,52 +1,135 @@
+import { openDB, deleteDB, wrap, unwrap } from "https://unpkg.com/idb?module";
 //   Username Validating Function
-function validateUsername() {
+
+//   Function to add new user to DB
+async function addUserToDB(userName, password, accountType) {
+  try {
+    let db = await openDB("Jobber", 1, {
+      upgrade(db) {
+        db.createObjectStore("Users", { keyPath: "userName" });
+        db.createObjectStore("UserDetails", { keyPath: "userName" });
+      },
+    });
+
+    await db.add("Users", {
+      userName: userName,
+      password: hashPassword(password),
+      accountType: accountType,
+    });
+
+    db.close();
+
+    // clear input labels
+    // setInput(userNameInput);
+    // setInput(passwordInput);
+    // setInput(confirmPasswordInput);
+
+    // Redirect to More info page
+    if (accountType == "seller") {
+      window.location.href = `../../RegisterInfo.html?id=${userName}`;
+    } else {
+      console.log("Buyer");
+    }
+  } catch (error) {
+    // if (error.message.toString().includes("Key already exists")) {
+    //   setLabel(userNameLabel, "Username already in use");
+    //   addClass(userNameLabel, "warning");
+    // }
+    console.log(error);
+  }
+}
+
+async function addUserDetail(itemToAdd) {
+  try {
+    let db = await openDB("Jobber", 1, {
+      upgrade(db) {
+        db.createObjectStore("UserDetail", { keyPath: "userName" });
+      },
+    });
+
+    await db.add("UserDetails", itemToAdd);
+    window.location.href = `../../home.html?id=${itemToAdd.userName}`;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+async function getUser(id) {
+  let db = await openDB("Jobber", 1);
+  const user = await db.get("Users", id);
+  return user;
+}
+
+async function getUserDetail(id) {
+  let db = await openDB("Jobber", 1);
+  const userDetail = await db.get("UserDetail", id);
+  return userDetail;
+}
+// Clearing Function
+
+// Helper Functions
+function userNameValidator(userNameInput, userNameLabel) {
   let isValidated;
   let userNameRegEx = /^[a-zA-Z]{6,18}[a-zA-Z]$/;
   if (userNameRegEx.test(userNameInput.value)) {
-    userNameInput.classList.remove("is-danger");
-    userNameInput.classList.add("is-success");
+    removeClass(userNameInput, "is-danger");
+    addClass(userNameInput, "is-success");
+    setLabel(userNameLabel);
+
     isValidated = "Validated";
   } else {
-    userNameInput.classList.remove("is-success");
-    userNameInput.classList.add("is-danger");
+    removeClass(userNameInput, "is-success");
+    addClass(userNameInput, "is-danger");
+    if (userNameInput.value.length != 0) {
+      setLabel(userNameLabel);
+    }
+
     isValidated = "";
   }
   return isValidated;
 }
 // Password Validating Function
-function validatePassword() {
+function passwordValidator(passwordInput, passwordLabel) {
   let isValidated;
   let passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,14}$/;
   if (passwordRegEx.test(passwordInput.value)) {
-    passwordInput.classList.remove("is-danger");
-    passwordInput.classList.add("is-success");
+    removeClass(passwordInput, "is-danger");
+    addClass(passwordInput, "is-success");
+
     isValidated = "Validated";
   } else {
-    passwordInput.classList.remove("is-success");
-    passwordInput.classList.add("is-danger");
+    removeClass(passwordInput, "is-success");
+    addClass(passwordInput, "is-danger");
+
     isValidated = "";
   }
   return isValidated;
 }
 // Validating Confirm Password
-function validateConfirmPassword() {
+function confirmPasswordValidator(
+  confirmPasswordInput,
+  confirmPasswordLabel,
+  passwordInput
+) {
   let isValidated;
   let passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,14}$/;
   if (
     passwordRegEx.test(confirmPasswordInput.value) &&
-    confirmPasswordInput.value == passwordInput.value
+    confirmPasswordInput.value == passwordInput
   ) {
-    confirmPasswordInput.classList.remove("is-danger");
-    confirmPasswordInput.classList.add("is-success");
+    removeClass(confirmPasswordInput, "is-danger");
+    addClass(confirmPasswordInput, "is-success");
+
     isValidated = "Validated";
   } else {
-    confirmPasswordInput.classList.remove("is-success");
-    confirmPasswordInput.classList.add("is-danger");
+    removeClass(confirmPasswordInput, "is-success");
+    addClass(confirmPasswordInput, "is-danger");
     isValidated = "";
   }
 
   return isValidated;
 }
+// Name Validating
 
 // Password Hashing Function
 function hashPassword(password) {
@@ -60,59 +143,30 @@ function hashPassword(password) {
   return password;
 }
 
-//   Adding New User to DB
-function addUserToDB(userName, password, accountType = "Seller") {
-  let openRequest = indexedDB.open("UsersDB", 1);
-  let dataBase;
-  openRequest.onerror = function () {
-    console.log("Error Opening DB");
-  };
-  openRequest.onsuccess = function () {
-    dataBase = openRequest.result;
-    let newUser = {
-      userName: userName,
-      password: hashPassword(password),
-      accountType: accountType,
-    };
-    let addRequest = dataBase
-      .transaction(["User"], "readwrite")
-      .objectStore("User")
-      .add(newUser);
-
-    addRequest.onerror = function () {
-      //    Handling Errors at SignUp
-      if (addRequest.error.name == "ConstraintError") {
-        if (addRequest.error.message.toString().includes("userName")) {
-          userNameLabel.innerText = "Username already in use";
-        }
-      }
-    };
-
-    addRequest.onsuccess = function () {
-      console.log("User Added");
-      clearLabel(userNameLabel);
-      clearInput(userNameInput);
-      clearInput(passwordInput);
-      clearInput(confirmPasswordInput);
-    };
-  };
-  openRequest.onupgradeneeded = function (e) {
-    dataBase = e.target.result;
-    let objectStore = dataBase.createObjectStore("User", {
-      keyPath: "id",
-      autoIncrement: true,
-    });
-    objectStore.createIndex("userName", "userName", { unique: true });
-    objectStore.createIndex("password", "password", { unique: false });
-    objectStore.createIndex("accountType", "accountType", { unique: false });
-    console.log("DB Created");
-  };
+function setLabel(element, value = "") {
+  element.innerText = value;
 }
-
-// Clearing Function
-function clearLabel(element) {
-  element.innerText = "";
-}
-function clearInput(element) {
+function setInput(element, value = "") {
   element.value = "";
 }
+function addClass(element, className) {
+  element.classList.add(className);
+}
+function removeClass(element, className) {
+  element.classList.remove(className);
+}
+
+// Exporting Functions
+export {
+  userNameValidator,
+  passwordValidator,
+  confirmPasswordValidator,
+  hashPassword,
+  setLabel,
+  setInput,
+  addClass,
+  addUserToDB,
+  addUserDetail,
+  getUser,
+  getUserDetail,
+};

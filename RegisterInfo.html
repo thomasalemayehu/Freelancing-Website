@@ -1,455 +1,648 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register Info</title>
 
     <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
 
     <!-- Bulma CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
 
     <!-- Fontawesome Link -->
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
 
     <!-- Link Local CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navigation Section -->
-    <nav class="navbar navbar-expand-lg py-0 m-0 navbar-dark fixed-top bg-white">
-        <div class="container-fluid py-3 px-4 navigation-container">
-            <img class="navbar-brand" src="./assets/image/Jobber Logo.svg" />
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-transparent" aria-current="page" href="#home-section">Home</a>
-                    </li>
-    
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-transparent" href="#how-it-works-section">How it works</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-transparent" href="#explore-section">Explore</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-transparent" href="#about-us-section">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-transparent" href="./login.html">Login</a>
-                    </li>
-                    <li class="nav-item sign-up-item">
-                        <a class="nav-link n av-link-transparent sign-up-link" href="./signUp.html"
-                            style="color: black;">Sign
-                            Up</a>
-                    </li>
-                </ul>
-            </div>
+    <nav
+      class="navbar navbar-expand-lg py-0 m-0 navbar-dark fixed-top bg-white"
+    >
+      <div class="container-fluid py-3 px-4 navigation-container">
+        <img class="navbar-brand" src="./assets/image/Jobber Logo.svg" />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link nav-link-transparent"
+                aria-current="page"
+                href="#home-section"
+                >Home</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link nav-link-transparent"
+                href="#how-it-works-section"
+                >How it works</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-transparent" href="#explore-section"
+                >Explore</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-transparent" href="#about-us-section"
+                >About us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-transparent" href="./login.html"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item sign-up-item">
+              <a
+                class="nav-link n av-link-transparent sign-up-link"
+                href="./signUp.html"
+                style="color: black"
+                >Sign Up</a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <form class="container user-detail-container">
-        <p class="user-detail-title">A few more touches ...</p>
+      <p class="user-detail-title">A few more touches ...</p>
 
-        <!-- Full Name Input -->
-        <div class="user-detail-name-container">
-            <!-- First Name Input -->
-            <div class="field user-detail-field">
-                <label class="label">First Name :</label>
-                <div class="control">
-                    <input class="input first-name-input" type="text" placeholder="Jhon" />
-                </div>
-            </div>
-            <!-- Last Name Input  -->
-            <div class="field user-detail-field">
-                <label class="label">Last Name :</label>
-                <div class="control">
-                    <input class="input last-name-input" type="text" placeholder="Doe" />
-                </div>
-            </div>
+      <!-- Full Name Input -->
+      <div class="user-detail-name-container">
+        <!-- First Name Input -->
+        <div class="field user-detail-field">
+          <label class="label">First Name :</label>
+          <div class="control">
+            <input
+              class="input first-name-input"
+              type="text"
+              placeholder="Jhon"
+            />
+          </div>
+        </div>
+        <!-- Last Name Input  -->
+        <div class="field user-detail-field">
+          <label class="label">Last Name :</label>
+          <div class="control">
+            <input
+              class="input last-name-input"
+              type="text"
+              placeholder="Doe"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Email , DOB and Country Input -->
+      <div class="user-detail-name-container">
+        <!-- Email Input -->
+        <div class="field email-detail-field">
+          <label class="label">Email :</label>
+          <div class="control">
+            <input
+              class="input email-input"
+              type="email"
+              placeholder="johndoe21@gmail.com"
+            />
+          </div>
         </div>
 
-        
-        <!-- Email , DOB and Country Input -->
-        <div class="user-detail-name-container">
-            <!-- Email Input -->
-            <div class="field email-detail-field">
-                <label class="label">Email :</label>
-                <div class="control">
-                    <input class="input email-input" type="email" placeholder="johndoe21@gmail.com" />
-                </div>
-            </div>
-
-            <div class="user-detail-field inner-detail-container">
-                <!-- Date of Birth Input  -->
-                <div class="field date-of-birth-detail-field">
-                    <label class="label">Date of Birth :</label>
-                    <div class="control">
-                        <input class="input date-of-birth-input" type="date" max="2003-11-02" />
-                    </div>
-                </div>
-
-                <!-- Country Input -->
-                <div class="field country-detail-field">
-                    <label class="label">Country :</label>
-                    <div class="control">
-                        <div class="select">
-                            <select class="select-drop country-input">
-                                <option value="Ethiopia">Ethiopia</option>
-                                <option value="Kenya">Kenya</option>
-                                <option value="South Sudan">South Sudan</option>
-                                <option value="North Sudan">North Sudan</option>
-                                <option value="Somalia">Somalia</option>
-                                <option value="Tanzania">Tanzania</option>
-                                <option value="Uganda">Uganda</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Gender -->
-        <div class="user-detail-name-container">
+        <div class="user-detail-field inner-detail-container">
+          <!-- Date of Birth Input  -->
+          <div class="field date-of-birth-detail-field">
+            <label class="label">Date of Birth :</label>
             <div class="control">
-                <label class="radio">
-                    <input type="radio" name="Gender" value="Male" />
-                    Male
-                </label>
-                <label class="radio">
-                    <input type="radio" name="Gender" value="Female" />
-                    Female
-                </label>
+              <input
+                class="input date-of-birth-input"
+                type="date"
+                max="2003-11-02"
+              />
             </div>
+          </div>
+
+          <!-- Country Input -->
+          <div class="field country-detail-field">
+            <label class="label">Country :</label>
+            <div class="control">
+              <div class="select">
+                <select class="select-drop country-input">
+                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="South Sudan">South Sudan</option>
+                  <option value="North Sudan">North Sudan</option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Uganda">Uganda</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="user-detail-name-container">
+        <div class="control">
+          <label class="radio">
+            <input type="radio" name="Gender" value="Male" />
+            Male
+          </label>
+          <label class="radio">
+            <input type="radio" name="Gender" value="Female" />
+            Female
+          </label>
+        </div>
+      </div>
+
+      <!-- Skill and Language Input -->
+      <div class="user-detail-name-container">
+        <!-- Skills -->
+        <div class="field skills-detail-field">
+          <p class="skill-title">Select Your Top Skills</p>
+
+          <div class="skills-container-main">
+            <!-- Left Side Skill -->
+            <div class="skill-container-inner">
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="skills-checkbox"
+                  value="Digital Marketing"
+                />
+                Digital Marketing
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="skills-checkbox"
+                  value="Writing and Content"
+                />
+                Writing and Content
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="skills-checkbox"
+                  value="Translation"
+                />
+                Translation
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="skills-checkbox"
+                  value="Lifestyle"
+                />
+                Lifestyle
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="skills-checkbox"
+                  value="Business"
+                />
+                Business
+              </label>
+            </div>
+
+            <!-- Right Side Skills -->
+            <div class="skill-container-inner">
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="skills-checkbox"
+                  value="Graphics and Design"
+                />
+                Graphics and Design
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="skills-checkbox"
+                  value="Music and Audio"
+                />
+                Music and Audio
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="skills-checkbox"
+                  value="Programming and Development"
+                />
+                Programming and Development
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="skills-checkbox"
+                  value="Video and Animation"
+                />
+                Video and Motion Animation
+              </label>
+            </div>
+          </div>
         </div>
 
-        <!-- Skill and Language Input -->
-        <div class="user-detail-name-container">
-            <!-- Skills -->
-            <div class="field skills-detail-field">
-                <p class="skill-title">Select Your Top Skills</p>
+        <!-- Languages -->
+        <div class="field language-detail-field">
+          <p class="language-title">Select Languages You are Fluent at</p>
 
-                <div class="skills-container-main">
-                    <!-- Left Side Skill -->
-                    <div class="skill-container-inner">
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="skills-checkbox" value="Digital Marketing" />
-                            Digital Marketing
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="skills-checkbox" value="Writing and Content" />
-                            Writing and Content
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="skills-checkbox" value="Translation" />
-                            Translation
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="skills-checkbox" value="Lifestyle" />
-                            Lifestyle
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="skills-checkbox" value="Business" />
-                            Business
-                        </label>
-                    </div>
+          <div class="language-container-main">
+            <!-- Left Side Languages -->
+            <div class="language-container-inner">
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="languages-checkbox"
+                  value="Amharic"
+                />
+                Amharic
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="languages-checkbox"
+                  value="Afan Oromo"
+                />
+                Afan Oromo
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="languages-checkbox"
+                  value="Tigrigna"
+                />
+                Tigrigna
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="languages-checkbox"
+                  value="Afar"
+                />
+                Afar
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="languages-checkbox"
+                  value="Somali"
+                />
+                Somali
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="languages-checkbox"
+                  value="English"
+                />
+                English
+              </label>
+            </div>
+            <!-- Right Side Languages -->
+            <div class="language-container-inner">
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="languages-checkbox"
+                  value="Swahili"
+                />
+                Swahili
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="languages-checkbox"
+                  value="Arabic"
+                />
+                Arabic
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="languages-checkbox"
+                  value="French"
+                />
+                French
+              </label>
+              <label class="checkbox checkbox-container">
+                <input
+                  type="checkbox"
+                  class="languages-checkbox"
+                  value="Portuguese"
+                />
+                Portuguese
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                    
-                    <!-- Right Side Skills -->
-                    <div class="skill-container-inner">
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="skills-checkbox" value="Graphics and Design" />
-                            Graphics and Design
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="skills-checkbox" value="Music and Audio" />
-                            Music and Audio
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="skills-checkbox" value="Programming and Development" />
-                            Programming and Development
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="skills-checkbox" value="Video and Animation" />
-                            Video and Motion Animation
-                        </label>
-                    </div>
-                </div>
+      <!-- Education Input -->
+      <div class="user-detail-name-container">
+        <div class="education-container">
+          <p class="education-title">Education</p>
+          <div class="education-top-container">
+            <!-- Educational Institution Name -->
+            <div class="field education-field">
+              <label class="label">Education Institution :</label>
+              <div class="control">
+                <input
+                  class="input education-institution-input"
+                  type="text"
+                  placeholder="Addis Ababa University"
+                />
+              </div>
             </div>
 
-            <!-- Languages -->
-            <div class="field language-detail-field">
-                <p class="language-title">Select Languages You are Fluent at</p>
-
-                <div class="language-container-main">
-                    <!-- Left Side Languages -->
-                    <div class="language-container-inner">
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="languages-checkbox" value="Amharic" />
-                            Amharic
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="languages-checkbox" value="Afan Oromo" />
-                            Afan Oromo
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="languages-checkbox" value="Tigrigna" />
-                            Tigrigna
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="languages-checkbox" value="Afar" />
-                            Afar
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="languages-checkbox" value="Somali" />
-                            Somali
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="languages-checkbox" value="English" />
-                            English
-                        </label>
-                    </div>
-  <!-- Right Side Languages -->
-                    <div class="language-container-inner">
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="languages-checkbox" value="Swahili" />
-                            Swahili
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="languages-checkbox" value="Arabic" />
-                            Arabic
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="languages-checkbox" value="French" />
-                            French
-                        </label>
-                        <label class="checkbox checkbox-container">
-                            <input type="checkbox" class="languages-checkbox" value="Portuguese" />
-                            Portuguese
-                        </label>
-                    </div>
+            <!-- Level Of Study -->
+            <div class="field education-field">
+              <label class="label">Level Of Study :</label>
+              <div class="control">
+                <!-- <input class="input" type="text" placeholder="Text input"> -->
+                <div class="select">
+                  <select class="level-of-study">
+                    <option value="">High School</option>
+                    <option value="">Bachelors Degree</option>
+                    <option value="">Masters Degree</option>
+                    <option value="">Doctorate Degree</option>
+                    <option value="">Other</option>
+                  </select>
                 </div>
+              </div>
             </div>
-        </div>
 
-        <!-- Education Input -->
-        <div class="user-detail-name-container">
-            <div class="education-container">
-                <p class="education-title">Education</p>
-                <div class="education-top-container">
-                    <!-- Educational Institution Name -->
-                    <div class="field education-field">
-                        <label class="label">Education Institution :</label>
-                        <div class="control">
-                            <input class="input education-institution-input" type="text" placeholder="Addis Ababa University" />
-                        </div>
-                    </div>
-
-                    <!-- Level Of Study -->
-                    <div class="field education-field">
-                        <label class="label">Level Of Study :</label>
-                        <div class="control">
-                            <!-- <input class="input" type="text" placeholder="Text input"> -->
-                            <div class="select">
-                                <select class="level-of-study">
-                                    <option value="">High School</option>
-                                    <option value="">Bachelors Degree</option>
-                                    <option value="">Masters Degree</option>
-                                    <option value="">Doctorate Degree</option>
-                                    <option value="">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Name of Certification -->
-                    <div class="field education-field">
-                        <label class="label">Name of Certification :</label>
-                        <div class="control">
-                            <input class="input education-certification-input" type="text" placeholder="Bsc" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="education-bottom-container">
-                    <div class="control">
-                        <input class="input education-upload-file" type="file" placeholder=".pdf" />
-                    </div>
-
-                    <img class="education-preview img-fluid" />
-                </div>
+            <!-- Name of Certification -->
+            <div class="field education-field">
+              <label class="label">Name of Certification :</label>
+              <div class="control">
+                <input
+                  class="input education-certification-input"
+                  type="text"
+                  placeholder="Bsc"
+                />
+              </div>
             </div>
-        </div>
+          </div>
 
-        <!-- Experience Input -->
-        <div class="user-detail-name-container">
-            <div class="experience-container">
-                <p class="experience-title">Experience</p>
-                <div class="experience-top-container">
-                    <!--  Institution Name -->
-                    <div class="field experience-field">
-                        <label class="label">Institution Name :</label>
-                        <div class="control">
-                            <input class="input experience-institution-input" type="text" placeholder="AAIT" />
-                        </div>
-                    </div>
-
-                   
-                    <!-- Position -->
-                    <div class="field experience-field">
-                        <label class="label">Position of Experience :</label>
-                        <div class="control">
-                            <input class="input experience-position-input" type="text" placeholder="Manager" />
-                        </div>
-                    </div>
-
-                    <!-- Name of Certification -->
-                    <div class="field experience-field">
-                        <label class="label experience-dates-label-container">
-                            <p class="experience-dates-label">From :</p>
-                            <p class="experience-dates-label">To :</p>
-                        </label>
-                        <div class="control experience-dates-container">
-                            <input class="input experience-dates experience-from" type="date" placeholder="Text input"
-                                min="2020-11-02" />
-                            <input class="input experience-dates experience-to" type="date" placeholder="Text input" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-bottom-container">
-                    <div class="control">
-                        <input class="input experience-file-upload" type="file" placeholder="Text input" />
-                    </div>
-
-                    <img class="experience-preview img-fluid" />
-                </div>
+          <div class="education-bottom-container">
+            <div class="control">
+              <input
+                class="input education-upload-file"
+                type="file"
+                placeholder=".pdf"
+              />
             </div>
+
+            <img class="education-preview img-fluid" />
+          </div>
         </div>
+      </div>
 
-        <!-- More Info -->
-        <div class="user-detail-name-container">
-            <div class="more-info-container">
-                <p class="more-info-title">More Information</p>
-                <div class="more-info-top-container">
-                    <div class="field description-field">
-                        <label for="" class="label">Description :</label>
-                        <textarea class="textarea description-input" placeholder="Write a short description about yourself and what you do here. Include general experience if any"></textarea>
-                    </div>
-
-                    <div class="field currency-field">
-                        <label for="" class="label">Currency :</label>
-                        <div class="control">
-                            <div class="select">
-                                <select name="" id="" class="currency-drop">
-                                    <option value="">Ethiopian Birr</option>
-                                    <option value="">Sudanese Pound</option>
-                                    <option value="">Kenyan Shilling</option>
-                                    <option value="">Rwandan Franc</option>
-                                    <option value="">Us Dollar</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="more-info-bottom">
-                    <p class="more-info-inner-title">Select Your Avatar</p>
-                    <div class="more-info-avatar-container">
-                        <div class="avatar-container avatar-1"></div>
-                        <div class="avatar-container avatar-2"></div>
-                        <div class="avatar-container avatar-3"></div>
-                        <div class="avatar-container avatar-4"></div>
-                        <div class="avatar-container avatar-5"></div>
-                    </div>
-                </div>
+      <!-- Experience Input -->
+      <div class="user-detail-name-container">
+        <div class="experience-container">
+          <p class="experience-title">Experience</p>
+          <div class="experience-top-container">
+            <!--  Institution Name -->
+            <div class="field experience-field">
+              <label class="label">Institution Name :</label>
+              <div class="control">
+                <input
+                  class="input experience-institution-input"
+                  type="text"
+                  placeholder="AAIT"
+                />
+              </div>
             </div>
-        </div>
 
-        <div class="button-container">
-            <input type="submit" value="Continue" class="submit-detail-button" />
+            <!-- Position -->
+            <div class="field experience-field">
+              <label class="label">Position of Experience :</label>
+              <div class="control">
+                <input
+                  class="input experience-position-input"
+                  type="text"
+                  placeholder="Manager"
+                />
+              </div>
+            </div>
+
+            <!-- Name of Certification -->
+            <div class="field experience-field">
+              <label class="label experience-dates-label-container">
+                <p class="experience-dates-label">From :</p>
+                <p class="experience-dates-label">To :</p>
+              </label>
+              <div class="control experience-dates-container">
+                <input
+                  class="input experience-dates experience-from"
+                  type="date"
+                  placeholder="Text input"
+                  min="2020-11-02"
+                />
+                <input
+                  class="input experience-dates experience-to"
+                  type="date"
+                  placeholder="Text input"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="experience-bottom-container">
+            <div class="control">
+              <input
+                class="input experience-file-upload"
+                type="file"
+                placeholder="Text input"
+              />
+            </div>
+
+            <img class="experience-preview img-fluid" />
+          </div>
         </div>
+      </div>
+
+      <!-- More Info -->
+      <div class="user-detail-name-container">
+        <div class="more-info-container">
+          <p class="more-info-title">More Information</p>
+          <div class="more-info-top-container">
+            <div class="field description-field">
+              <label for="" class="label">Description :</label>
+              <textarea
+                class="textarea description-input"
+                placeholder="Write a short description about yourself and what you do here. Include general experience if any"
+              ></textarea>
+            </div>
+
+            <div class="field currency-field">
+              <label for="" class="label">Currency :</label>
+              <div class="control">
+                <div class="select">
+                  <select name="" id="" class="currency-drop">
+                    <option value="">Ethiopian Birr</option>
+                    <option value="">Sudanese Pound</option>
+                    <option value="">Kenyan Shilling</option>
+                    <option value="">Rwandan Franc</option>
+                    <option value="">Us Dollar</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="more-info-bottom">
+            <p class="more-info-inner-title">Select Your Avatar</p>
+            <div class="more-info-avatar-container">
+              <div class="avatar-container avatar-1"></div>
+              <div class="avatar-container avatar-2"></div>
+              <div class="avatar-container avatar-3"></div>
+              <div class="avatar-container avatar-4"></div>
+              <div class="avatar-container avatar-5"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <input type="submit" value="Continue" class="submit-detail-button" />
+      </div>
     </form>
 
-<!-- Footer Section -->
-<footer class="footer mt-3">
-    <div class="container-fluid">
+    <!-- Footer Section -->
+    <footer class="footer mt-3">
+      <div class="container-fluid">
         <h2 class="ms-2">Jobber</h2>
 
         <div class="footer-bottom-container">
-            <span class="text-muted copy-right">&copy; Jobber Freelance. 2021</span>
-            <div class="socials-container">
-                <a class="text-muted socials-icons" href="#">
-                    <svg width="20" height="17" viewBox="0 0 20 17" xmlns="http://www.w3.org/2000/svg"
-                        class="footer-social-icons">
-                        <path
-                            d="M20 1.875C19.25 2.25 18.5 2.375 17.625 2.5C18.5 2 19.125 1.25 19.375 0.25C18.625 0.75 17.75 1 16.75 1.25C16 0.5 14.875 0 13.75 0C11.625 0 9.75 1.875 9.75 4.125C9.75 4.5 9.75 4.75 9.875 5C6.5 4.875 3.375 3.25 1.375 0.75C1 1.375 0.875 2 0.875 2.875C0.875 4.25 1.625 5.5 2.75 6.25C2.125 6.25 1.5 6 0.875 5.75C0.875 7.75 2.25 9.375 4.125 9.75C3.75 9.875 3.375 9.875 3 9.875C2.75 9.875 2.5 9.875 2.25 9.75C2.75 11.375 4.25 12.625 6.125 12.625C4.75 13.75 3 14.375 1 14.375C0.625 14.375 0.375 14.375 0 14.375C1.875 15.5 4 16.25 6.25 16.25C13.75 16.25 17.875 10 17.875 4.625C17.875 4.5 17.875 4.25 17.875 4.125C18.75 3.5 19.5 2.75 20 1.875Z">
-                        </path>
-                    </svg>
-                </a>
+          <span class="text-muted copy-right"
+            >&copy; Jobber Freelance. 2021</span
+          >
+          <div class="socials-container">
+            <a class="text-muted socials-icons" href="#">
+              <svg
+                width="20"
+                height="17"
+                viewBox="0 0 20 17"
+                xmlns="http://www.w3.org/2000/svg"
+                class="footer-social-icons"
+              >
+                <path
+                  d="M20 1.875C19.25 2.25 18.5 2.375 17.625 2.5C18.5 2 19.125 1.25 19.375 0.25C18.625 0.75 17.75 1 16.75 1.25C16 0.5 14.875 0 13.75 0C11.625 0 9.75 1.875 9.75 4.125C9.75 4.5 9.75 4.75 9.875 5C6.5 4.875 3.375 3.25 1.375 0.75C1 1.375 0.875 2 0.875 2.875C0.875 4.25 1.625 5.5 2.75 6.25C2.125 6.25 1.5 6 0.875 5.75C0.875 7.75 2.25 9.375 4.125 9.75C3.75 9.875 3.375 9.875 3 9.875C2.75 9.875 2.5 9.875 2.25 9.75C2.75 11.375 4.25 12.625 6.125 12.625C4.75 13.75 3 14.375 1 14.375C0.625 14.375 0.375 14.375 0 14.375C1.875 15.5 4 16.25 6.25 16.25C13.75 16.25 17.875 10 17.875 4.625C17.875 4.5 17.875 4.25 17.875 4.125C18.75 3.5 19.5 2.75 20 1.875Z"
+                ></path>
+              </svg>
+            </a>
 
-                <a class="text-muted socials-icons" href="#">
-                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                        class="footer-social-icons">
-                        <path
-                            d="M20 10.0022C20.0004 8.09104 19.4532 6.2198 18.4231 4.61003C17.393 3.00026 15.9232 1.71938 14.1877 0.919062C12.4522 0.118741 10.5237 -0.167503 8.63053 0.0942223C6.73739 0.355948 4.9589 1.15468 3.50564 2.39585C2.05237 3.63701 0.985206 5.26863 0.430495 7.0975C-0.124217 8.92636 -0.143239 10.8759 0.37568 12.7152C0.894599 14.5546 1.92973 16.2067 3.35849 17.476C4.78726 18.7453 6.54983 19.5786 8.4375 19.8772V12.8922H5.89875V10.0022H8.4375V7.79843C8.38284 7.28399 8.44199 6.76382 8.61078 6.2748C8.77957 5.78577 9.05386 5.33986 9.4142 4.96866C9.77455 4.59746 10.2121 4.31007 10.6959 4.12684C11.1797 3.94362 11.6979 3.86905 12.2137 3.90843C12.9638 3.91828 13.7121 3.98346 14.4525 4.10343V6.56718H13.1925C12.9779 6.53911 12.7597 6.55967 12.554 6.62733C12.3484 6.69498 12.1607 6.80801 12.0046 6.95804C11.8486 7.10807 11.7283 7.29127 11.6526 7.49408C11.577 7.69689 11.5479 7.91411 11.5675 8.12968V10.0047H14.3412L13.8975 12.8947H11.5625V19.8834C13.9153 19.5112 16.058 18.3114 17.6048 16.4999C19.1516 14.6884 20.001 12.3842 20 10.0022Z">
-                        </path>
-                    </svg>
-                </a>
+            <a class="text-muted socials-icons" href="#">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                class="footer-social-icons"
+              >
+                <path
+                  d="M20 10.0022C20.0004 8.09104 19.4532 6.2198 18.4231 4.61003C17.393 3.00026 15.9232 1.71938 14.1877 0.919062C12.4522 0.118741 10.5237 -0.167503 8.63053 0.0942223C6.73739 0.355948 4.9589 1.15468 3.50564 2.39585C2.05237 3.63701 0.985206 5.26863 0.430495 7.0975C-0.124217 8.92636 -0.143239 10.8759 0.37568 12.7152C0.894599 14.5546 1.92973 16.2067 3.35849 17.476C4.78726 18.7453 6.54983 19.5786 8.4375 19.8772V12.8922H5.89875V10.0022H8.4375V7.79843C8.38284 7.28399 8.44199 6.76382 8.61078 6.2748C8.77957 5.78577 9.05386 5.33986 9.4142 4.96866C9.77455 4.59746 10.2121 4.31007 10.6959 4.12684C11.1797 3.94362 11.6979 3.86905 12.2137 3.90843C12.9638 3.91828 13.7121 3.98346 14.4525 4.10343V6.56718H13.1925C12.9779 6.53911 12.7597 6.55967 12.554 6.62733C12.3484 6.69498 12.1607 6.80801 12.0046 6.95804C11.8486 7.10807 11.7283 7.29127 11.6526 7.49408C11.577 7.69689 11.5479 7.91411 11.5675 8.12968V10.0047H14.3412L13.8975 12.8947H11.5625V19.8834C13.9153 19.5112 16.058 18.3114 17.6048 16.4999C19.1516 14.6884 20.001 12.3842 20 10.0022Z"
+                ></path>
+              </svg>
+            </a>
 
-                <a class="text-muted socials-icons" href="#">
-                    <svg width="21" height="20" viewBox="0 0 21 20" xmlns="http://www.w3.org/2000/svg"
-                        class="footer-social-icons">
-                        <path
-                            d="M19.125 0H0.875C0.375 0 0 0.375 0 0.875V19.25C0 19.625 0.375 20 0.875 20H19.25C19.75 20 20.125 19.625 20.125 19.125V0.875C20 0.375 19.625 0 19.125 0ZM5.875 17H3V7.5H6V17H5.875ZM4.5 6.25C3.5 6.25 2.75 5.375 2.75 4.5C2.75 3.5 3.5 2.75 4.5 2.75C5.5 2.75 6.25 3.5 6.25 4.5C6.125 5.375 5.375 6.25 4.5 6.25ZM17 17H14V12.375C14 11.25 14 9.875 12.5 9.875C11 9.875 10.75 11.125 10.75 12.375V17.125H7.75V7.5H10.625V8.75C11 8 12 7.25 13.375 7.25C16.375 7.25 16.875 9.25 16.875 11.75V17H17Z">
-                        </path>
-                    </svg>
-                </a>
-                <a class="text-muted socials-icons" href="#">
-                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                        class="footer-social-icons">
-                        <path
-                            d="M10 0C4.5 0 0 4.5 0 10C0 14.25 2.625 17.875 6.375 19.25C6.25 18.5 6.25 17.25 6.375 16.375C6.5 15.625 7.5 11.375 7.5 11.375C7.5 11.375 7.25 10.875 7.25 10C7.25 8.625 8.125 7.5 9.125 7.5C10 7.5 10.375 8.125 10.375 8.875C10.375 9.75 9.875 11 9.5 12.25C9.25 13.25 10 14 11 14C12.75 14 14.125 12.125 14.125 9.375C14.125 7 12.375 5.25 10 5.25C7.125 5.25 5.5 7.375 5.5 9.625C5.5 10.5 5.875 11.375 6.25 11.875C6.25 12.125 6.25 12.25 6.25 12.375C6.125 12.75 6 13.375 6 13.5C6 13.625 5.875 13.75 5.625 13.625C4.375 13 3.625 11.25 3.625 9.75C3.625 6.625 5.875 3.75 10.25 3.75C13.75 3.75 16.375 6.25 16.375 9.5C16.375 13 14.25 15.75 11.125 15.75C10.125 15.75 9.125 15.25 8.875 14.625C8.875 14.625 8.375 16.5 8.25 17C8 17.875 7.375 19 7 19.625C8 19.875 9 20 10 20C15.5 20 20 15.5 20 10C20 4.5 15.5 0 10 0Z">
-                        </path>
-                    </svg>
-                </a>
+            <a class="text-muted socials-icons" href="#">
+              <svg
+                width="21"
+                height="20"
+                viewBox="0 0 21 20"
+                xmlns="http://www.w3.org/2000/svg"
+                class="footer-social-icons"
+              >
+                <path
+                  d="M19.125 0H0.875C0.375 0 0 0.375 0 0.875V19.25C0 19.625 0.375 20 0.875 20H19.25C19.75 20 20.125 19.625 20.125 19.125V0.875C20 0.375 19.625 0 19.125 0ZM5.875 17H3V7.5H6V17H5.875ZM4.5 6.25C3.5 6.25 2.75 5.375 2.75 4.5C2.75 3.5 3.5 2.75 4.5 2.75C5.5 2.75 6.25 3.5 6.25 4.5C6.125 5.375 5.375 6.25 4.5 6.25ZM17 17H14V12.375C14 11.25 14 9.875 12.5 9.875C11 9.875 10.75 11.125 10.75 12.375V17.125H7.75V7.5H10.625V8.75C11 8 12 7.25 13.375 7.25C16.375 7.25 16.875 9.25 16.875 11.75V17H17Z"
+                ></path>
+              </svg>
+            </a>
+            <a class="text-muted socials-icons" href="#">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                class="footer-social-icons"
+              >
+                <path
+                  d="M10 0C4.5 0 0 4.5 0 10C0 14.25 2.625 17.875 6.375 19.25C6.25 18.5 6.25 17.25 6.375 16.375C6.5 15.625 7.5 11.375 7.5 11.375C7.5 11.375 7.25 10.875 7.25 10C7.25 8.625 8.125 7.5 9.125 7.5C10 7.5 10.375 8.125 10.375 8.875C10.375 9.75 9.875 11 9.5 12.25C9.25 13.25 10 14 11 14C12.75 14 14.125 12.125 14.125 9.375C14.125 7 12.375 5.25 10 5.25C7.125 5.25 5.5 7.375 5.5 9.625C5.5 10.5 5.875 11.375 6.25 11.875C6.25 12.125 6.25 12.25 6.25 12.375C6.125 12.75 6 13.375 6 13.5C6 13.625 5.875 13.75 5.625 13.625C4.375 13 3.625 11.25 3.625 9.75C3.625 6.625 5.875 3.75 10.25 3.75C13.75 3.75 16.375 6.25 16.375 9.5C16.375 13 14.25 15.75 11.125 15.75C10.125 15.75 9.125 15.25 8.875 14.625C8.875 14.625 8.375 16.5 8.25 17C8 17.875 7.375 19 7 19.625C8 19.875 9 20 10 20C15.5 20 20 15.5 20 10C20 4.5 15.5 0 10 0Z"
+                ></path>
+              </svg>
+            </a>
 
-                <a class="text-muted socials-icons" href="#">
-                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                        class="footer-social-icons">
-                        <path
-                            d="M15.1814 6.06504C15.8442 6.06504 16.3814 5.52778 16.3814 4.86504C16.3814 4.2023 15.8442 3.66504 15.1814 3.66504C14.5187 3.66504 13.9814 4.2023 13.9814 4.86504C13.9814 5.52778 14.5187 6.06504 15.1814 6.06504Z">
-                        </path>
-                        <path
-                            d="M10 15C7.2425 15 5 12.7575 5 10C5 7.2425 7.2425 5 10 5C12.7575 5 15 7.2425 15 10C15 12.7575 12.7575 15 10 15ZM10 7.5C8.62125 7.5 7.5 8.62125 7.5 10C7.5 11.3787 8.62125 12.5 10 12.5C11.3787 12.5 12.5 11.3787 12.5 10C12.5 8.62125 11.3787 7.5 10 7.5Z">
-                        </path>
-                        <path
-                            d="M15 20H5C2.43 20 0 17.57 0 15V5C0 2.43 2.43 0 5 0H15C17.57 0 20 2.43 20 5V15C20 17.57 17.57 20 15 20ZM5 2.5C3.83125 2.5 2.5 3.83125 2.5 5V15C2.5 16.1912 3.80875 17.5 5 17.5H15C16.1688 17.5 17.5 16.1688 17.5 15V5C17.5 3.83125 16.1688 2.5 15 2.5H5Z">
-                        </path>
-                    </svg>
-                </a>
-            </div>
+            <a class="text-muted socials-icons" href="#">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                class="footer-social-icons"
+              >
+                <path
+                  d="M15.1814 6.06504C15.8442 6.06504 16.3814 5.52778 16.3814 4.86504C16.3814 4.2023 15.8442 3.66504 15.1814 3.66504C14.5187 3.66504 13.9814 4.2023 13.9814 4.86504C13.9814 5.52778 14.5187 6.06504 15.1814 6.06504Z"
+                ></path>
+                <path
+                  d="M10 15C7.2425 15 5 12.7575 5 10C5 7.2425 7.2425 5 10 5C12.7575 5 15 7.2425 15 10C15 12.7575 12.7575 15 10 15ZM10 7.5C8.62125 7.5 7.5 8.62125 7.5 10C7.5 11.3787 8.62125 12.5 10 12.5C11.3787 12.5 12.5 11.3787 12.5 10C12.5 8.62125 11.3787 7.5 10 7.5Z"
+                ></path>
+                <path
+                  d="M15 20H5C2.43 20 0 17.57 0 15V5C0 2.43 2.43 0 5 0H15C17.57 0 20 2.43 20 5V15C20 17.57 17.57 20 15 20ZM5 2.5C3.83125 2.5 2.5 3.83125 2.5 5V15C2.5 16.1912 3.80875 17.5 5 17.5H15C16.1688 17.5 17.5 16.1688 17.5 15V5C17.5 3.83125 16.1688 2.5 15 2.5H5Z"
+                ></path>
+              </svg>
+            </a>
+          </div>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
     <!-- Bootstrap Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
-        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
-        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
-        crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+      crossorigin="anonymous"
+    ></script>
 
+    <!-- Local JS Link -->
+    <script src="./assets/js/registerInfo.js" type="module"></script>
+    <script src="./assets/js/model.js" type="module"></script>
+  </body>
 </html>

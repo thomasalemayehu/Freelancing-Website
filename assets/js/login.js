@@ -1,3 +1,16 @@
+import {
+  userNameValidator,
+  passwordValidator,
+  confirmPasswordValidator,
+  hashPassword,
+  setLabel,
+  setInput,
+  addClass,
+  addUserToDB,
+  addUserDetail,
+  getUser,
+  getUserDetail,
+} from "./model.js";
 // UI Variables
 let loginForm = document.querySelector(".login-form");
 let userNameInput = document.querySelector(".user-name-input");
@@ -16,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   userNameInput.addEventListener("focus", () => {
     userNameRequirements.classList.remove("hide");
     userNameRequirements.classList.add("show");
-    clearLabel(userNameLabel);
+    setLabel(userNameLabel);
   });
   userNameInput.addEventListener("blur", () => {
     userNameRequirements.classList.remove("show");
@@ -26,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   passwordInput.addEventListener("focus", () => {
     passwordRequirements.classList.remove("hide");
     passwordRequirements.classList.add("show");
-    clearLabel(passwordLabel);
+    setLabel(passwordLabel);
   });
 
   passwordInput.addEventListener("blur", () => {
@@ -37,54 +50,32 @@ document.addEventListener("DOMContentLoaded", () => {
   //   Check on Login
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (validatePassword() && validateUsername()) {
-      login(userNameInput.value, passwordInput.value);
-    } else {
-      alert("invalid input");
-    }
+    login(userNameInput, passwordInput);
   });
 
+  function validateUsername() {
+    userNameValidator(userNameInput, userNameLabel);
+  }
+
+  function validatePassword() {
+    passwordValidator(passwordInput, passwordLabel);
+  }
   //   Login Function
-  function login(userName, password) {
-    //   Opening DB
-    let openRequest = indexedDB.open("UsersDB", 1);
-    let dataBase;
-    openRequest.onerror = function () {
-      "Error Opening DB";
-    };
-
-    openRequest.onsuccess = function () {
-      dataBase = openRequest.result;
-      let readRequest = dataBase
-        .transaction(["User"], "readonly")
-        .objectStore("User")
-        .openCursor();
-
-      readRequest.onerror = function () {
-        console.log("Error Reading Db");
-      };
-
-      readRequest.onsuccess = function (e) {
-        let cursor = e.target.result;
-        if (cursor) {
-          if (cursor.value.userName != userName) {
-            userNameLabel.innerText = "User not registered";
-            clearLabel(passwordLabel);
-          } else {
-            if (cursor.value.password == hashPassword(password)) {
-              window.location.href = `./index.html?id=${cursor.value.id}`;
-              clearLabel(userNameLabel);
-              clearLabel(passwordLabel);
-              clearInput(userNameInput);
-              clearInput(passwordInput);
-            } else {
-              passwordLabel.innerText = "Invalid Password";
-              clearLabel(userNameLabel);
-            }
-          }
-          cursor.continue();
+  function login(userNameInput, passwordInput) {
+    getUser(userNameInput.value).then((user) => {
+      if (user) {
+        if (user.password == hashPassword(passwordInput.value)) {
+          window.location.href = `../../home.html?id=${user.userName}&type=${user.accountType}`;
+        } else {
+          setLabel(passwordLabel, "Incorrect Password");
+          addClass(passwordLabel, "warning");
+          setInput(passwordInput);
         }
-      };
-    };
+      } else {
+        setLabel(userNameLabel, "User is not Registered");
+        addClass(userNameLabel, "warning");
+        setInput(userNameInput);
+      }
+    });
   }
 });
