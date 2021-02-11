@@ -408,6 +408,24 @@
   text-align: center;
   margin-top: 8%;
 }
+/* Registration page */
+
+.registration-image-container{
+
+    width: 100%;
+}
+
+.registration-form{
+    width: 100%;
+}
+.inputs-requirements{
+    width: 75%;
+}
+
+
+
+
+/* Registration page */
 
 /* Seller Home Page Styles */
 .navbar {
