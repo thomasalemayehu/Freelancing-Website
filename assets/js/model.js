@@ -62,7 +62,7 @@ async function getUser(id) {
 
 async function getUserDetail(id) {
   let db = await openDB("Jobber", 1);
-  const userDetail = await db.get("UserDetail", id);
+  const userDetail = await db.get("UserDetails", id);
   return userDetail;
 }
 // Clearing Function
