@@ -155,12 +155,31 @@ function addClass(element, className) {
 function removeClass(element, className) {
   element.classList.remove(className);
 }
+function emailValidator(emailInput)
+{
+  let isValidated;
+  let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (mailformat.test(emailInput.value)) {
+    removeClass(emailInput, "is-danger");
+    addClass(emailInput, "is-success");
 
+    isValidated = "Validated";
+  } else {
+    removeClass(passwordInput, "is-success");
+    addClass(passwordInput, "is-danger");
+    
+    emailInput.focus();
+    isValidated = "";
+  }
+  alert("You have entered an invalid email address!");
+  return isValidated;
+}
 // Exporting Functions
 export {
   userNameValidator,
   passwordValidator,
   confirmPasswordValidator,
+  emailValidator,
   hashPassword,
   setLabel,
   setInput,
