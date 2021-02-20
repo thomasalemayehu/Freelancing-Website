@@ -520,13 +520,13 @@
 }
 .job-box-description {
   margin-top: 2%;
-  font-size: 18px;
+  font-size: 14px;
 }
 .job-box-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-left: 7%;
   padding-right: 7%;
 

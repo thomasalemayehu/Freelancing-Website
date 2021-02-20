@@ -119,7 +119,7 @@ async function addJobToDB(itemToAdd, userName, userType) {
 
 async function getAllJobs(filterValue) {
   let db = await openDB("Jobber", 1);
-  let allJobs = await db.getAllFromIndex("Jobs", filterValue);
+  let allJobs = await db.getAllFromIndex("Jobs", "Category", filterValue);
   return allJobs;
 }
 

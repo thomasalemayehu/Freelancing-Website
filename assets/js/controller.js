@@ -277,6 +277,7 @@ function homeMain() {
       window.location.href = `../../addJob.html?id=${userName}`;
     });
   } else {
+    console.log("Seller");
     const userNameSpace = document.querySelector(".welcome-card-greeting");
     const timeSpace = document.querySelector(".welcome-card-time");
     const quoteSpace = document.querySelector(".welcome-card-quote");
@@ -335,6 +336,118 @@ function homeMain() {
       return "Afternoon";
     } else {
       return "Evening";
+    }
+  }
+
+  (async function getUserSkills() {
+    let i = 0;
+    let userDetail = await getUserDetail(userName);
+
+    let userSkills = userDetail.skills;
+    userSkills.forEach(async (skill) => {
+      let jobsBySkill = await getAllJobs(skill);
+      if (jobsBySkill.length > 0) {
+        displayAllJobs(jobsBySkill.reverse(), i);
+        i += 1;
+      }
+    });
+  })();
+
+  function displayAllJobs(jobs, i) {
+    let categoriesContainer = document.querySelectorAll(".cards-container");
+    if (jobs[0]) {
+      let job = jobs[0];
+      console.log(jobs[0]);
+      let jobDes = job.jobDescription;
+      categoriesContainer[i].innerHTML = `
+    <p class="job-box-titles">${job.jobCategory}</p>
+        <div class="row">
+          <!-- Card 1 -->
+          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+            <div class="single-job-box">
+              <div class="job-box-header">${job.jobName}</div>
+              <div class="job-box-sub-header">${job.jobAddedBy}</div>
+              <p class="job-box-description">
+                ${jobDes.substr(0, 120)}
+              </p>
+
+              <div class="job-box-container">
+                
+                <div class="job-pricing-container">
+                  Starting At
+                  <span class="job-pricing-container-price">$${
+                    job.payPrice
+                  }</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+            <div class="single-job-box">
+              <div class="job-box-header">Graphics and Design</div>
+              <div class="job-box-sub-header">Username</div>
+              <p class="job-box-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
+              </p>
+
+              <div class="job-box-container">
+                
+                <div class="job-pricing-container">
+                  Starting At
+                  <span class="job-pricing-container-price">$30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+            <div class="single-job-box">
+              <div class="job-box-header">Graphics and Design</div>
+              <div class="job-box-sub-header">Username</div>
+              <p class="job-box-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
+              </p>
+
+              <div class="job-box-container">
+                
+                <div class="job-pricing-container">
+                  Starting At
+                  <span class="job-pricing-container-price">$30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+            <div class="single-job-box">
+              <div class="job-box-header">Graphics and Design</div>
+              <div class="job-box-sub-header">Username</div>
+              <p class="job-box-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
+              </p>
+
+              <div class="job-box-container">
+                
+                <div class="job-pricing-container">
+                  Starting At
+                  <span class="job-pricing-container-price">$30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    `;
+      i += 1;
     }
   }
 }
@@ -877,22 +990,6 @@ function explorePage() {
         }
       }
       // If Deadline
-      else if (inputForms[0].classList.contains("deadline")) {
-        let containers = Array.from(inputForms[0].parentElement);
-        let values = [];
-        containers.forEach((container) => {
-          values.push(container);
-        });
-
-        //   console.log(values);
-        deadline = getChecked(values);
-        inputForms[0].parentElement.parentElement.parentElement.children[0].classList.add(
-          "activated-filter"
-        );
-        //   console.log(checked);
-
-        createFilterTag("Deadline", "Deadline");
-      }
     } else {
       console.log("Out");
     }
@@ -1098,14 +1195,15 @@ function explorePage() {
 
   function displayTasks(dataToDisplay) {
     dataToDisplay.forEach((data) => {
-      contentSection.children[0].innerHTML += `  
-                   
-                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+      let descData = data.jobDescription;
+      contentSection.children[0].innerHTML += `
+        
+        <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
                       <div class="single-job-box">
-                        <div class="job-box-header">${data.jobName}</div>
-                        <div class="job-box-sub-header">Username</div>
+                        <div class="job-box-header">${data.jobCategory}</div>
+                        <div class="job-box-sub-header">${data.jobAddedBy}</div>
                         <p class="job-box-description">
-                          ${data.jobCategory}
+                          ${descData.slice(0, 120)}
                         </p>
 
                         <div class="job-box-container">
@@ -1114,42 +1212,15 @@ function explorePage() {
                           </div>
                           <div class="job-pricing-container">
                             Starting At
-                            <span class="job-pricing-container-price">$${data.payPrice}</span>
+                            <span class="job-pricing-container-price">$${
+                              data.payPrice
+                            }</span>
                           </div>
                         </div>
                       </div>
-                    </div>`;
+                    </div>
+      `;
     });
-  }
-
-  function displaySorted(dataToDisplay) {
-    console.log("Displaying Sorted");
-    // clearDisplayTask();
-    // contentSection.children[0].innerHTML = "";
-    // dataToDisplay.forEach((newData) => {
-    //   contentSection.children[0].innerHTML += `
-
-    //                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
-    //                   <div class="single-job-box">
-    //                     <div class="job-box-header">${newData.jobCategory}</div>
-    //                     <div class="job-box-sub-header">Username</div>
-    //                     <p class=job-box-description">
-    //                       ${newData.jobCategory}
-    //                     </p>
-
-    //                     <div class="job-box-container">
-    //                       <div class="job-bookmark-container">
-    //                         <i class="far fa-bookmark"></i>
-    //                       </div>
-    //                       <div class="job-pricing-container">
-    //                         Starting At
-    //                         <span class="job-pricing-container-price">$${newData.payPrice}</span>
-    //                       </div>
-    //                     </div>
-    //                   </div>
-    //                 </div>`;
-    // });
-    console.log(dataToDisplay);
   }
 
   function clearDisplayTask() {
