@@ -27,12 +27,13 @@
 
     <!-- Link Local CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/query.css" />
   </head>
 
   <body>
     <!-- Navigation Bar -->
     <nav
-      class="navbar navbar-expand-lg py-0 m-0 navbar-dark fixed-top bg-white"
+      class="navbar navbar-expand-lg py-0 m-0 navbar-light fixed-top bg-white"
     >
       <div class="container-fluid py-3 px-4 navigation-container">
         <img class="navbar-brand" src="./assets/image/Jobber Logo.svg" />
@@ -94,13 +95,18 @@
       </div>
     </nav>
 
+    <!-- Message for unsupported screen sizes -->
+    <h3 class="no-support-device">
+      Sorry, We will soon support your screen size.
+    </h3>
+
     <!-- Sign Up Body -->
     <div class="container sign-up-container">
       <div class="row">
-        <div class="col-6 sign-up-image-container">
+        <div class="col-6 col-sm-6 sign-up-image-container">
           <img src="./assets/image/Sign Up Image.svg" alt="" />
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
           <form action="" class="sign-up-form">
             <div class="h4 sign-up-title">Sign Up for Jobber</div>
             <!-- Username Input -->
@@ -179,11 +185,11 @@
             <!-- User Type Selection -->
             <div class="field">
               <div class="control user-type-field">
-                <label class="radio">
+                <label class="radio p-0">
                   <input type="radio" name="userType" value="seller" checked />
                   I want to be a seller
                 </label>
-                <label class="radio">
+                <label class="radio p-0">
                   <input type="radio" name="userType" value="buyer" />
                   I want to be a buyer
                 </label>
