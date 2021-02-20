@@ -506,7 +506,8 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 3%;
   text-align: start;
-  background-color: red;
+
+  margin-right: 5%;
   min-width: 200px;
 }
 .job-box-header {
@@ -1282,7 +1283,8 @@
   flex-wrap: wrap;
 }
 .tag {
-  width: max-content;
+  min-width: 50px;
+
   background-color: rgb(207, 206, 206);
   height: fit-content;
   padding-top: 0.5%;

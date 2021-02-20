@@ -685,18 +685,15 @@ function explorePage() {
         let newSortedData;
         sortingFactor = getChecked(values)[0];
         getFiltered().then((response) => {
-          newSortedData = sortData(response[0], sortingFactor, sortingOrder);
           clearDisplayTask();
-          // console.log(newSortedData);
-          // console.log("Displaying");
-          // console.log(newSortedData);
-          // displayTasks(newSortedData);
-          console.log(newSortedData);
-          displaySorted(newSortedData);
+          if (sortingOrder == "D") {
+            newSortedData = sortData(response[0], sortingFactor).reverse();
+            displayTasks(newSortedData);
+          } else {
+            newSortedData = sortData(response[0], sortingFactor);
+            displayTasks(newSortedData);
+          }
         });
-
-        // sortData(data, sortingFactor, sortingOrder);
-        // console.log(sortingFactor);
       } else if (inputForms.classList.contains("sortOrder")) {
         let values = [];
         let radioValues = Array.from(inputForms.children[1].children[0]);
@@ -1086,40 +1083,17 @@ function explorePage() {
 
   // function filterByDeadline(dataToFilter, filteringDeadlineFactor) {}
 
-  function sortData(dataToFilter, sortingFactor, sortingOrder = ["A"]) {
-    let sortedPicks;
-    dataToFilter.sort(function (a, b) {
-      if (sortingFactor == "D") {
-        console.log("Sorting By " + sortingFactor[0]);
-        if (sortingOrder == "D") {
-          sortedPicks = data.slice().sort((a, b) => b.date - a.date);
-        } else {
-          sortedPicks = data.slice().sort((b, a) => b.date - a.date);
-        }
-      } else if (sortingFactor == "P") {
-        console.log("Sorting By " + sortingFactor[0]);
-        if (sortingOrder == "D") {
-          sortedPicks = data.sort(
-            (a, b) => Number(b.payPrice) - Number(a.payPrice)
-          );
-        } else {
-          sortedPicks = data.sort(
-            (b, a) => Number(b.payPrice) - Number(a.payPrice)
-          );
-        }
-      } else if (sortingFactor == "Pouplarity") {
-        console.log("Sorting By " + sortingFactor[0]);
-        if (sortingOrder == "D") {
-          sortedPicks = data.slice().sort((a, b) => b.hitCount - a.hitCount);
-        } else {
-          sortedPicks = data.slice().sort((b, a) => b.hitCount - a.hitCount);
-        }
-      } else {
-        sortedPicks = dataToFilter;
-      }
-    });
-    // console.log(sortedPicks);
-    return sortedPicks;
+  function sortData(dataToFilter, sortingFactor) {
+    if (sortingFactor == "Price") {
+      dataToFilter.sort(function (a, b) {
+        return parseFloat(a.payPrice) - parseFloat(b.payPrice);
+      });
+    } else {
+      dataToFilter.sort(function (a, b) {
+        return a.jobAddedDate - b.jobAddedDate;
+      });
+    }
+    return dataToFilter;
   }
 
   function displayTasks(dataToDisplay) {
@@ -1130,7 +1104,7 @@ function explorePage() {
                       <div class="single-job-box">
                         <div class="job-box-header">${data.jobName}</div>
                         <div class="job-box-sub-header">Username</div>
-                        <p class=job-box-description">
+                        <p class="job-box-description">
                           ${data.jobCategory}
                         </p>
 
