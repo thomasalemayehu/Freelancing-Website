@@ -317,10 +317,13 @@
     <script src="./assets/js/signUp.js" type="module"></script>
     <script src="./assets/js/model.js" type="module"></script>
     <!--scroll bar-->
-    <script>
+    <script type="module">
       $(window).scroll(() => {
         $("nav").toggleClass("scrolled", $(this).scrollTop() > 50);
       });
+
+      import { signUpMain } from "./assets/js/Controller.js";
+      signUpMain();
     </script>
   </body>
 </html>

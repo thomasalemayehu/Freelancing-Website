@@ -19,7 +19,7 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
     />
 
-    <!-- Font Awesome Link -->
+    <!-- Fontawesome Link -->
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
@@ -27,10 +27,11 @@
 
     <!-- Link Local CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/query.css" />
   </head>
 
   <body>
-    <!-- Navigation Section -->
+    <!-- Navigation Bar -->
     <nav
       class="navbar navbar-expand-lg py-0 m-0 navbar-dark fixed-top bg-white"
     >
@@ -54,40 +55,25 @@
               <a
                 class="nav-link nav-link-transparent"
                 aria-current="page"
-                href="#home-section"
-                >Home</a
+                href="./home.html"
+                >Dashboard</a
               >
             </li>
 
             <li class="nav-item">
-              <a
-                class="nav-link nav-link-transparent"
-                href="#how-it-works-section"
-                >How it works</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="#explore-section"
+              <a class="nav-link nav-link-transparent" href="./explore.html"
                 >Explore</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="#about-us-section"
-                >About us</a
-              >
+              <a class="nav-link nav-link-transparent" href="#">
+                <i class="far fa-bell"></i>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="./login.html"
-                >Login</a
-              >
-            </li>
-            <li class="nav-item sign-up-item">
-              <a
-                class="nav-link n av-link-transparent sign-up-link"
-                href="./signUp.html"
-                style="color: black"
-                >Sign Up</a
-              >
+              <a class="nav-link nav-link-transparent" href="#">
+                <i class="fas fa-user-circle"></i>
+              </a>
             </li>
           </ul>
         </div>
@@ -95,35 +81,35 @@
     </nav>
 
     <form class="container user-detail-container">
-      <p class="user-detail-title">A few more touches ...</p>
+      <p class="user-detail-title">Details about the job</p>
 
-      <!-- Full Name Input -->
+      <!-- Job Name , Price -->
       <div class="user-detail-name-container">
         <!-- First Name Input -->
         <div class="field user-detail-field">
-          <label class="label">First Name :</label>
+          <label class="label">Job Name :</label>
           <div class="control">
             <input
-              class="input first-name-input"
+              class="input first-name-input job-name-input"
               type="text"
-              placeholder="John"
+              placeholder="Logo Design"
             />
           </div>
         </div>
-        <!-- Last Name Input  -->
+        <!-- Price Input  -->
         <div class="field user-detail-field">
-          <label class="label">Last Name :</label>
+          <label class="label">Price :</label>
           <div class="control">
             <input
-              class="input last-name-input"
-              type="text"
-              placeholder="Doe"
+              class="input last-name-input price-input"
+              type="number"
+              placeholder="125"
             />
           </div>
         </div>
       </div>
 
-      <!-- Email , DOB and Country Input -->
+      <!-- Email , Deadline -->
       <div class="user-detail-name-container">
         <!-- Email Input -->
         <div class="field email-detail-field">
@@ -138,14 +124,14 @@
         </div>
 
         <div class="user-detail-field inner-detail-container">
-          <!-- Date of Birth Input  -->
+          <!-- Deadline  -->
           <div class="field date-of-birth-detail-field">
-            <label class="label">Date of Birth :</label>
+            <label class="label">Deadline :</label>
             <div class="control">
               <input
-                class="input date-of-birth-input"
+                class="input date-of-birth-input deadline-input"
                 type="date"
-                max="2003-11-02"
+                min="2020-15-17"
               />
             </div>
           </div>
@@ -170,32 +156,19 @@
         </div>
       </div>
 
-      <!-- Gender -->
-      <div class="user-detail-name-container">
-        <div class="control">
-          <label class="radio">
-            <input type="radio" name="Gender" value="Male" />
-            Male
-          </label>
-          <label class="radio">
-            <input type="radio" name="Gender" value="Female" />
-            Female
-          </label>
-        </div>
-      </div>
-
-      <!-- Skill and Language Input -->
+      <!-- Category and Language Input -->
       <div class="user-detail-name-container">
         <!-- Skills -->
         <div class="field skills-detail-field">
-          <p class="skill-title">Select Your Top Skills</p>
+          <p class="skill-title">Select the category</p>
 
           <div class="skills-container-main">
             <!-- Left Side Skill -->
             <div class="skill-container-inner">
               <label class="checkbox checkbox-container">
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="category"
                   class="skills-checkbox"
                   value="Digital Marketing"
                 />
@@ -203,7 +176,8 @@
               </label>
               <label class="checkbox checkbox-container">
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="category"
                   class="skills-checkbox"
                   value="Writing and Content"
                 />
@@ -211,7 +185,8 @@
               </label>
               <label class="checkbox checkbox-container">
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="category"
                   class="skills-checkbox"
                   value="Translation"
                 />
@@ -219,7 +194,8 @@
               </label>
               <label class="checkbox checkbox-container">
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="category"
                   class="skills-checkbox"
                   value="Lifestyle"
                 />
@@ -227,7 +203,8 @@
               </label>
               <label class="checkbox checkbox-container">
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="category"
                   class="skills-checkbox"
                   value="Business"
                 />
@@ -239,7 +216,8 @@
             <div class="skill-container-inner">
               <label class="checkbox checkbox-container">
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="category"
                   class="skills-checkbox"
                   value="Graphics and Design"
                 />
@@ -247,7 +225,8 @@
               </label>
               <label class="checkbox checkbox-container">
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="category"
                   class="skills-checkbox"
                   value="Music and Audio"
                 />
@@ -255,7 +234,8 @@
               </label>
               <label class="checkbox checkbox-container">
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="category"
                   class="skills-checkbox"
                   value="Programming and Development"
                 />
@@ -263,7 +243,8 @@
               </label>
               <label class="checkbox checkbox-container">
                 <input
-                  type="checkbox"
+                  type="radio"
+                  name="category"
                   class="skills-checkbox"
                   value="Video and Animation"
                 />
@@ -275,7 +256,7 @@
 
         <!-- Languages -->
         <div class="field language-detail-field">
-          <p class="language-title">Select Languages You are Fluent at</p>
+          <p class="language-title">Select Languages that can be used</p>
 
           <div class="language-container-main">
             <!-- Left Side Languages -->
@@ -329,6 +310,7 @@
                 English
               </label>
             </div>
+
             <!-- Right Side Languages -->
             <div class="language-container-inner">
               <label class="checkbox checkbox-container">
@@ -368,132 +350,6 @@
         </div>
       </div>
 
-      <!-- Education Input -->
-      <div class="user-detail-name-container">
-        <div class="education-container">
-          <p class="education-title">Education</p>
-          <div class="education-top-container">
-            <!-- Educational Institution Name -->
-            <div class="field education-field">
-              <label class="label">Education Institution :</label>
-              <div class="control">
-                <input
-                  class="input education-institution-input"
-                  type="text"
-                  placeholder="Addis Ababa University"
-                />
-              </div>
-            </div>
-
-            <!-- Level Of Study -->
-            <div class="field education-field">
-              <label class="label">Level Of Study :</label>
-              <div class="control">
-                <!-- <input class="input" type="text" placeholder="Text input"> -->
-                <div class="select">
-                  <select class="level-of-study">
-                    <option value="">High School</option>
-                    <option value="">Bachelors Degree</option>
-                    <option value="">Masters Degree</option>
-                    <option value="">Doctorate Degree</option>
-                    <option value="">Other</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Name of Certification -->
-            <div class="field education-field">
-              <label class="label">Name of Certification :</label>
-              <div class="control">
-                <input
-                  class="input education-certification-input"
-                  type="text"
-                  placeholder="Bsc"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="education-bottom-container">
-            <div class="control">
-              <input
-                class="input education-upload-file"
-                type="file"
-                placeholder=".pdf"
-              />
-            </div>
-
-            <img class="education-preview img-fluid" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Experience Input -->
-      <div class="user-detail-name-container">
-        <div class="experience-container">
-          <p class="experience-title">Experience</p>
-          <div class="experience-top-container">
-            <!--  Institution Name -->
-            <div class="field experience-field">
-              <label class="label">Institution Name :</label>
-              <div class="control">
-                <input
-                  class="input experience-institution-input"
-                  type="text"
-                  placeholder="AAIT"
-                />
-              </div>
-            </div>
-
-            <!-- Position -->
-            <div class="field experience-field">
-              <label class="label">Position of Experience :</label>
-              <div class="control">
-                <input
-                  class="input experience-position-input"
-                  type="text"
-                  placeholder="Manager"
-                />
-              </div>
-            </div>
-
-            <!-- Name of Certification -->
-            <div class="field experience-field">
-              <label class="label experience-dates-label-container">
-                <p class="experience-dates-label">From :</p>
-                <p class="experience-dates-label">To :</p>
-              </label>
-              <div class="control experience-dates-container">
-                <input
-                  class="input experience-dates experience-from"
-                  type="date"
-                  placeholder="Text input"
-                  min="2020-11-02"
-                />
-                <input
-                  class="input experience-dates experience-to"
-                  type="date"
-                  placeholder="Text input"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="experience-bottom-container">
-            <div class="control">
-              <input
-                class="input experience-file-upload"
-                type="file"
-                placeholder="Text input"
-              />
-            </div>
-
-            <img class="experience-preview img-fluid" />
-          </div>
-        </div>
-      </div>
-
       <!-- More Info -->
       <div class="user-detail-name-container">
         <div class="more-info-container">
@@ -503,7 +359,7 @@
               <label for="" class="label">Description :</label>
               <textarea
                 class="textarea description-input"
-                placeholder="Write a short description about yourself and what you do here. Include general experience if any"
+                placeholder="e.g. Hello world"
               ></textarea>
             </div>
 
@@ -512,11 +368,7 @@
               <div class="control">
                 <div class="select">
                   <select name="" id="" class="currency-drop">
-                    <option value="">Ethiopian Birr</option>
-                    <option value="">Sudanese Pound</option>
-                    <option value="">Kenyan Shilling</option>
-                    <option value="">Rwandan Franc</option>
-                    <option value="">Us Dollar</option>
+                    <option value="">Birr ETB</option>
                   </select>
                 </div>
               </div>
@@ -540,17 +392,6 @@
                   </select>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="more-info-bottom">
-            <p class="more-info-inner-title">Select Your Avatar</p>
-            <div class="more-info-avatar-container">
-              <div class="avatar-container avatar-1"></div>
-              <div class="avatar-container avatar-2"></div>
-              <div class="avatar-container avatar-3"></div>
-              <div class="avatar-container avatar-4"></div>
-              <div class="avatar-container avatar-5"></div>
             </div>
           </div>
         </div>
@@ -661,11 +502,13 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Local JS Link -->
+
     <script src="./assets/js/Controller.js" type="module"></script>
     <script src="./assets/js/model.js" type="module"></script>
     <script type="module">
-      import { registerInfoMain } from "./assets/js/Controller.js";
-      registerInfoMain();
+      import { addPage } from "./assets/js/Controller.js";
+      addPage();
     </script>
   </body>
 </html>

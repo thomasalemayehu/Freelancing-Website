@@ -1,16 +1,52 @@
-import { openDB, deleteDB, wrap, unwrap } from "https://unpkg.com/idb?module";
+import {
+  openDB,
+  deleteDB,
+  wrap,
+  unwrap,
+} from "../../node_modules/idb/with-async-ittr.js";
 //   Username Validating Function
 
 //   Function to add new user to DB
-async function addUserToDB(userName, password, accountType) {
-  try {
-    let db = await openDB("Jobber", 1, {
-      upgrade(db) {
-        db.createObjectStore("Users", { keyPath: "userName" });
-        db.createObjectStore("UserDetails", { keyPath: "userName" });
-      },
-    });
+async function addUserToDB(
+  userName,
+  password,
+  accountType,
+  userNameLabel,
+  userNameInput,
+  passwordInput,
+  confirmPasswordInput
+) {
+  let db = await openDB("Jobber", 1, {
+    upgrade(db) {
+      db.createObjectStore("Users", { keyPath: "userName" });
+      db.createObjectStore("UserDetails", { keyPath: "userName" });
+      let objectStore = db.createObjectStore("Jobs", {
+        keyPath: "id",
+        autoIncrement: true,
+      });
+      db.createObjectStore("FilterSave", {
+        keyPath: "id",
+        autoIncrement: true,
+      });
+      db.createObjectStore("SortSave", {
+        keyPath: "id",
+        autoIncrement: true,
+      });
 
+      let objectStore2 = db.createObjectStore("NotificationsCenter", {
+        keyPath: "id",
+        autoIncrement: true,
+      });
+
+      objectStore2.createIndex("Status", "Status", { unique: false });
+
+      objectStore.createIndex("Category", "jobCategory", { unique: false });
+      objectStore.createIndex("Price", "payPrice", { unique: false });
+      objectStore.createIndex("User", "jobAddedBy", { unique: false });
+    },
+  });
+
+  try {
     await db.add("Users", {
       userName: userName,
       password: hashPassword(password),
@@ -18,24 +54,17 @@ async function addUserToDB(userName, password, accountType) {
     });
 
     db.close();
-
-    // clear input labels
-    // setInput(userNameInput);
-    // setInput(passwordInput);
-    // setInput(confirmPasswordInput);
-
     // Redirect to More info page
-    if (accountType == "seller") {
-      window.location.href = `../../RegisterInfo.html?id=${userName}`;
-    } else {
-      console.log("Buyer");
-    }
-  } catch (error) {
-    // if (error.message.toString().includes("Key already exists")) {
-    //   setLabel(userNameLabel, "Username already in use");
-    //   addClass(userNameLabel, "warning");
-    // }
-    console.log(error);
+    window.location.href = `../../RegisterInfo.html?id=${userName}&type=${accountType}`;
+  } catch (e) {
+    setInput(userNameInput);
+    userNameInput.classList.add("is-danger");
+    setLabel(userNameLabel, "Username in use");
+    userNameLabel.style.color = "Red";
+    setInput(passwordInput);
+    passwordInput.classList.remove("is-success");
+    setInput(confirmPasswordInput);
+    confirmPasswordInput.classList.remove("is-success");
   }
 }
 
@@ -48,7 +77,7 @@ async function addUserDetail(itemToAdd) {
     });
 
     await db.add("UserDetails", itemToAdd);
-    window.location.href = `../../home.html?id=${itemToAdd.userName}`;
+    window.location.href = `../../home.html?id=${itemToAdd.userName}&type=${itemToAdd.accountType}`;
   } catch (e) {
     console.log(e);
   }
@@ -64,6 +93,54 @@ async function getUserDetail(id) {
   let db = await openDB("Jobber", 1);
   const userDetail = await db.get("UserDetails", id);
   return userDetail;
+}
+
+async function addJobToDB(itemToAdd, userName, userType) {
+  try {
+    let db = await openDB("Jobber", 1, {
+      upgrade(db) {
+        let objectStore = db.createObjectStore("Jobs", {
+          keyPath: "id",
+          autoIncrement: true,
+        });
+
+        objectStore.createIndex("Category", "jobCategory", { unique: false });
+        objectStore.createIndex("Price", "payPrice", { unique: false });
+        objectStore.createIndex("User", "jobAddedBy", { unique: false });
+      },
+    });
+
+    await db.add("Jobs", itemToAdd);
+    window.location.href = `../../home.html?id=${userName}&type=${userType}`;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+async function getAllJobs(filterValue) {
+  let db = await openDB("Jobber", 1);
+  let allJobs = await db.getAllFromIndex("Jobs", filterValue);
+  return allJobs;
+}
+
+async function getAllDBJobs() {
+  let db = await openDB("Jobber", 1);
+  let values = await db.getAll("Jobs");
+  return values;
+}
+
+async function saveFiltered(itemToSave) {
+  let db = await openDB("Jobber", 1);
+
+  await db.clear("FilterSave");
+  await db.add("FilterSave", itemToSave);
+}
+
+async function getFiltered() {
+  let db = await openDB("Jobber", 1);
+  let value = await db.getAll("FilterSave");
+
+  return value;
 }
 // Clearing Function
 
@@ -106,29 +183,7 @@ function passwordValidator(passwordInput, passwordLabel) {
   return isValidated;
 }
 // Validating Confirm Password
-function confirmPasswordValidator(
-  confirmPasswordInput,
-  confirmPasswordLabel,
-  passwordInput
-) {
-  let isValidated;
-  let passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,14}$/;
-  if (
-    passwordRegEx.test(confirmPasswordInput.value) &&
-    confirmPasswordInput.value == passwordInput
-  ) {
-    removeClass(confirmPasswordInput, "is-danger");
-    addClass(confirmPasswordInput, "is-success");
 
-    isValidated = "Validated";
-  } else {
-    removeClass(confirmPasswordInput, "is-success");
-    addClass(confirmPasswordInput, "is-danger");
-    isValidated = "";
-  }
-
-  return isValidated;
-}
 // Name Validating
 
 // Password Hashing Function
@@ -140,7 +195,6 @@ function hashPassword(password) {
     hashedPassword += password.charCodeAt(i);
   }
   return hashedPassword;
-  return password;
 }
 
 function setLabel(element, value = "") {
@@ -160,7 +214,6 @@ function removeClass(element, className) {
 export {
   userNameValidator,
   passwordValidator,
-  confirmPasswordValidator,
   hashPassword,
   setLabel,
   setInput,
@@ -169,4 +222,9 @@ export {
   addUserDetail,
   getUser,
   getUserDetail,
+  addJobToDB,
+  getAllJobs,
+  saveFiltered,
+  getFiltered,
+  getAllDBJobs,
 };

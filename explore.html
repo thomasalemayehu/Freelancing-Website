@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobber</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Font Link -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Animate On Scroll CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Linking Local CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg py-0 m-0 navbar-dark fixed-top bg-white"
+    >
+      <div class="container-fluid py-3 px-4 navigation-container">
+        <img class="navbar-brand" src="./assets/image/Jobber Logo.svg" />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link nav-link-transparent"
+                aria-current="page"
+                href="./home.html"
+                >Dashboard</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link nav-link-transparent" href="./explore.html"
+                >Explore</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-transparent" href="#">
+                <i class="far fa-bell"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-transparent" href="#">
+                <i class="fas fa-user-circle"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Filter Navigation -->
+    <div class="filter-sort-navigation">
+      <div class="filter-section">
+        <!-- Price Filter -->
+        <div class="dropdown price">
+          <button
+            class="btn dropdown-toggle"
+            type="button"
+            id="priceFilterDropDown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Price Range
+          </button>
+          <div
+            class="dropdown-menu dropdown-menu-price"
+            aria-labelledby="priceFilterDropDown"
+          >
+            <div class="inner-menu-container-price">
+              <form class="dropdown-item-container-price price">
+                <label for="priceMin" class="dropdown-label-price">Min.</label>
+                <input
+                  type="text"
+                  class="dropdown-item dropdown-item-price"
+                  placeholder="E 12"
+                />
+              </form>
+              <form class="dropdown-item-container-price price">
+                <label for="priceMin" class="dropdown-label-price">Max.</label>
+                <input
+                  type="text"
+                  class="dropdown-item dropdown-item-price"
+                  placeholder="E 100"
+                />
+              </form>
+            </div>
+            <div class="apply-container">
+              <div class="clear-button">Clear</div>
+              <div class="apply-button">Apply</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="dropdown category">
+          <button
+            class="btn dropdown-toggle"
+            type="button"
+            id="categoryFilterDropDown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Category
+          </button>
+          <div
+            class="dropdown-menu dropdown-menu-category"
+            aria-labelledby="categoryFilterDropDown"
+          >
+            <div class="inner-menu-container-category">
+              <!-- Left Side -->
+              <form class="dropdown-item-container-category category">
+                <!-- Graphics and Design -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="category-input"
+                    value="Graphics and Design"
+                  />
+                  <label for="" class="category-label">Graphics & Design</label>
+                </div>
+
+                <!-- Video and Motion Animation -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="category-input"
+                    value="Video and Motion"
+                  />
+                  <label for="" class="category-label">Video & Motion </label>
+                </div>
+
+                <!-- Programming and Development -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="category-input"
+                    value="Programming and Development"
+                  />
+                  <label for="" class="category-label"
+                    >Programming & Development</label
+                  >
+                </div>
+
+                <!-- Music and Audio -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="category-input"
+                    value="Music and Audio"
+                  />
+                  <label for="" class="category-label">Music & Audio</label>
+                </div>
+              </form>
+
+              <!-- Right Side -->
+              <form class="dropdown-item-container-category category">
+                <!-- Digital Marketing -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="category-input"
+                    value="Digital Marketing"
+                  />
+                  <label for="" class="category-label"
+                    >Digital Marketing
+                  </label>
+                </div>
+
+                <!-- Writing & Translation -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="category-input"
+                    value="Writing and Translation"
+                  />
+                  <label for="" class="category-label"
+                    >Writing & Translation
+                  </label>
+                </div>
+
+                <!-- Business -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="category-input"
+                    value="Business"
+                  />
+                  <label for="" class="category-label">Business </label>
+                </div>
+
+                <!-- Lifestyle -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="category-input"
+                    value="Lifestyle"
+                  />
+                  <label for="" class="category-label">Lifestyle </label>
+                </div>
+              </form>
+            </div>
+            <div class="apply-container">
+              <div class="clear-button">Clear</div>
+              <div class="apply-button">Apply</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Language Filter -->
+        <div class="dropdown language">
+          <button
+            class="btn dropdown-toggle"
+            type="button"
+            id="langaugeFilterDropDown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Language
+          </button>
+          <div
+            class="dropdown-menu dropdown-menu-language"
+            aria-labelledby="langaugeFilterDropDown"
+          >
+            <div class="inner-menu-container-category">
+              <!-- Left Side -->
+              <form class="dropdown-item-container-category language">
+                <!-- Amharic -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="langauge-input"
+                    value="Amharic"
+                  />
+                  <label for="" class="category-label">Amharic</label>
+                </div>
+
+                <!-- Afan Oromo -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="langauge-input"
+                    value="Afan Oromo"
+                  />
+                  <label for="" class="category-label">Afan Oromo </label>
+                </div>
+
+                <!-- Tigrigna -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="langauge-input"
+                    value="Tigrigna"
+                  />
+                  <label for="" class="category-label">Tigrigna</label>
+                </div>
+
+                <!-- Afar -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input type="checkbox" class="langauge-input" value="Afar" />
+                  <label for="" class="category-label">Afar</label>
+                </div>
+
+                <!-- Somali -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="langauge-input"
+                    value="Somali"
+                  />
+                  <label for="" class="category-label">Somali</label>
+                </div>
+              </form>
+
+              <!-- Right Side -->
+              <form class="dropdown-item-container-category language">
+                <!-- English -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="langauge-input"
+                    value="English"
+                  />
+                  <label for="" class="category-label">English</label>
+                </div>
+
+                <!-- Swahili -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="langauge-input"
+                    value="Swahili"
+                  />
+                  <label for="" class="category-label">Swahili </label>
+                </div>
+
+                <!-- Arabic -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="langauge-input"
+                    value="Arabic"
+                  />
+                  <label for="" class="category-label">Arabic</label>
+                </div>
+
+                <!-- French -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="langauge-input"
+                    value="French"
+                  />
+                  <label for="" class="category-label">French</label>
+                </div>
+
+                <!-- Portuguese -->
+                <div class="dropdown-item dropdown-item-category">
+                  <input
+                    type="checkbox"
+                    class="langauge-input"
+                    value="Portuguese"
+                  />
+                  <label for="" class="category-label">Portuguese</label>
+                </div>
+              </form>
+            </div>
+            <div class="apply-container">
+              <div class="clear-button">Clear</div>
+              <div class="apply-button">Apply</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sorting Section -->
+      <div class="sort-section">
+        <!-- Sort By Section -->
+        <div class="dropdown sortBy">
+          <button
+            class="btn dropdown-toggle"
+            type="button"
+            id="sortByDropDown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Sort By
+          </button>
+          <div class="dropdown-menu" aria-labelledby="sortByDropDown">
+            <form
+              class="dropdown-item-container-category dropdown-item-container-deadline"
+            >
+              <!-- Price -->
+              <div class="dropdown-item dropdown-item-category">
+                <input
+                  type="radio"
+                  name="sortBy"
+                  class="sortBy-input"
+                  value="Price"
+                />
+                <label for="" class="category-label">Price</label>
+              </div>
+
+              <!-- Date -->
+              <div class="dropdown-item dropdown-item-category">
+                <input
+                  type="radio"
+                  name="sortBy"
+                  class="sortBy-input"
+                  value="Date"
+                />
+                <label for="" class="category-label">Date </label>
+              </div>
+
+              <!-- Popularity -->
+              <div class="dropdown-item dropdown-item-category">
+                <input
+                  type="radio"
+                  name="sortBy"
+                  class="sortBy-input"
+                  value="Pouplarity"
+                />
+                <label for="" class="category-label">Popularity</label>
+              </div>
+            </form>
+            <div class="apply-container">
+              <div class="clear-button">Clear</div>
+              <div class="apply-button">Apply</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sort Order Section -->
+        <div class="dropdown sortOrder">
+          <button
+            class="btn dropdown-toggle"
+            type="button"
+            id="sortOrderDropDown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Sort Order
+          </button>
+          <div class="dropdown-menu" aria-labelledby="sortOrderDropDown">
+            <form
+              class="dropdown-item-container-category dropdown-item-container-deadline"
+            >
+              <!-- Ascending -->
+              <div class="dropdown-item dropdown-item-category">
+                <input
+                  type="radio"
+                  name="sortOrder"
+                  class="sortOrder-input"
+                  value="A"
+                />
+                <label for="" class="category-label">Ascending</label>
+              </div>
+
+              <!-- Descending -->
+              <div class="dropdown-item dropdown-item-category">
+                <input
+                  type="radio"
+                  name="sortOrder"
+                  class="sortOrder-input"
+                  value="D"
+                />
+                <label for="" class="category-label">Descending </label>
+              </div>
+            </form>
+            <div class="apply-container">
+              <div class="clear-button">Clear</div>
+              <div class="apply-button">Apply</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tag Section -->
+    </div>
+
+    <div class="tag-section">
+      <div class="filter-tag-section"></div>
+      <div class="sort-tag-section"></div>
+    </div>
+
+    <div class="container content-section">
+      <div class="row"></div>
+    </div>
+
+    <!-- Bootstrap CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!--waypoints library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <!--counter-up library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <!-- Animate On Scroll CDN -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Link to Local CSS -->
+    <script src="./assets/js/Controller.js" type="module"></script>
+    <script src="./assets/js/model.js" type="module"></script>
+    <script type="module">
+      import { explorePage } from "./assets/js/Controller.js";
+      explorePage();
+    </script>
+    <!--scroll bar-->
+  </body>
+</html>
