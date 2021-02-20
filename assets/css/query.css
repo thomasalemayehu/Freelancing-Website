@@ -1,0 +1,268 @@
+/* No Support Screen Sizes*/
+@media screen and (min-width: 100px) and (max-width: 349px) {
+  .no-support-device {
+    display: inline;
+    text-align: center;
+  }
+  .perfect,
+  .search-container,
+  .page-wrapper,
+  .navbar,
+  .bg-gradiant,
+  .how-it-works-container,
+  .explore-container,
+  .app,
+  .acheivements-page-wrapper,
+  .footer {
+    display: none;
+  }
+}
+
+/* Xs Query */
+@media screen and (min-width: 349px) and (max-width: 576px) {
+  /* Navigation */
+  .navbar {
+    background-color: white !important;
+  }
+
+  .navbar-brand {
+    width: 130px;
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 30vh;
+    margin-top: 6%;
+  }
+  .nav-link {
+    font-size: 16px;
+    padding-right: 5%;
+    color: black !important;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+  }
+  .sign-up-item {
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+  }
+  /* Navigation */
+
+  /* Landing Page */
+  .perfect {
+    font-size: 30px;
+    margin-top: 25%;
+  }
+  /* Explore Page */
+  .explore-images {
+    width: 45px;
+  }
+  .explore-description {
+    font-size: 12px;
+  }
+  /* Explore Page */
+
+  /* About Page */
+  .gap {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5%;
+    font-weight: 400;
+  }
+  /* Landing Page */
+  .welcome-card {
+    padding-left: 8%;
+    padding-right: 8%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+  }
+  .welcome-card-greeting {
+    font-size: 16px;
+  }
+  .welcome-card-time {
+    font-size: 40px;
+  }
+  .welcome-card-quote {
+    font-size: 14px;
+  }
+  .welcome-card-quote-person {
+    font-size: 12px;
+    text-align: start;
+  }
+  .welcome-statstics-main-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .welcome-statistics-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .welcome-statistics-card {
+    margin-left: 0%;
+    width: 100%;
+  }
+  .welcome-statistics {
+    font-size: 18px;
+    padding-bottom: 3%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .welcome-statstics-main {
+    font-size: 25px;
+    font-weight: 500;
+  }
+  .job-box-titles {
+    font-size: 22px;
+
+    margin-top: 5%;
+  }
+  .job-box-header {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .job-box-sub-header {
+    font-size: 10px;
+  }
+  .job-box-description {
+    font-size: 14px;
+  }
+  .job-box-container {
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+  }
+  .job-pricing-container {
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+  .job-pricing-container-price {
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  .carousel-control-prev {
+    transform: translateX(-60%);
+    -webkit-transform: translateX(-60%);
+    -moz-transform: translateX(-60%);
+    -ms-transform: translateX(-60%);
+    -o-transform: translateX(-60%);
+    height: 20px;
+    width: 20px;
+  }
+  .carousel-control-next {
+    transform: translateX(60%);
+    -webkit-transform: translateX(60%);
+    -moz-transform: translateX(60%);
+    -ms-transform: translateX(60%);
+    -o-transform: translateX(60%);
+    height: 20px;
+    width: 20px;
+  }
+  /* .footer {
+    display: none;
+  } */
+  .socials-container {
+    width: 35%;
+  }
+}
+/* S Query */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  /* Navigation */
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 30vh;
+    margin-top: 6%;
+  }
+  .nav-link {
+    font-size: 17px;
+    padding-right: 5%;
+    color: black !important;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+  }
+  .sign-up-item {
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+  }
+  /* Landing Page */
+  .perfect {
+    font-size: 30px;
+    margin-top: 18%;
+  }
+  .single {
+    margin-bottom: 5%;
+  }
+}
+/* Md Query */
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  /* Navigation */
+  .navbar {
+    background-color: white !important;
+  }
+
+  .navbar-brand {
+    width: 130px;
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 30vh;
+    margin-top: 6%;
+  }
+  .nav-link {
+    font-size: 18px;
+    padding-right: 5%;
+    color: black !important;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+  }
+  .sign-up-item {
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+  }
+  /* Landing Page */
+  .perfect {
+    font-size: 30px;
+    margin-top: 18%;
+  }
+  .single {
+    margin-bottom: 5%;
+  }
+  .acheivements-page-wrapper {
+    margin-bottom: 6%;
+  }
+  .single {
+    margin-bottom: 5%;
+  }
+}
+/* Lg Query */
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .navbar-nav {
+    width: 72%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-link {
+    font-size: 16px;
+  }
+}
+/* XL Query */
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
+}
+/* XXL Query */
+@media screen and (min-width: 1401px) {
+}
