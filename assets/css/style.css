@@ -432,7 +432,52 @@
 }
 
 /* Registration page */
+@media screen and (min-width: 349px) and (max-width: 576px){
+  .user-detail-container{
+    width: 100%;
+  }
+  .footer{
+    margin-top: 10vh;
+    padding-top: 5vh;
+  }
+  .user-detail-name-container{
+    padding-top: 2vh;
+  }
+  .more-info-bottom-container{
+    padding-top: 2vh;
+  }
+  .skills-container-main{
+    font-size: 14px;
+  }
+  .language-container-main{
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 655px) and (max-width : 895px){
+   .user-detail-container{
+    width: 100%;
+  }
+  .user-detail-name-container{
+    padding-right:20vh;
+    width: 80%;
+   
+  }
+  .footer{
+    margin-top: 10vh;
+    padding-top: 5vh;
+  }
+}
 
+@media screen and (min-width: 1200px){
+  .user-detail-container{
+    width: 100%;
+   
+  }
+  .footer{
+    margin-top: 20vh;
+    padding-top: 5vh;
+  }
+  }
 /* Seller Home Page Styles */
 .navbar {
   background-color: none;
