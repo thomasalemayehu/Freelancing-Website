@@ -439,7 +439,7 @@
 }
 
 .page-wrapper {
-  margin-top: 2%;
+  margin-top: 7%;
   width: 100%;
   padding: 0;
 }
@@ -492,6 +492,7 @@
   font-size: 40px;
 }
 .cards-container {
+  margin-top: 3%;
   padding-left: 4%;
   padding-right: 4%;
   margin-bottom: 5%;
@@ -509,6 +510,7 @@
 
   margin-right: 5%;
   min-width: 200px;
+  min-height: 200px;
 }
 .job-box-header {
   font-size: 22px;

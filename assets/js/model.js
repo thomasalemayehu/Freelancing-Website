@@ -117,9 +117,9 @@ async function addJobToDB(itemToAdd, userName, userType) {
   }
 }
 
-async function getAllJobs(filterValue) {
+async function getAllJobs(indexName, filterValue) {
   let db = await openDB("Jobber", 1);
-  let allJobs = await db.getAllFromIndex("Jobs", "Category", filterValue);
+  let allJobs = await db.getAllFromIndex("Jobs", indexName, filterValue);
   return allJobs;
 }
 

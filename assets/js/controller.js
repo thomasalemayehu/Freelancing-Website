@@ -241,79 +241,42 @@ function homeMain() {
   const userName = String(urlParams.get("id"));
   const userType = String(urlParams.get("type"));
 
-  if (userType == "buyer") {
-    const cardsContainer = Array.from(
-      document.querySelectorAll(".cards-container")
-    );
+  const userNameSpace = document.querySelector(".welcome-card-greeting");
+  const timeSpace = document.querySelector(".welcome-card-time");
+  const quoteSpace = document.querySelector(".welcome-card-quote");
+  const quoteAuthorSpace = document.querySelector(".welcome-card-quote-person");
+  //   Get Quote
+  let quoteOfTheDay = getQuote();
+  quoteSpace.innerHTML = quoteOfTheDay[0];
+  quoteAuthorSpace.innerHTML = quoteOfTheDay[1];
+  const cardsContainer = Array.from(
+    document.querySelectorAll(".cards-container")
+  );
 
-    //  Clearing Cards
-    cardsContainer.forEach((card) => {
-      card.innerHTML = "";
-    });
+  (function startTime() {
+    //retrieve date
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    //get the AM / PM value
+    let am_pm = h > 12 ? "PM" : "AM";
+    // Convert the hour to 12 format
+    h = h % 12 || 12;
+    // add zero
 
-    cardsContainer[0].innerHTML = `<button class="post-new-job">Post</button>`;
-    let postButton = document.querySelector(".post-new-job");
-    postButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      // addJobToDB(
-      //   {
-      //     jobName: "Job-2",
-      //     jobDescreption:
-      //       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque quaerat reiciendis nemo, maiores excepturi est.",
-      //     jobAddedBy: userName,
-      //     jobAddedDate: new Date(),
-      //     jobCategory: "Music and Audio",
-      //     deadline: new Date(2021, 2, 25),
-      //     payPrice: 62,
-      //     payCurrency: "Birr",
-      //     jobCountry: "Ethiopia",
-      //     jobLanguage: ["English", "French", "Afan Oromo"],
-      //   },
-      //   userName,
-      //   userType
-      // ).then(() => {
-      //   console.log("Posted Job");
-      // });
-      window.location.href = `../../addJob.html?id=${userName}`;
-    });
-  } else {
-    console.log("Seller");
-    const userNameSpace = document.querySelector(".welcome-card-greeting");
-    const timeSpace = document.querySelector(".welcome-card-time");
-    const quoteSpace = document.querySelector(".welcome-card-quote");
-    const quoteAuthorSpace = document.querySelector(
-      ".welcome-card-quote-person"
-    );
+    // Assign to the UI [p]
+    timeSpace.innerHTML = `${h}:${addZero(m)} ${am_pm}`;
+    setTimeout(startTime, 500);
+  })();
 
-    //   Fill Username space
-    getUserDetail(userName).then((userDetail) => {
-      let timeOfDay = getTimeOfDay();
-      let firstName = userDetail.fullName[0];
-      userNameSpace.innerText = `Good ${timeOfDay} ${firstName}`;
-    });
+  //   Fill Username space
 
-    //   Start Timer
-    (function startTime() {
-      //retrieve date
-      var today = new Date();
-      var h = today.getHours();
-      var m = today.getMinutes();
-      //get the AM / PM value
-      let am_pm = h > 12 ? "PM" : "AM";
-      // Convert the hour to 12 format
-      h = h % 12 || 12;
-      // add zero
-
-      // Assign to the UI [p]
-      timeSpace.innerHTML = `${h}:${addZero(m)} ${am_pm}`;
-      setTimeout(startTime, 500);
-    })();
-
-    //   Get Quote
-    let quoteOfTheDay = getQuote();
-    quoteSpace.innerHTML = quoteOfTheDay[0];
-    quoteAuthorSpace.innerHTML = quoteOfTheDay[1];
-  }
+  getUserDetail(userName).then((userDetail) => {
+    console.log(userDetail.fullName);
+    let timeOfDay = getTimeOfDay();
+    let firstName = userDetail.fullName[0];
+    userNameSpace.innerText = `Good ${timeOfDay} ${firstName}`;
+  });
 
   function addZero(i) {
     if (i < 10) {
@@ -339,36 +302,27 @@ function homeMain() {
     }
   }
 
-  (async function getUserSkills() {
-    let i = 0;
-    let userDetail = await getUserDetail(userName);
+  if (userType == "buyer") {
+    (async function setUpUser() {
+      let allJobs = await getAllJobs("User", userName);
+      allJobs = allJobs.reverse();
+      displayAllPostJobs(allJobs);
+    })();
 
-    let userSkills = userDetail.skills;
-    userSkills.forEach(async (skill) => {
-      let jobsBySkill = await getAllJobs(skill);
-      if (jobsBySkill.length > 0) {
-        displayAllJobs(jobsBySkill.reverse(), i);
-        i += 1;
-      }
-    });
-  })();
+    function displayAllPostJobs(allJobs) {
+      cardsContainer[0].innerHTML = `
+       <div class="row posts"> </div>
+      `;
 
-  function displayAllJobs(jobs, i) {
-    let categoriesContainer = document.querySelectorAll(".cards-container");
-    if (jobs[0]) {
-      let job = jobs[0];
-      console.log(jobs[0]);
-      let jobDes = job.jobDescription;
-      categoriesContainer[i].innerHTML = `
-    <p class="job-box-titles">${job.jobCategory}</p>
-        <div class="row">
-          <!-- Card 1 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+      let rowCont = document.querySelector(".posts");
+
+      allJobs.forEach((jobs) => {
+        rowCont.innerHTML += ` <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
             <div class="single-job-box">
-              <div class="job-box-header">${job.jobName}</div>
-              <div class="job-box-sub-header">${job.jobAddedBy}</div>
+              <div class="job-box-header">${jobs.jobName}</div>
+              <div class="job-box-sub-header">${jobs.jobAddedBy}</div>
               <p class="job-box-description">
-                ${jobDes.substr(0, 120)}
+                ${jobs.jobDescription.substr(0, 120)}
               </p>
 
               <div class="job-box-container">
@@ -376,7 +330,63 @@ function homeMain() {
                 <div class="job-pricing-container">
                   Starting At
                   <span class="job-pricing-container-price">$${
-                    job.payPrice
+                    jobs.payPrice
+                  }</span>
+                </div>
+              </div>
+            </div>
+          </div>`;
+      });
+    }
+
+    //  Clearing Cards
+    cardsContainer.forEach((card) => {
+      card.innerHTML = "";
+    });
+
+    cardsContainer[0].innerHTML = `<button class="post-new-job">Post</button>`;
+    let postButton = document.querySelector(".post-new-job");
+    postButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = `../../addJob.html?id=${userName}`;
+    });
+  } else {
+    (async function getUserSkills() {
+      let i = 0;
+      let userDetail = await getUserDetail(userName);
+
+      let userSkills = userDetail.skills;
+      userSkills.forEach(async (skill) => {
+        let jobsBySkill = await getAllJobs("Category", skill);
+        if (jobsBySkill.length > 0) {
+          displayAllJobs(jobsBySkill.reverse(), i);
+          i += 1;
+        }
+      });
+    })();
+  }
+
+  function displayAllJobs(jobs, i = 0) {
+    let categoriesContainer = document.querySelectorAll(".cards-container");
+
+    categoriesContainer[i].innerHTML = `
+    <p class="job-box-titles">${jobs[0].jobCategory}</p>
+        <div class="row">
+          <!-- Card 1 -->
+          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+            <div class="single-job-box">
+              <div class="job-box-header">${jobs[0].jobName}</div>
+              <div class="job-box-sub-header">${jobs[0].jobAddedBy}</div>
+              <p class="job-box-description">
+                ${jobs[0].jobDescription.substr(0, 120)}
+              </p>
+
+              <div class="job-box-container">
+                
+                <div class="job-pricing-container">
+                  Starting At
+                  <span class="job-pricing-container-price">$${
+                    jobs[0].payPrice
                   }</span>
                 </div>
               </div>
@@ -386,40 +396,40 @@ function homeMain() {
           <!-- Card 2 -->
           <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
             <div class="single-job-box">
-              <div class="job-box-header">Graphics and Design</div>
-              <div class="job-box-sub-header">Username</div>
+              <div class="job-box-header">${jobs[1].jobName}</div>
+              <div class="job-box-sub-header">${jobs[1].jobAddedBy}</div>
               <p class="job-box-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
+                ${jobs[1].jobDescription.substr(0, 120)}
               </p>
 
               <div class="job-box-container">
                 
                 <div class="job-pricing-container">
                   Starting At
-                  <span class="job-pricing-container-price">$30</span>
+                  <span class="job-pricing-container-price">${
+                    jobs[1].payPrice
+                  }</span>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+         <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
             <div class="single-job-box">
-              <div class="job-box-header">Graphics and Design</div>
-              <div class="job-box-sub-header">Username</div>
+              <div class="job-box-header">${jobs[2].jobName}</div>
+              <div class="job-box-sub-header">${jobs[2].jobAddedBy}</div>
               <p class="job-box-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
+                ${jobs[2].jobDescription.substr(0, 120)}
               </p>
 
               <div class="job-box-container">
                 
                 <div class="job-pricing-container">
                   Starting At
-                  <span class="job-pricing-container-price">$30</span>
+                  <span class="job-pricing-container-price">${
+                    jobs[2].payPrice
+                  }</span>
                 </div>
               </div>
             </div>
@@ -428,27 +438,26 @@ function homeMain() {
           <!-- Card 4 -->
           <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
             <div class="single-job-box">
-              <div class="job-box-header">Graphics and Design</div>
-              <div class="job-box-sub-header">Username</div>
+              <div class="job-box-header">${jobs[3].jobName}</div>
+              <div class="job-box-sub-header">${jobs[2].jobAddedBy}</div>
               <p class="job-box-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
+                ${jobs[2].jobDescription.substr(0, 120)}
               </p>
 
               <div class="job-box-container">
                 
                 <div class="job-pricing-container">
                   Starting At
-                  <span class="job-pricing-container-price">$30</span>
+                  <span class="job-pricing-container-price">${
+                    jobs[2].payPrice
+                  }</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
     `;
-      i += 1;
-    }
+    i += 1;
   }
 }
 
@@ -529,6 +538,7 @@ function registerInfoMain() {
       inputForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        console.log(firstName);
         // Function to Find Selected Gender
 
         // Function to Find Selected Checkbox
@@ -746,6 +756,8 @@ function registerInfoMain() {
       // Getting Class value for storage
       selectedAvatarValue = e.target.classList[1];
     });
+    let firstName = document.querySelector(".first-name-input");
+    let lastName = document.querySelector(".last-name-input");
     inputForm.addEventListener("submit", (e) => {
       e.preventDefault();
       let userDetail = {
@@ -761,6 +773,8 @@ function registerInfoMain() {
         currency: currency.value,
         avatar: selectedAvatarValue,
       };
+
+      console.log(firstName);
 
       addUserDetail(userDetail);
     });
@@ -990,6 +1004,22 @@ function explorePage() {
         }
       }
       // If Deadline
+      else if (inputForms[0].classList.contains("deadline")) {
+        let containers = Array.from(inputForms[0].parentElement);
+        let values = [];
+        containers.forEach((container) => {
+          values.push(container);
+        });
+
+        //   console.log(values);
+        deadline = getChecked(values);
+        inputForms[0].parentElement.parentElement.parentElement.children[0].classList.add(
+          "activated-filter"
+        );
+        //   console.log(checked);
+
+        createFilterTag("Deadline", "Deadline");
+      }
     } else {
       console.log("Out");
     }
@@ -1195,15 +1225,14 @@ function explorePage() {
 
   function displayTasks(dataToDisplay) {
     dataToDisplay.forEach((data) => {
-      let descData = data.jobDescription;
-      contentSection.children[0].innerHTML += `
-        
-        <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+      contentSection.children[0].innerHTML += `  
+                   
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
                       <div class="single-job-box">
-                        <div class="job-box-header">${data.jobCategory}</div>
-                        <div class="job-box-sub-header">${data.jobAddedBy}</div>
+                        <div class="job-box-header">${data.jobName}</div>
+                        <div class="job-box-sub-header">Username</div>
                         <p class="job-box-description">
-                          ${descData.slice(0, 120)}
+                          ${data.jobCategory}
                         </p>
 
                         <div class="job-box-container">
@@ -1212,15 +1241,42 @@ function explorePage() {
                           </div>
                           <div class="job-pricing-container">
                             Starting At
-                            <span class="job-pricing-container-price">$${
-                              data.payPrice
-                            }</span>
+                            <span class="job-pricing-container-price">$${data.payPrice}</span>
                           </div>
                         </div>
                       </div>
-                    </div>
-      `;
+                    </div>`;
     });
+  }
+
+  function displaySorted(dataToDisplay) {
+    console.log("Displaying Sorted");
+    // clearDisplayTask();
+    // contentSection.children[0].innerHTML = "";
+    // dataToDisplay.forEach((newData) => {
+    //   contentSection.children[0].innerHTML += `
+
+    //                 <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+    //                   <div class="single-job-box">
+    //                     <div class="job-box-header">${newData.jobCategory}</div>
+    //                     <div class="job-box-sub-header">Username</div>
+    //                     <p class=job-box-description">
+    //                       ${newData.jobCategory}
+    //                     </p>
+
+    //                     <div class="job-box-container">
+    //                       <div class="job-bookmark-container">
+    //                         <i class="far fa-bookmark"></i>
+    //                       </div>
+    //                       <div class="job-pricing-container">
+    //                         Starting At
+    //                         <span class="job-pricing-container-price">$${newData.payPrice}</span>
+    //                       </div>
+    //                     </div>
+    //                   </div>
+    //                 </div>`;
+    // });
+    console.log(dataToDisplay);
   }
 
   function clearDisplayTask() {
@@ -1228,7 +1284,6 @@ function explorePage() {
     contentSection.children[0].innerHTML = "";
   }
 }
-
 function addPage() {
   const urlParams = new URLSearchParams(window.location.search);
   const userName = String(urlParams.get("id"));

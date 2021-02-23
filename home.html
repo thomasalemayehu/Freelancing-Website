@@ -47,9 +47,11 @@
 
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+      <nav
+      class="navbar navbar-expand-lg py-0 m-0 navbar-dark fixed-top bg-light"
+    >
+      <div class="container-fluid py-3 px-4 navigation-container">
+        <img class="navbar-brand" src="./assets/image/Jobber Logo.svg" />
         <button
           class="navbar-toggler"
           type="button"
@@ -61,55 +63,34 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+                class="nav-link nav-link-transparent"
+                aria-current="page"
+                href="./home.html"
+                >Dashboard</a
               >
-                Dropdown
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link nav-link-transparent" href="./explore.html"
+                >Explore</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-transparent" href="#">
+                <i class="far fa-bell"></i>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                >Disabled</a
-              >
+              <a class="nav-link nav-link-transparent" href="#">
+                <i class="fas fa-user-circle"></i>
+              </a>
             </li>
           </ul>
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
         </div>
       </div>
     </nav>
@@ -171,92 +152,7 @@
 
       <!-- Category 1 -->
       <div class="container-fluid cards-container">
-        <p class="job-box-titles">Your Category</p>
-        <div class="row">
-          <!-- Card 1 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
-            <div class="single-job-box">
-              <div class="job-box-header">Graphics and Design</div>
-              <div class="job-box-sub-header">Username</div>
-              <p class="job-box-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
-              </p>
-
-              <div class="job-box-container">
-                
-                <div class="job-pricing-container">
-                  Starting At
-                  <span class="job-pricing-container-price">$30</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
-            <div class="single-job-box">
-              <div class="job-box-header">Graphics and Design</div>
-              <div class="job-box-sub-header">Username</div>
-              <p class="job-box-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
-              </p>
-
-              <div class="job-box-container">
-                
-                <div class="job-pricing-container">
-                  Starting At
-                  <span class="job-pricing-container-price">$30</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
-            <div class="single-job-box">
-              <div class="job-box-header">Graphics and Design</div>
-              <div class="job-box-sub-header">Username</div>
-              <p class="job-box-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
-              </p>
-
-              <div class="job-box-container">
-                
-                <div class="job-pricing-container">
-                  Starting At
-                  <span class="job-pricing-container-price">$30</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
-            <div class="single-job-box">
-              <div class="job-box-header">Graphics and Design</div>
-              <div class="job-box-sub-header">Username</div>
-              <p class="job-box-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
-              </p>
-
-              <div class="job-box-container">
-                
-                <div class="job-pricing-container">
-                  Starting At
-                  <span class="job-pricing-container-price">$30</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          <div class="row cards-row"></div>
       </div>
 
       <!-- Category 2 -->
