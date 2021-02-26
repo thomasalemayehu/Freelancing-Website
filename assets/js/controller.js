@@ -1068,6 +1068,291 @@ function homeMain() {
     }
   });
 }
+function profilePage() {
+  let editIcon = document.querySelector(".fa-edit");
+  editIcon.addEventListener("click", enableFormElements);
+  let firstNameInput = document.querySelector(".first-name-input");
+  let lastNameInput = document.querySelector(".last-name-input");
+  let emailInput = document.querySelector(".email-input");
+  let dateOfBirth = document.querySelector(".date-of-birth-input");
+  let countryDrop = document.querySelector(".country-input");
+  let genderRadios = Array.from(document.querySelectorAll(".gender-radio"));
+  let skillsCheckboxes = Array.from(
+    document.querySelectorAll(".skills-checkbox")
+  );
+  let languagesCheckboxes = Array.from(
+    document.querySelectorAll(".languages-checkbox")
+  );
+  let educationInstitution = document.querySelector(
+    ".education-institution-input"
+  );
+
+  let educationLevel = document.querySelector(".level-of-study");
+  let educationNameOfCertification = document.querySelector(
+    ".education-certification-input"
+  );
+
+  let educationPreview = document.querySelector(".education-preview");
+
+  let experienceInstitution = document.querySelector(
+    ".experience-institution-input"
+  );
+
+  let experiencePosition = document.querySelector(".experience-position-input");
+
+  let experienceDateFrom = document.querySelector(".experience-from");
+  let experienceDateTo = document.querySelector(".experience-to");
+  let experiencePreview = document.querySelector(".experience-preview");
+
+  let descriptionInput = document.querySelector(".description-input");
+  let currencyField = document.querySelector(".currency-drop");
+  let skillLevel = document.querySelector(".skill-drop");
+
+  let avatarContainer = document.querySelector(".more-info-avatar-container");
+
+  let educationUploadForm = document.querySelector(".education-upload-file");
+
+  let experienceUploadFrom = document.querySelector(".experience-file-upload");
+
+  let buttonContainer = document.querySelector(".button-container");
+
+  let avatarValue;
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = String(urlParams.get("id"));
+  const userType = String(urlParams.get("type"));
+  let saveButton = document.querySelectorAll(".submit-detail-button")[0];
+  saveButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await putUserDetail(
+      collectData(avatarValue.classList[avatarValue.classList.length - 1])
+    );
+    console.log(collectData());
+    disableFormElements();
+  });
+
+  let cancelButton = document.querySelectorAll(".submit-detail-button")[1];
+  cancelButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    fillData();
+    disableFormElements();
+  });
+
+  // Function to disable all form elements
+  function disableFormElements() {
+    firstNameInput.disabled = true;
+    lastNameInput.disabled = true;
+    emailInput.disabled = true;
+    dateOfBirth.disabled = true;
+    countryDrop.disabled = true;
+    educationInstitution.disabled = true;
+    educationLevel.disabled = true;
+    educationNameOfCertification.disabled = true;
+    experienceInstitution.disabled = true;
+    experiencePosition.disabled = true;
+    experienceDateFrom.disabled = true;
+    experienceDateTo.disabled = true;
+    descriptionInput.disabled = true;
+    currencyField.disabled = true;
+    skillLevel.disabled = true;
+    educationUploadForm.disabled = true;
+    experienceUploadFrom.disabled = true;
+    genderRadios.forEach((genderRadio) => {
+      genderRadio.disabled = true;
+    });
+
+    languagesCheckboxes.forEach((languagesCheckbox) => {
+      languagesCheckbox.disabled = true;
+    });
+
+    skillsCheckboxes.forEach((skillsCheckbox) => {
+      skillsCheckbox.disabled = true;
+    });
+  }
+  disableFormElements();
+
+  // Function to enable all form Elements
+  function enableFormElements() {
+    firstNameInput.disabled = false;
+    lastNameInput.disabled = false;
+    emailInput.disabled = false;
+    dateOfBirth.disabled = false;
+    countryDrop.disabled = false;
+    educationInstitution.disabled = false;
+    educationLevel.disabled = false;
+    educationNameOfCertification.disabled = false;
+    experienceInstitution.disabled = false;
+    experiencePosition.disabled = false;
+    experienceDateFrom.disabled = false;
+    experienceDateTo.disabled = false;
+    descriptionInput.disabled = false;
+    currencyField.disabled = false;
+    skillLevel.disabled = false;
+    educationUploadForm.disabled = false;
+    experienceUploadFrom.disabled = false;
+    genderRadios.forEach((genderRadio) => {
+      genderRadio.disabled = false;
+    });
+
+    languagesCheckboxes.forEach((languagesCheckbox) => {
+      languagesCheckbox.disabled = false;
+    });
+
+    skillsCheckboxes.forEach((skillsCheckbox) => {
+      skillsCheckbox.disabled = false;
+    });
+
+    removeClass(buttonContainer, "hide");
+  }
+
+  // Function to fill user Data
+  async function fillData() {
+    let userDetail = await getUserDetail(userName);
+    firstNameInput.value = userDetail.fullName[0];
+    lastNameInput.value = userDetail.fullName[1];
+    emailInput.value = userDetail.email;
+    dateOfBirth.value = userDetail.dateOfBirth;
+    countryDrop.value = userDetail.country;
+    educationInstitution.value = userDetail.education.educationInstitution;
+    educationLevel.value = userDetail.education.educationLevelOfStudy;
+    educationNameOfCertification.value =
+      userDetail.education.educationCertification;
+    educationPreview.setAttribute(
+      "src",
+      userDetail.education.educationUploadFileUrl
+    );
+
+    experienceDateFrom.value = userDetail.experience.experienceFromDate;
+    experienceDateTo.value = userDetail.experience.experienceToDate;
+    experiencePosition.value = userDetail.experience.experiencePosition;
+    experienceInstitution.value = userDetail.experience.experienceInstitution;
+    experiencePreview.setAttribute(
+      "src",
+      userDetail.experience.experienceUploadFileUrl
+    );
+    descriptionInput.value = userDetail.description;
+    currencyField.value = userDetail.currency;
+    skillLevel.value = userDetail.experienceLevel;
+
+    genderRadios.forEach((genderRadio) => {
+      if (genderRadio.value == userDetail.gender) {
+        genderRadio.checked = true;
+      }
+    });
+
+    let userSkills = userDetail.skills;
+    userSkills.forEach((userSkill) => {
+      skillsCheckboxes.forEach((skillsCheckbox) => {
+        if (skillsCheckbox.value == userSkill) {
+          skillsCheckbox.checked = true;
+        }
+      });
+    });
+
+    let userLanguages = userDetail.languages;
+    userLanguages.forEach((userLanguage) => {
+      languagesCheckboxes.forEach((languageCheckbox) => {
+        if (languageCheckbox.value == userLanguage) {
+          languageCheckbox.checked = true;
+        }
+      });
+    });
+
+    console.log(userDetail.avatar);
+    let avatars = Array.from(avatarContainer.children);
+    avatars.forEach((avatar) => {
+      if (avatar.classList.contains(userDetail.avatar)) {
+        avatarValue = avatar;
+        removeClass(avatar, "hide");
+      }
+    });
+  }
+
+  function collectData(avatarValue) {
+    let userDetail = {
+      // To Find ID from User DB
+      userName: userName,
+      // Profile Info
+      fullName: [firstNameInput.value, lastNameInput.value],
+      email: emailInput.value,
+      dateOfBirth: dateOfBirth.value,
+      dateOfRegistration: new Date(),
+      country: countryDrop.value,
+      gender: findCheckedGender(genderRadios),
+      accountType: userType,
+
+      skills: findSelected(skillsCheckboxes),
+      languages: findSelected(languagesCheckboxes),
+
+      education: {
+        educationInstitution: educationInstitution.value,
+        educationLevelOfStudy: educationLevel.value,
+        educationCertification: educationNameOfCertification.value,
+        educationUploadFileUrl: educationUploadForm,
+      },
+      experience: {
+        experienceInstitution: experienceInstitution.value,
+        experiencePosition: experiencePosition.value,
+        experienceFromDate: experienceDateFrom.value,
+        experienceToDate: experienceDateTo.value,
+        experienceUploadFileUrl: experienceUploadFrom,
+      },
+
+      experienceLevel: skillLevel.value,
+
+      description: descriptionInput.value,
+      currency: currencyField.value,
+      avatar: avatarValue,
+    };
+    console.log(typeof userDetail);
+
+    return userDetail;
+  }
+
+  fillData();
+
+  // console.log(
+  //   firstNameInput,
+  //   lastNameInput,
+  //   emailInput,
+  //   dateOfBirth,
+  //   countryDrop,
+  //   genderRadios,
+  //   skillsCheckboxes,
+  //   languagesCheckboxes,
+  //   educationInstitution,
+  //   educationLevel,
+  //   educationNameOfCertification,
+  //   educationPreview,
+  //   experienceInstitution,
+  //   experiencePosition,
+  //   experienceDateFrom,
+  //   experienceDateTo,
+  //   experiencePreview,
+  //   descriptionInput,
+  //   currencyField,
+  //   skillLevel,
+  //   avatarContainer,
+  //   editIcon
+  // );
+}
+
+function setDeadlineDate() {
+  let unformattedDate = new Date();
+  let fullYear = unformattedDate.getFullYear();
+  let month = unformattedDate.getMonth() + 1;
+  if (month < 10) {
+    month = "0" + month;
+  }
+
+  let day = unformattedDate.getDate();
+  if (day < 10) {
+    day = "0" + day;
+  }
+  let formattedDate = `${fullYear}-${month}-${day}`;
+  let deadlineInput = document.querySelector(".deadline-input");
+
+  deadlineInput.setAttribute("min", formattedDate);
+}
 
 function registerInfoMain() {
   const urlParams = new URLSearchParams(window.location.search);
