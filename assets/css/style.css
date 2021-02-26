@@ -430,118 +430,114 @@
 .inputs-requirements {
   width: 75%;
 }
+.user-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-detail-container {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.164);
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
 
 /* Registration page */
-@media screen and (min-width: 349px) and (max-width: 576px){
-  .user-detail-container{
+@media screen and (min-width: 349px) and (max-width: 576px) {
+  .user-detail-container {
     width: 100%;
   }
-  .footer{
+  .footer {
     margin-top: 10vh;
     padding-top: 5vh;
   }
-  .user-detail-name-container{
+  .user-detail-name-container {
     padding-top: 2vh;
   }
-  .more-info-bottom-container{
+  .more-info-bottom-container {
     padding-top: 2vh;
   }
-  .skills-container-main{
+  .skills-container-main {
     font-size: 14px;
   }
-  .language-container-main{
+  .language-container-main {
     font-size: 14px;
   }
-  .date-of-birth-detail-field{
+  .date-of-birth-detail-field {
     width: 20%;
     height: 20%;
   }
 }
-@media screen and (min-width: 655px) and (max-width : 895px){
-   .user-detail-container{
+@media screen and (min-width: 655px) and (max-width: 895px) {
+  .user-detail-container {
     width: 100%;
   }
-  .user-detail-name-container{
-    padding-right:20vh;
+  .user-detail-name-container {
+    padding-right: 20vh;
     width: 80%;
-   
   }
-  .skills-container-main{
+  .skills-container-main {
     font-size: 20px;
   }
-  .footer{
+  .footer {
     margin-top: 10vh;
     padding-top: 5vh;
   }
 }
 
-@media screen and (min-width: 1200px){
-  .user-detail-container{
+@media screen and (min-width: 1200px) {
+  .user-detail-container {
     width: 100%;
-   
   }
-  .footer{
+  .footer {
     margin-top: 20vh;
     padding-top: 5vh;
   }
+}
+
+/* explore page media */
+@media screen and (min-width: 100px) and (max-width: 900px) {
+  .filter-sort-navigation {
+    padding-top: 9vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
-
-
-
-  /* explore page media */
-@media screen and (min-width: 100px) and (max-width: 900px){
-    .filter-sort-navigation{
-      padding-top: 9vh; 
-      width: 100%;
-      display: flex;
-      flex-direction: column;    
-}
-  .tag-section{
-  width: 100%;
-}
+  .tag-section {
+    width: 100%;
+  }
   .dropdown {
     height: 1px;
     width: 1px;
-
   }
-  .dropdown-toggle{
+  .dropdown-toggle {
     width: 18vh;
     font-size: 12px;
-    
-    
   }
-  .dropdown-menu{
+  .dropdown-menu {
     height: 10px;
     width: 10px;
   }
-  .inner-menu-container-price{
+  .inner-menu-container-price {
     width: 20px;
   }
-  .apply-container{
+  .apply-container {
     height: 10px;
     width: 10px;
   }
-  .filter-section{
+  .filter-section {
     width: 50%;
     padding-left: 10vh;
-
   }
-  .sort-section{
+  .sort-section {
     width: 50%;
-    
   }
-  .filter-tag-section{
+  .filter-tag-section {
     width: 20%;
   }
-  .sort-tag-section{
+  .sort-tag-section {
     width: 20%;
   }
-  }
-
-
-
-
-
+}
 
 /* Seller Home Page Styles */
 .navbar {
