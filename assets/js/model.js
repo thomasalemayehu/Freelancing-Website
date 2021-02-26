@@ -161,7 +161,6 @@ async function putUserDetail(userDetail) {
     console.log("Deleted");
   });
 }
-
 // Clearing Function
 
 // Helper Functions
