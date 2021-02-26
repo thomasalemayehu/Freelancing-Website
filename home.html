@@ -100,6 +100,25 @@
       Sorry, We will soon support your screen size.
     </h3>
 
+    <!-- Modal -->
+
+
+    <div class="wrapper-overlay hide">
+      <form class="job-info-display hide" id="apply-card">
+          <div class="job-name-info-box"></div>
+          <div class="job-category-info-box"></div>
+          <div class="job-deadline-info-box"></div>
+          <div class="job-langauges-info-box"></div>
+          <div class="job-desription-info-box"></div>
+          <div class="job-price-info-box"></div>
+          <div class="job-country-info-box"></div>
+          <div class="job-skill-level-info-box"></div>
+          <div class="job-currency-info-box"></div>
+          <div class="email-info-box"></div>
+          <input type="submit" value="Apply" class="apply-info-box">
+          <input type="submit" value="Cancel" class="cancel-info-box">
+      </form>
+    </div>
     <!-- Body -->
     <div class="container-fluid page-wrapper">
       <!-- Welcome Area -->
@@ -282,6 +301,7 @@
               </p>
 
               <div class="job-box-container">
+                <button>Apply</button>
                 
                 <div class="job-pricing-container">
                   Starting At
@@ -441,6 +461,7 @@
     <script type="module">
       import {homeMain} from "./assets/js/controller.js"
       homeMain()
-    </script>
+    </script> 
   </body>
 </html>
+
