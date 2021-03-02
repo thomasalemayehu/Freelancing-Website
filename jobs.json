@@ -1,0 +1,405 @@
+[{
+    "jobName":"Photo Editor",
+    "jobCatagory":"Graphics",
+    "jobCountry":"Ethiopia",
+    "jobAddedBy":"thomasadmin",
+    "jobDeadline": "04/30/2021",
+    "payPrice":"4,000",
+    "jobLanguage":"[Amharic,English]",
+    "jobDescription":"we are small company looking for a photoEditor someone that has a good communication skill",
+    "payCurrency":"Birr",
+    "SkillLevel":"Beginner"
+
+},
+{
+    "jobName": "Apparel Graphics Designer",
+    "jobCatagory": "Graphics ",
+    "jobCountry": "kenya",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "03/05/2021",
+    "payPrice": "8,000",
+    "jobLanguage": "[Swahili,English",
+    "jobDescription": "We need an Apparel graphic designers create individual, original images for clothing. ",
+    "payCurrency": "kenyan shiling",
+    "SkillLevel":"Intermediate"
+},
+{
+    "jobName": "Computer system Analyst",
+    "jobCatagory": "Programming",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline":"05/06/2021",
+    "payPrice": "15,000",
+    "jobLanguage": "[Rwandian,English]",
+    "jobDescription": "We need Computer systems engineers that is responsible for identifying solutions to complex applications problems",
+    "payCurrency": "Rwandan Franc",
+    "SkillLevel":"Advanced"
+},
+{
+    "jobName": "Database Administrator",
+    "jobCatagory": "programming",
+    "jobCountry": "Ethipoia",
+    "jobAddedBy": "bekenadmin",
+    "jobDeadline": "03/05/2021",
+    "payPrice": "10,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo] ",
+    "jobDescription": " we want a Database administrators that is tasked with securing, organizing and troubleshooting storage for large amounts of information for our company",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+},
+{
+    "jobName": "Recording Engineer",
+    "jobCatagory": " Music",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "bekenadmin",
+    "jobDeadline": "03/05/2021",
+    "payPrice": "12,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo]",
+    "jobDescription": "An audio engineer that is responsible for capturing sound and manipulating it in the studio.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Intermediate"
+},
+
+
+{
+    "jobName": "Artist Manager",
+    "jobCatagory": " Music",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "24/04/2021",
+    "payPrice": "18,000",
+    "jobLanguage": "[Amhraric,English,Tigrigna]",
+    "jobDescription": "An artist manager that exists to create opportunities, connect, and propel the musical act forward in the music business",
+    "payCurrency": "Birr",
+    "SkillLevel":"Advanced"
+},
+{
+    "jobName": "Ecommerce Manager.",
+    "jobCatagory": "Digital Marketing",
+    "jobCountry": "Sudan",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "17/04/2021",
+    "payPrice": "9,000",
+    "jobLanguage": "[English,Sudanese]",
+    "jobDescription": "An Ecommerce Manager whose main areas of responsibilities, typical tasks, technical and management skills needed ",
+    "payCurrency": "Sudanese pound",
+    "SkillLevel":"Beginner"
+},
+{
+    "jobName": "Article Document",
+    "jobCatagory": "Writing",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "24/05/2021",
+    "payPrice": "6,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo]",
+    "jobDescription": "We need someone who is qualifying to write articles that have to do writing articles as a ghost writer",
+    "payCurrency": "Birr",
+    "SkillLevel":"Beginner"
+},
+{
+    "jobName": "Recording Engineer",
+    "jobCatagory": " Music",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "bekenadmin",
+    "jobDeadline": "03/05/2021",
+    "payPrice": "12,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo]",
+    "jobDescription": "An audio engineer is responsible for capturing sound and manipulating it in the studio.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Intermediate"
+},
+{
+    "jobName": "Yoga Teacher",
+    "jobCatagory": "LifeStyle",
+    "jobCountry": "Uganda",
+    "jobAddedBy": "bekenadmin",
+    "jobDeadline": "02/29/2021",
+    "payPrice": "12,000",
+    "jobLanguage": "[French,English]",
+    "jobDescription": "We need someone who can yoga practices and lifestyle choices, making them as accessible as possible, and sharing them with clients",
+    "payCurrency": "Us Dollar",
+    "SkillLevel":"Advanced"
+},
+{
+    "jobName": "Wellness Coach",
+    "jobCatagory": "LifeStyle",
+    "jobCountry": "Somalia",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "15/04/2021",
+    "payPrice": "10,000",
+    "jobLanguage": "[Somali,English]",
+    "jobDescription": "We need someone teach how to change their minds and create powerful new habits allowing them to be healthy, feel good, and live a fulfilled life,",
+    "payCurrency": "US dollar",
+    "SkillLevel":"Intermediate"
+},{
+    "jobName": "Freelance Writer",
+    "jobCatagory": "Writing",
+    "jobCountry": "kenya",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "03/07/2021",
+    "payPrice": "8,000",
+    "jobLanguage": "[Swahili,English,Afan Orormo]",
+    "jobDescription": "We need someone with good writing ablility ",
+    "payCurrency": "Kenyan Shiling",
+    "SkillLevel":"Beginner"
+},{
+    "jobName": "Software QA",
+    "jobCatagory":"programming",
+    "jobCountry": "Ethiopa",
+    "jobAddedBy": "bekenadmin",
+    "jobDeadline": "03/05/2021",
+    "payPrice": "12,200",
+    "jobLanguage": "[Amhraric,English,Afan Orormo]",
+    "jobDescription": "We need a software QA engineers who can documenting defects, designing tests and scenarios, and creating manuals for new software.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+},{
+    "jobName": "Tour Manager",
+    "jobCatagory": " Music",
+    "jobCountry": "Tanzania",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "01/06/2021",
+    "payPrice": "15,220",
+    "jobLanguage": "[Portugues,English]",
+    "jobDescription": "As a tour manager, you’ll be involved in every aspect of a band’s career on the road.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+},{
+    "jobName": "Music Publicist",
+    "jobCatagory": "Music",
+    "jobCountry": "Ethiopa",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "03/05/2021",
+    "payPrice": "14,400",
+    "jobLanguage": "[Amhraric,English,Afan Orormo]",
+    "jobDescription": "we need music publicist who works closely with media outlets, marketers, and venues. Publicists ensure that their musicians’ concerts, releases,",
+    "payCurrency": "Birr",
+    "SkillLevel":"Advanced"
+},
+{
+    "jobName": "Social Media Manager or Community Manager",
+    "jobCatagory": "Digital Marketing",
+    "jobCountry": "Uganda",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "29/02/2021",
+    "payPrice": "19,000",
+    "jobLanguage": "[French,English]",
+    "jobDescription": "We need someone who structure a digital team to work as an integrated part of marketing is a key challenge",
+    "payCurrency": "Franc",
+    "SkillLevel":"Ninja"
+},{
+    "jobName": "Dietitian",
+    "jobCatagory": "LifeStyle",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "bekenadmin",
+    "jobDeadline": "23/0/2021",
+    "payPrice": "12,300",
+    "jobLanguage": "[Amhraric,English,Afan Orormo]",
+    "jobDescription": "we need someone with a degree in nutrition, completing an internship and passing your state’s dietetics examination",
+    "payCurrency": "Birr",
+    "SkillLevel":"Advanced"
+},{
+    "jobName": "Consultant",
+    "jobCatagory": "LifeStyle",
+    "jobCountry": "North Sudan",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "28/02/2021",
+    "payPrice": "8,500",
+    "jobLanguage": "[Sudanese,English]",
+    "jobDescription": "We need someone who can work remotly.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Beginner"
+},{
+    "jobName": "Computer programmers",
+    "jobCatagory": "Programing",
+    "jobCountry": "Ethiopa",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "08/04/2021",
+    "payPrice": "14,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo,Afar]",
+    "jobDescription": "we need a Computer programmers who write programs and rewrite programs until they are free of errors.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Intermediate"
+},{
+    "jobName": "Composerr",
+    "jobCatagory": " Music",
+    "jobCountry": "kenya",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "23/04/2021",
+    "payPrice": "17,500",
+    "jobLanguage": "[English,Swahili]",
+    "jobDescription": " we need a Composers aren’t just tied down to the classical music genre, nut also they can write for film, TV, and video games.",
+    "payCurrency": "Kenyan Shiling",
+    "SkillLevel":"Advanced"
+},{
+    "jobName": "Web designer",
+    "jobCatagory": "Graphics",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "27/03/2021",
+    "payPrice": "15,500",
+    "jobLanguage": "[Amhraric,English,Tigrigna]",
+    "jobDescription": " We need a Web designers who can assist in developing websites by creating individual web pages, designing page layouts and developing graphics for the website.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+},
+{
+    "jobName": "Network system administrator",
+    "jobCatagory": "programming",
+    "jobCountry": "south Sudan",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "03/03/2021",
+    "payPrice": "21,000",
+    "jobLanguage": "[English,Sudanese]",
+    "jobDescription": "We need a Network system administrators who can maintain computing environments in their networks and prevent disasters by backing up data",
+    "payCurrency": "Sudanese Pound",
+    "SkillLevel":"Ninja"
+},{
+    "jobName": "Multimedia designer",
+    "jobCatagory": "Graphics",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "03/05/2021",
+    "payPrice": "24,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo,Tigrigna]",
+    "jobDescription": "We need a Multimedia designers who can create complex animated images and videos using art and computerized animation programs.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+},{
+    "jobName": " Music Producer",
+    "jobCatagory": " Music",
+    "jobCountry": "Ethiopa",
+    "jobAddedBy": "bekenadmin",
+    "jobDeadline": "03/05/2021",
+    "payPrice": "22,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo]",
+    "jobDescription": "We need a music producer who can understands both the creative and commercial side of the business and develops relationships with both musicians and the record label",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+},{
+    "jobName": "Software developers",
+    "jobCatagory": "Programing",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "08/03/2021",
+    "payPrice": "38,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo,Afar]",
+    "jobDescription": "we need Software developerswho is responsible for creating and enhancing applications for cell phones, tablets and other mobile devices..",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+},
+{
+    "jobName": " Advertising designer",
+    "jobCatagory": "Graphics ",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "021/03/2021",
+    "payPrice": "5,000",
+    "jobLanguage": "[Amhraric,English,Tigrigna]",
+    "jobDescription": "we need an advertising designers who can do sketching and photography to create visually compelling marketing materials for a brand or company.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Beginner"
+},
+{
+    "jobName": "Business intelligence analyst",
+    "jobCatagory": "Programing",
+    "jobCountry": "Ethioi0a",
+    "jobAddedBy": "bekenadmin",
+    "jobDeadline": "018/03/2021",
+    "payPrice": "5,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo,Afar]",
+    "jobDescription": "This position is for the behind-the-scenes marketer who gathers all the cold facts about software products and trends to determine which software can help solve business initiatives.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Beginner"
+},
+{
+    "jobName": "Art director",
+    "jobCatagory": "Graphics ",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "08/04/2021",
+    "payPrice": "38,000",
+    "jobLanguage": "[Amhraric,English,Afar]",
+    "jobDescription": "we need an art director who is responsible for guiding the design team's vision, directing the theme concept and overseeing all design artwork.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+},
+{
+    "jobName": "Computer systems engineer",
+    "jobCatagory": "Programing",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "15/03/2021",
+    "payPrice": "38,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo]",
+    "jobDescription": "we need a Computer systems engineers who is responsible for identifying solutions to complex applications problems, systems administration issues or network concerns",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+},
+{
+    "jobName": " User interface (UI) designer",
+    "jobCatagory": "Graphics ",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "bekenadmin",
+    "jobDeadline": "28/04/2021",
+    "payPrice": "5,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo,Afar]",
+    "jobDescription": "we need a user interface designer who is responsible for ensuring every webpage or operational step of the final product follows the user experience (UX) designer's intent.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Beginner"
+},
+{
+    "jobName": "Digital Motion Graphics",
+    "jobCatagory": "Video",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "01/03/2021",
+    "payPrice": "5,000",
+    "jobLanguage": "[Amhraric,English,]",
+    "jobDescription": "we need someone who can use complex computer software like Adobe After Effects, Maya or AutoCAD is right up your alley, you might enjoy creating videos and visual effects (VFX).",
+    "payCurrency": "Birr",
+    "SkillLevel":"Beginner"
+},{
+    "jobName": " Publication designer",
+    "jobCatagory": "Graphics ",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "thomasadmin",
+    "jobDeadline": "24/0/2021",
+    "payPrice": "5,000",
+    "jobLanguage": "[Amhraric,English,Afan Orormo,Afar]",
+    "jobDescription": "Publication designers develop the layout, visual appearance and graphics for a range of printed publications",
+    "payCurrency": "Birr",
+    "SkillLevel":"Beginner"
+},{
+    "jobName": " User experience (UX) designer",
+    "jobCatagory": "Graphics ",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "redietadmin",
+    "jobDeadline": "01/05/2021",
+    "payPrice": "38,000",
+    "jobLanguage": "[Amhraric,English]",
+    "jobDescription": "We need a UX designers who can make products, services and websites enjoyable and accessible for users.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+},{
+    "jobName": "Mobile app developer",
+    "jobCatagory": "Programing",
+    "jobCountry": "Ethiopia",
+    "jobAddedBy": "bekenadmin",
+    "jobDeadline": "11/03/2021",
+    "payPrice": "38,000",
+    "jobLanguage": "[Amhraric,English]",
+    "jobDescription": "we need a mobile app developer who can  design and code software for mobile devices like cell phones and tablets. The programs they create are determined by the needs of their specific clients and are frequently available to the public.",
+    "payCurrency": "Birr",
+    "SkillLevel":"Ninja"
+}
+
+
+
+
+
+
+
+
+]

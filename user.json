@@ -1,0 +1,30 @@
+[{
+    "accountType":"buyer",
+    "password":"10611198981011146682843349659797979797971061119898101114668284",
+    "userName":"thomasadmin"
+},
+{   "accountType":"buyer",
+    "password":"10611198981011146682843349659797979797971061119898101114668284",
+    "userName":"bekenadmin"
+},
+{
+    "accountType": "seller",
+    "password": "10611198981011146682843349659797979797971061119898101114668284",
+    "userName": "thomasuser"
+},
+{
+    "accountType": "seller",
+    "password": "10611198981011146682843349659797979797971061119898101114668284",
+    "userName": "bekenuser"
+},
+{
+    "accountType": "buyer",
+    "password": "10611198981011146682843349659797979797971061119898101114668284",
+    "userName": "redietadmin"
+},
+{
+    "accountType": "seller",
+    "password": "10611198981011146682843349659797979797971061119898101114668284",
+    "userName": "redietuser"
+}
+]
