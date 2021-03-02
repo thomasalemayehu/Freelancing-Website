@@ -432,47 +432,92 @@
 }
 
 /* Registration page */
-@media screen and (min-width: 349px) and (max-width: 576px){
+@media screen and (min-width: 300px) and (max-width: 574px){
   .user-detail-container{
     width: 100%;
-  }
-  .footer{
-    margin-top: 10vh;
-    padding-top: 5vh;
+    padding-right: 15vh;
+    margin: 0%;
   }
   .user-detail-name-container{
-    padding-top: 2vh;
-  }
-  .more-info-bottom-container{
-    padding-top: 2vh;
-  }
-  .skills-container-main{
-    font-size: 14px;
-  }
-  .language-container-main{
-    font-size: 14px;
-  }
-  .date-of-birth-detail-field{
-    width: 20%;
-    height: 20%;
-  }
-}
-@media screen and (min-width: 655px) and (max-width : 895px){
-   .user-detail-container{
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
     width: 100%;
   }
-  .user-detail-name-container{
-    padding-right:20vh;
-    width: 80%;
-   
+  .user-detail-field{
+    height: 20vh;
+    width: 60vh;
+  
   }
-  .skills-container-main{
-    font-size: 20px;
+  .control{
+    width: 100%;
+  }
+
+  .email-detail-field{
+    width: 30%;
+  }
+  .date-of-birth-detail-field{
+    width: 30%;
+  }
+  .label{
+    font-size:14px ;
+  }
+  .country-detail-field{
+    width: 20vh;
+  }
+  .skills-detail-field{
+    width: 40%;
+  }
+  .language-detail-field{
+    width: 40%;
   }
   .footer{
     margin-top: 10vh;
     padding-top: 5vh;
   }
+  
+}
+@media screen and (min-width: 575px) and (max-width: 855px){
+  .user-detail-container{
+    width: 100%;
+    margin: 0%;
+  }
+.user-detail-field{
+    height: 20vh;
+    width: 60%;
+  
+  }
+  .control{
+    width: 100%;
+  }
+
+  .email-detail-field{
+    width: 30%;
+  }
+  .date-of-birth-detail-field{
+    width: 20vh;
+  }
+  .label{
+    font-size:14px ;
+  }
+  .country-detail-field{
+    width: 30vh;
+  }
+  .skills-detail-field{
+    width: 40%;
+  }
+  .language-detail-field{
+    width: 40%;
+  }
+  .footer{
+    margin-top: 10vh;
+    padding-top: 5vh;
+  }
+  
+
+
+
+
 }
 
 @media screen and (min-width: 1200px){
