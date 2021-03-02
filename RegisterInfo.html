@@ -36,67 +36,11 @@
     >
       <div class="container-fluid py-3 px-4 navigation-container">
         <img class="navbar-brand" src="./assets/image/Jobber Logo.svg" />
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link nav-link-transparent"
-                aria-current="page"
-                href="#home-section"
-                >Home</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a
-                class="nav-link nav-link-transparent"
-                href="#how-it-works-section"
-                >How it works</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="#explore-section"
-                >Explore</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="#about-us-section"
-                >About us</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="./login.html"
-                >Login</a
-              >
-            </li>
-            <li class="nav-item sign-up-item">
-              <a
-                class="nav-link n av-link-transparent sign-up-link"
-                href="./signUp.html"
-                style="color: black"
-                >Sign Up</a
-              >
-            </li>
-          </ul>
-        </div>
       </div>
     </nav>
 
     <form class="container user-detail-container">
       <p class="user-detail-title">A few more touches ...</p>
-
       <!-- Full Name Input -->
       <div class="user-detail-name-container">
         <!-- First Name Input -->
@@ -156,7 +100,7 @@
             <div class="control">
               <div class="select">
                 <select class="select-drop country-input">
-                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Ethiopia" selected>Ethiopia</option>
                   <option value="Kenya">Kenya</option>
                   <option value="South Sudan">South Sudan</option>
                   <option value="North Sudan">North Sudan</option>
@@ -392,11 +336,11 @@
                 <!-- <input class="input" type="text" placeholder="Text input"> -->
                 <div class="select">
                   <select class="level-of-study">
-                    <option value="">High School</option>
-                    <option value="">Bachelors Degree</option>
-                    <option value="">Masters Degree</option>
-                    <option value="">Doctorate Degree</option>
-                    <option value="">Other</option>
+                    <option value="High School" selected>High School</option>
+                    <option value="BSC">Bachelors Degree</option>
+                    <option value="MSC">Masters Degree</option>
+                    <option value="DR">Doctorate Degree</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
               </div>
@@ -512,11 +456,11 @@
               <div class="control">
                 <div class="select">
                   <select name="" id="" class="currency-drop">
-                    <option value="">Ethiopian Birr</option>
-                    <option value="">Sudanese Pound</option>
-                    <option value="">Kenyan Shilling</option>
-                    <option value="">Rwandan Franc</option>
-                    <option value="">Us Dollar</option>
+                    <option value="ETB" selected>Ethiopian Birr</option>
+                    <option value="SB">Sudanese Pound</option>
+                    <option value="KS">Kenyan Shilling</option>
+                    <option value="RF">Rwandan Franc</option>
+                    <option value="US">Us Dollar</option>
                   </select>
                 </div>
               </div>
@@ -525,7 +469,7 @@
               <div class="control">
                 <div class="select">
                   <select name="" id="" class="skill-drop currency-drop">
-                    <option value="beginner">
+                    <option value="beginner" selected>
                       Beginner ( upto 2 Years of Experience)
                     </option>
                     <option value="intermediate">

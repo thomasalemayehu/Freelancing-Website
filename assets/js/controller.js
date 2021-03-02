@@ -6,6 +6,7 @@ import {
   setLabel,
   setInput,
   addClass,
+  removeClass,
   addUserToDB,
   addUserDetail,
   getUser,
@@ -15,6 +16,8 @@ import {
   saveFiltered,
   getFiltered,
   getAllDBJobs,
+  putUserDetail,
+  getJobById,
 } from "./Model.js";
 
 function signUpMain() {
@@ -241,79 +244,41 @@ function homeMain() {
   const userName = String(urlParams.get("id"));
   const userType = String(urlParams.get("type"));
 
-  if (userType == "buyer") {
-    const cardsContainer = Array.from(
-      document.querySelectorAll(".cards-container")
-    );
+  const userNameSpace = document.querySelector(".welcome-card-greeting");
+  const timeSpace = document.querySelector(".welcome-card-time");
+  const quoteSpace = document.querySelector(".welcome-card-quote");
+  const quoteAuthorSpace = document.querySelector(".welcome-card-quote-person");
+  //   Get Quote
+  let quoteOfTheDay = getQuote();
+  quoteSpace.innerHTML = quoteOfTheDay[0];
+  quoteAuthorSpace.innerHTML = quoteOfTheDay[1];
+  const cardsContainer = Array.from(
+    document.querySelectorAll(".cards-container")
+  );
 
-    //  Clearing Cards
-    cardsContainer.forEach((card) => {
-      card.innerHTML = "";
-    });
+  (function startTime() {
+    //retrieve date
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    //get the AM / PM value
+    let am_pm = h > 12 ? "PM" : "AM";
+    // Convert the hour to 12 format
+    h = h % 12 || 12;
+    // add zero
 
-    cardsContainer[0].innerHTML = `<button class="post-new-job">Post</button>`;
-    let postButton = document.querySelector(".post-new-job");
-    postButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      // addJobToDB(
-      //   {
-      //     jobName: "Job-2",
-      //     jobDescreption:
-      //       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque quaerat reiciendis nemo, maiores excepturi est.",
-      //     jobAddedBy: userName,
-      //     jobAddedDate: new Date(),
-      //     jobCategory: "Music and Audio",
-      //     deadline: new Date(2021, 2, 25),
-      //     payPrice: 62,
-      //     payCurrency: "Birr",
-      //     jobCountry: "Ethiopia",
-      //     jobLanguage: ["English", "French", "Afan Oromo"],
-      //   },
-      //   userName,
-      //   userType
-      // ).then(() => {
-      //   console.log("Posted Job");
-      // });
-      window.location.href = `../../addJob.html?id=${userName}`;
-    });
-  } else {
-    console.log("Seller");
-    const userNameSpace = document.querySelector(".welcome-card-greeting");
-    const timeSpace = document.querySelector(".welcome-card-time");
-    const quoteSpace = document.querySelector(".welcome-card-quote");
-    const quoteAuthorSpace = document.querySelector(
-      ".welcome-card-quote-person"
-    );
+    // Assign to the UI [p]
+    timeSpace.innerHTML = `${h}:${addZero(m)} ${am_pm}`;
+    setTimeout(startTime, 500);
+  })();
 
-    //   Fill Username space
-    getUserDetail(userName).then((userDetail) => {
-      let timeOfDay = getTimeOfDay();
-      let firstName = userDetail.fullName[0];
-      userNameSpace.innerText = `Good ${timeOfDay} ${firstName}`;
-    });
+  //   Fill Username space
 
-    //   Start Timer
-    (function startTime() {
-      //retrieve date
-      var today = new Date();
-      var h = today.getHours();
-      var m = today.getMinutes();
-      //get the AM / PM value
-      let am_pm = h > 12 ? "PM" : "AM";
-      // Convert the hour to 12 format
-      h = h % 12 || 12;
-      // add zero
-
-      // Assign to the UI [p]
-      timeSpace.innerHTML = `${h}:${addZero(m)} ${am_pm}`;
-      setTimeout(startTime, 500);
-    })();
-
-    //   Get Quote
-    let quoteOfTheDay = getQuote();
-    quoteSpace.innerHTML = quoteOfTheDay[0];
-    quoteAuthorSpace.innerHTML = quoteOfTheDay[1];
-  }
+  getUserDetail(userName).then((userDetail) => {
+    let timeOfDay = getTimeOfDay();
+    let firstName = userDetail.fullName[0];
+    userNameSpace.innerText = `Good ${timeOfDay} ${firstName}`;
+  });
 
   function addZero(i) {
     if (i < 10) {
@@ -321,6 +286,7 @@ function homeMain() {
     } // add zero in front of numbers < 10
     return i;
   }
+
   function getQuote() {
     let index = Math.floor(Math.random() * 4.5);
     return quotes[index];
@@ -339,117 +305,768 @@ function homeMain() {
     }
   }
 
-  (async function getUserSkills() {
-    let i = 0;
-    let userDetail = await getUserDetail(userName);
-
-    let userSkills = userDetail.skills;
-    userSkills.forEach(async (skill) => {
-      let jobsBySkill = await getAllJobs(skill);
-      if (jobsBySkill.length > 0) {
-        displayAllJobs(jobsBySkill.reverse(), i);
-        i += 1;
-      }
+  if (userType == "buyer") {
+    let cardsContainer = Array.from(
+      document.querySelectorAll(".cards-container")
+    );
+    cardsContainer.forEach((cardContainer) => {
+      cardContainer.innerHTML = "";
     });
-  })();
+
+    let pageWrapper = document.querySelector(".page-wrapper");
+    pageWrapper.innerHTML += '<button class="post-new-button">Post</button" ';
+
+    let postButton = document.querySelector(".post-new-button");
+    let jobs = [
+      {
+        jobName: "Photo Editor",
+        jobCategory: "Graphics and Design",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "04/30/2021",
+        payPrice: "4,000",
+        jobLanguage: "[Amharic,English]",
+        jobDescription:
+          "we are small company looking for a photoEditor someone that has a good communication skill",
+        payCurrency: "Birr",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Apparel Graphics Designer",
+        jobCategory: "Graphics ",
+        jobCountry: "kenya",
+        jobAddedBy: "rediateadmin",
+        deadline: "03/05/2021",
+        payPrice: "8,000",
+        jobLanguage: "[Swahili,English",
+        jobDescription:
+          "We need an Apparel graphic designers create individual, original images for clothing. ",
+        payCurrency: "kenyan shiling",
+        skillLevel: "Intermediate",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Computer system Analyst",
+        jobCategory: "Programming and Development",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "rediateadmin",
+        deadline: "05/06/2021",
+        payPrice: "15,000",
+        jobLanguage: "[Rwandian,English]",
+        jobDescription:
+          "We need Computer systems engineers that is responsible for identifying solutions to complex applications problems",
+        payCurrency: "Rwandan Franc",
+        skillLevel: "Advanced",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Database Administrator",
+        jobCategory: "Programming and Development",
+        jobCountry: "Ethipoia",
+        jobAddedBy: "bekenadmin",
+        deadline: "03/05/2021",
+        payPrice: "10,000",
+        jobLanguage: "[Amharic,English,Afan Oromo] ",
+        jobDescription:
+          " we want a Database administrators that is tasked with securing, organizing and troubleshooting storage for large amounts of information for our company",
+        payCurrency: "Birr",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Recording Engineer",
+        jobCategory: "Music and Audio",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "bekenadmin",
+        deadline: "03/05/2021",
+        payPrice: "12,000",
+        jobLanguage: "[Amharic,English,Afan Oromo]",
+        jobDescription:
+          "An audio engineer that is responsible for capturing sound and manipulating it in the studio.",
+        payCurrency: "Birr",
+        skillLevel: "Intermediate",
+        jobAddedDate: new Date(),
+      },
+
+      {
+        jobName: "Artist Manager",
+        jobCategory: "Music and Audio",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "rediateadmin",
+        deadline: "24/04/2021",
+        payPrice: "18,000",
+        jobLanguage: "[Amharic,English,Tigrigna]",
+        jobDescription:
+          "An artist manager that exists to create opportunities, connect, and propel the Music and Audio and Audioal act forward in the Music and Audio and Audio business",
+        payCurrency: "Birr",
+        skillLevel: "Advanced",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Ecommerce Manager.",
+        jobCategory: "Digital Marketing",
+        jobCountry: "Sudan",
+        jobAddedBy: "thomasadmin",
+        deadline: "17/04/2021",
+        payPrice: "9,000",
+        jobLanguage: "[English,Sudanese]",
+        jobDescription:
+          "An Ecommerce Manager whose main areas of responsibilities, typical tasks, technical and management skills needed ",
+        payCurrency: "Sudanese pound",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Article Document",
+        jobCategory: "Writing and Translation",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "24/05/2021",
+        payPrice: "6,000",
+        jobLanguage: "[Amharic,English,Afan Oromo]",
+        jobDescription:
+          "We need someone who is qualifying to write articles that have to do writing articles as a ghost writer",
+        payCurrency: "Birr",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Recording Engineer",
+        jobCategory: "Music and Audio",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "bekenadmin",
+        deadline: "03/05/2021",
+        payPrice: "12,000",
+        jobLanguage: "[Amharic,English,Afan Oromo]",
+        jobDescription:
+          "An audio engineer is responsible for capturing sound and manipulating it in the studio.",
+        payCurrency: "Birr",
+        skillLevel: "Intermediate",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Yoga Teacher",
+        jobCategory: "Lifestyle",
+        jobCountry: "Uganda",
+        jobAddedBy: "bekenadmin",
+        deadline: "02/29/2021",
+        payPrice: "12,000",
+        jobLanguage: "[French,English]",
+        jobDescription:
+          "We need someone who can yoga practices and Lifestyle choices, making them as accessible as possible, and sharing them with clients",
+        payCurrency: "Us Dollar",
+        skillLevel: "Advanced",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Wellness Coach",
+        jobCategory: "Lifestyle",
+        jobCountry: "Somalia",
+        jobAddedBy: "rediateadmin",
+        deadline: "15/04/2021",
+        payPrice: "10,000",
+        jobLanguage: "[Somali,English]",
+        jobDescription:
+          "We need someone teach how to change their minds and create powerful new habits allowing them to be healthy, feel good, and live a fulfilled life,",
+        payCurrency: "US dollar",
+        skillLevel: "Intermediate",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Freelance Writer",
+        jobCategory: "Writing and Translation",
+        jobCountry: "kenya",
+        jobAddedBy: "thomasadmin",
+        deadline: "03/07/2021",
+        payPrice: "8,000",
+        jobLanguage: "[Swahili,English,Afan Oromo]",
+        jobDescription: "We need someone with good writing ablility ",
+        payCurrency: "Kenyan Shiling",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Software QA",
+        jobCategory: "Programming and Development",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "bekenadmin",
+        deadline: "03/05/2021",
+        payPrice: "12,200",
+        jobLanguage: "[Amharic,English,Afan Oromo]",
+        jobDescription:
+          "We need a software QA engineers who can documenting defects, designing tests and scenarios, and creating manuals for new software.",
+        payCurrency: "Birr",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Tour Manager",
+        jobCategory: "Music and Audio",
+        jobCountry: "Tanzania",
+        jobAddedBy: "rediateadmin",
+        deadline: "01/06/2021",
+        payPrice: "15,220",
+        jobLanguage: "[Portuguese,English]",
+        jobDescription:
+          "As a tour manager, you’ll be involved in every aspect of a band’s career on the road.",
+        payCurrency: "Birr",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Music and Audio and Audio Publicist",
+        jobCategory: "Music and Audio",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "03/05/2021",
+        payPrice: "14,400",
+        jobLanguage: "[Amharic,English,Afan Oromo]",
+        jobDescription:
+          "we need Music and Audio and Audio publicist who works closely with media outlets, marketers, and venues. Publicists ensure that their Music and Audio and Audioians’ concerts, releases,",
+        payCurrency: "Birr",
+        skillLevel: "Advanced",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Social Media Manager or Community Manager",
+        jobCategory: "Digital Marketing",
+        jobCountry: "Uganda",
+        jobAddedBy: "rediateadmin",
+        deadline: "29/02/2021",
+        payPrice: "19,000",
+        jobLanguage: "[French,English]",
+        jobDescription:
+          "We need someone who structure a digital team to work as an integrated part of marketing is a key challenge",
+        payCurrency: "Franc",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Dietitian",
+        jobCategory: "Lifestyle",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "bekenadmin",
+        deadline: "23/0/2021",
+        payPrice: "12,300",
+        jobLanguage: "[Amhraric,English,Afan Oromo]",
+        jobDescription:
+          "we need someone with a degree in nutrition, completing an internship and passing your state’s dietetics examination",
+        payCurrency: "Birr",
+        skillLevel: "Advanced",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Consultant",
+        jobCategory: "Lifestyle",
+        jobCountry: "North Sudan",
+        jobAddedBy: "thomasadmin",
+        deadline: "28/02/2021",
+        payPrice: "8,500",
+        jobLanguage: "[Sudanese,English]",
+        jobDescription: "We need someone who can work remotely.",
+        payCurrency: "Birr",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Computer programmers",
+        jobCategory: "Programing",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "rediateadmin",
+        deadline: "08/04/2021",
+        payPrice: "14,000",
+        jobLanguage: "[Amharic,English,Afan Oromo,Afar]",
+        jobDescription:
+          "we need a Computer programmers who write programs and rewrite programs until they are free of errors.",
+        payCurrency: "Birr",
+        skillLevel: "Intermediate",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Composer",
+        jobCategory: "Music and Audio",
+        jobCountry: "kenya",
+        jobAddedBy: "thomasadmin",
+        deadline: "23/04/2021",
+        payPrice: "17,500",
+        jobLanguage: "[English,Swahili]",
+        jobDescription:
+          " we need a Composers aren’t just tied down to the classical Music and Audio genre, nut also they can write for film, TV, and video games.",
+        payCurrency: "Kenyan Shiling",
+        skillLevel: "Advanced",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Web designer",
+        jobCategory: "Graphics and Design",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "27/03/2021",
+        payPrice: "15,500",
+        jobLanguage: "[Amharic,English,Tigrigna]",
+        jobDescription:
+          " We need a Web designers who can assist in developing websites by creating individual web pages, designing page layouts and developing Graphics and Design for the website.",
+        payCurrency: "Birr",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Network system administrator",
+        jobCategory: "Programming and Development",
+        jobCountry: "south Sudan",
+        jobAddedBy: "rediateadmin",
+        deadline: "03/03/2021",
+        payPrice: "21,000",
+        jobLanguage: "[English,Sudanese]",
+        jobDescription:
+          "We need a Network system administrators who can maintain computing environments in their networks and prevent disasters by backing up data",
+        payCurrency: "Sudanese Pound",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Multimedia designer",
+        jobCategory: "Graphics and Design",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "03/05/2021",
+        payPrice: "24,000",
+        jobLanguage: "[Amharic,English,Afan Oromo,Tigrigna]",
+        jobDescription:
+          "We need a Multimedia designers who can create complex animated images and videos using art and computerized animation programs.",
+        payCurrency: "Birr",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: " Music and Audio Producer",
+        jobCategory: "Music and Audio",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "bekenadmin",
+        deadline: "03/05/2021",
+        payPrice: "22,000",
+        jobLanguage: "[Amharic,English,Afan Oromo]",
+        jobDescription:
+          "We need a Music and Audio producer who can understands both the creative and commercial side of the business and develops relationships with both Music and Audioians and the record label",
+        payCurrency: "Birr",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Software developers",
+        jobCategory: "Programing",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "rediateadmin",
+        deadline: "08/03/2021",
+        payPrice: "38,000",
+        jobLanguage: "[Amharic,English,Afan Oromo,Afar]",
+        jobDescription:
+          "we need Software developers who is responsible for creating and enhancing applications for cell phones, tablets and other mobile devices..",
+        payCurrency: "Birr",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: " Advertising designer",
+        jobCategory: "Graphics and Design ",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "021/03/2021",
+        payPrice: "5,000",
+        jobLanguage: "[Amharic,English,Tigrigna]",
+        jobDescription:
+          "we need an advertising designers who can do sketching and photography to create visually compelling marketing materials for a brand or company.",
+        payCurrency: "Birr",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Business intelligence analyst",
+        jobCategory: "Programing",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "bekenadmin",
+        deadline: "018/03/2021",
+        payPrice: "5,000",
+        jobLanguage: "[Amharic,English,Afan Oromo,Afar]",
+        jobDescription:
+          "This position is for the behind-the-scenes marketer who gathers all the cold facts about software products and trends to determine which software can help solve business initiatives.",
+        payCurrency: "Birr",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Art director",
+        jobCategory: "Graphics and Design ",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "rediateadmin",
+        deadline: "08/04/2021",
+        payPrice: "38,000",
+        jobLanguage: "[Amharic,English,Afar]",
+        jobDescription:
+          "we need an art director who is responsible for guiding the design team's vision, directing the theme concept and overseeing all design artwork.",
+        payCurrency: "Birr",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Computer systems engineer",
+        jobCategory: "Programing",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "15/03/2021",
+        payPrice: "38,000",
+        jobLanguage: "[Amharic,English,Afan Oromo]",
+        jobDescription:
+          "we need a Computer systems engineers who is responsible for identifying solutions to complex applications problems, systems administration issues or network concerns",
+        payCurrency: "Birr",
+        skillLevel: "Ninja",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: " User interface (UI) designer",
+        jobCategory: "Graphics and Design ",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "bekenadmin",
+        deadline: "28/04/2021",
+        payPrice: "5,000",
+        jobLanguage: "[Amharic,English,Afan Oromo,Afar]",
+        jobDescription:
+          "we need a user interface designer who is responsible for ensuring every webpage or operational step of the final product follows the user experience (UX) designer's intent.",
+        payCurrency: "Birr",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Digital Motion",
+        jobCategory: "Video and Animation",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "rediateadmin",
+        deadline: "01/03/2021",
+        payPrice: "5,000",
+        jobLanguage: "[Amharic,English]",
+        jobDescription:
+          "we need someone who can use complex computer software like Adobe After Effects, Maya or AutoCAD is right up your alley, you might enjoy creating videos and visual effects (VFX).",
+        payCurrency: "Birr",
+        skillLevel: "Intermediate",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Design Movie Character",
+        jobCategory: "Video and Animation",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "01/03/2021",
+        payPrice: "8,000",
+        jobLanguage: "[Amharic,English,Swahili]",
+        jobDescription:
+          "we need someone who can use complex computer software like Adobe After Effects, Maya or AutoCAD is right up your alley, you might enjoy creating videos and visual effects (VFX).",
+        payCurrency: "Birr",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Design Movie Character",
+        jobCategory: "Video and Animation",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "01/03/2021",
+        payPrice: "8,000",
+        jobLanguage: "[Amharic,English,Swahili]",
+        jobDescription:
+          "we need someone who can use complex computer software like Adobe After Effects, Maya or AutoCAD is right up your alley, you might enjoy creating videos and visual effects (VFX).",
+        payCurrency: "Birr",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Design Movie Character",
+        jobCategory: "Video and Animation",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "01/03/2021",
+        payPrice: "8,000",
+        jobLanguage: "[Amharic,English,Swahili]",
+        jobDescription:
+          "we need someone who can use complex computer software like Adobe After Effects, Maya or AutoCAD is right up your alley, you might enjoy creating videos and visual effects (VFX).",
+        payCurrency: "Birr",
+        skillLevel: "Intermediate",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: " Publication designer",
+        jobCategory: "Graphics and Design ",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "thomasadmin",
+        deadline: "24/0/2021",
+        payPrice: "5,000",
+        jobLanguage: "[Amharic,English,Afan Oromo,Afar]",
+        jobDescription:
+          "Publication designers develop the layout, visual appearance and Graphics and Design for a range of printed publications",
+        payCurrency: "Birr",
+        skillLevel: "Beginner",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: " User experience (UX) designer",
+        jobCategory: "Graphics and Design ",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "rediateadmin",
+        deadline: "01/05/2021",
+        payPrice: "38,000",
+        jobLanguage: "[Amharic,English]",
+        jobDescription:
+          "We need a UX designers who can make products, services and websites enjoyable and accessible for users.",
+        payCurrency: "Birr",
+        skillLevel: "Intermediate",
+        jobAddedDate: new Date(),
+      },
+      {
+        jobName: "Mobile app developer",
+        jobCategory: "Programing and Development",
+        jobCountry: "Ethiopia",
+        jobAddedBy: "bekenadmin",
+        deadline: "11/03/2021",
+        payPrice: "38,000",
+        jobLanguage: "[Amharic,English]",
+        jobDescription:
+          "we need a mobile app developer who can  design and code software for mobile devices like cell phones and tablets. The programs they create are determined by the needs of their specific clients and are frequently available to the public.",
+        payCurrency: "Birr",
+        skillLevel: "Intermediate",
+        jobAddedDate: new Date(),
+      },
+    ];
+    async function addHelper(job) {
+      await addJobToDB(job, job.jobAddedBy, "buyer");
+    }
+    postButton.addEventListener("click", () => {
+      jobs.forEach((job) => {
+        addHelper(job);
+      });
+    });
+  } else {
+    (async function getUserSkills() {
+      let i = 0;
+      let userDetail = await getUserDetail(userName);
+      let userSkills = userDetail.skills;
+      userSkills.forEach(async function (userSkill) {
+        let allJobs = await getAllJobs("Category", userSkill);
+        displayAllJobs(allJobs, i);
+
+        i++;
+      });
+    })();
+  }
 
   function displayAllJobs(jobs, i) {
     let categoriesContainer = document.querySelectorAll(".cards-container");
-    if (jobs[0]) {
-      let job = jobs[0];
-      console.log(jobs[0]);
-      let jobDes = job.jobDescription;
-      categoriesContainer[i].innerHTML = `
-    <p class="job-box-titles">${job.jobCategory}</p>
+
+    categoriesContainer[i].innerHTML = `
+    <p class="job-box-titles">${jobs[0].jobCategory}</p>
         <div class="row">
           <!-- Card 1 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3 job-box-main">
             <div class="single-job-box">
-              <div class="job-box-header">${job.jobName}</div>
-              <div class="job-box-sub-header">${job.jobAddedBy}</div>
+              <div class="job-box-header">${jobs[0].jobName}</div>
+              <div class="job-box-sub-header">${jobs[0].jobAddedBy}</div>
               <p class="job-box-description">
-                ${jobDes.substr(0, 120)}
+                ${jobs[0].jobDescription.substr(0, 120)}
+              </p>
+               <p class="job-box-description">
+                Level : ${jobs[0].skillLevel}
               </p>
 
+              
+
               <div class="job-box-container">
-                
+                <button class="apply-job-button">Apply</button>
+                <p class="id-box hide" >${jobs[0].id} </p>
                 <div class="job-pricing-container">
                   Starting At
                   <span class="job-pricing-container-price">$${
-                    job.payPrice
+                    jobs[0].payPrice
                   }</span>
+                  
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3 job-box-main" >
             <div class="single-job-box">
-              <div class="job-box-header">Graphics and Design</div>
-              <div class="job-box-sub-header">Username</div>
+              <div class="job-box-header">${jobs[1].jobName}</div>
+              <div class="job-box-sub-header">${jobs[1].jobAddedBy}</div>
               <p class="job-box-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
+                ${jobs[1].jobDescription.substr(0, 120)}
+              </p>
+               <p class="job-box-description">
+                Level : ${jobs[1].skillLevel}
               </p>
 
               <div class="job-box-container">
+                <button class="apply-job-button">Apply</button>
+               <p class="id-box hide" >${jobs[1].id} </p>
                 
                 <div class="job-pricing-container">
                   Starting At
-                  <span class="job-pricing-container-price">$30</span>
+                  <span class="job-pricing-container-price">${
+                    jobs[1].payPrice
+                  }</span>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+         <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3 job-box-main">
             <div class="single-job-box">
-              <div class="job-box-header">Graphics and Design</div>
-              <div class="job-box-sub-header">Username</div>
+              <div class="job-box-header">${jobs[2].jobName}</div>
+              <div class="job-box-sub-header">${jobs[2].jobAddedBy}</div>
               <p class="job-box-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
+                ${jobs[2].jobDescription.substr(0, 120)}
+              </p>
+               <p class="job-box-description">
+                Level : ${jobs[2].skillLevel}
               </p>
 
               <div class="job-box-container">
-                
+                <button class="apply-job-button">Apply</button>
+                 <p class="id-box hide" >${jobs[2].id} </p>
                 <div class="job-pricing-container">
                   Starting At
-                  <span class="job-pricing-container-price">$30</span>
+                  <span class="job-pricing-container-price">${
+                    jobs[2].payPrice
+                  }</span>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Card 4 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3 job-box-main">
             <div class="single-job-box">
-              <div class="job-box-header">Graphics and Design</div>
-              <div class="job-box-sub-header">Username</div>
+              <div class="job-box-header">${jobs[3].jobName}</div>
+              <div class="job-box-sub-header">${jobs[3].jobAddedBy}</div>
               <p class="job-box-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, tenetur! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Dolorum, tenetur! Lorem ipsum dolor
+                ${jobs[3].jobDescription.substr(0, 100)}
               </p>
 
+               <p class="job-box-description">
+                Level : ${jobs[3].skillLevel}
+              </p>
+              
+
               <div class="job-box-container">
-                
+                <button class="apply-job-button">Apply</button>
+                <p class="id-box hide" >${jobs[3].id} </p>
                 <div class="job-pricing-container">
                   Starting At
-                  <span class="job-pricing-container-price">$30</span>
+                  <span class="job-pricing-container-price">$${
+                    jobs[3].payPrice
+                  }</span>
+                  
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
     `;
-      i += 1;
-    }
+
+    i += 1;
   }
+
+  // Adding Event Listener to Job cards
+  let pageWrapper = document.querySelector(".page-wrapper");
+  pageWrapper.addEventListener("click", async function (e) {
+    if (e.target.classList.contains("apply-job-button")) {
+      let wrapperOverlay = document.querySelector(".wrapper-overlay");
+      let overlayCard = document.querySelector(".job-info-display");
+      let nameContainer = document.querySelector(".job-name-info-box");
+      let categoryContainer = document.querySelector(".job-category-info-box");
+      let deadlineContainer = document.querySelector(".job-deadline-info-box");
+      let languagesContainer = document.querySelector(
+        ".job-langauges-info-box"
+      );
+      let descriptionContainer = document.querySelector(
+        ".job-desription-info-box"
+      );
+      let priceContainer = document.querySelector(".job-price-info-box");
+      let currencyContainer = document.querySelector(".job-currency-info-box");
+      let countryContainer = document.querySelector(".job-country-info-box");
+      let skillContainer = document.querySelector(".job-skill-level-info-box");
+      let emailContainer = document.querySelector(".email-info-box");
+      let applyButton = document.querySelector(".apply-info-box");
+      let cancelButton = document.querySelector(".cancel-info-box");
+
+      let jobId = e.target.parentElement.children[1].innerText;
+
+      applyButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("Applying");
+      });
+
+      cancelButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        addClass(overlayCard, "hide");
+        addClass(wrapperOverlay, "hide");
+      });
+
+      async function getUserSkillLevel() {
+        let userDetail = await getUserDetail(userName);
+        return userDetail.skillLevel;
+      }
+
+      function convertToNumber(level) {
+        let value;
+        if (level === "beginner") {
+          value = 0;
+        } else if (level === "intermediate") {
+          value = 1;
+        } else if (level === "advanced") {
+          value = 2;
+        } else if (level === "ninja") {
+          value = 3;
+        }
+        return value;
+      }
+
+      await getJobById(Number(jobId)).then(async (response) => {
+        let userLevel;
+        let jobLevel;
+        response = response[0];
+        nameContainer.innerText = `Job Name : ${response.jobName}`;
+        categoryContainer.innerText = `Job Category : ${response.jobCategory}`;
+        deadlineContainer.innerText = `Job Deadline : ${response.deadline}`;
+        languagesContainer.innerText = `Job Language : ${response.jobLanguage}`;
+        descriptionContainer.innerText = `Job Description : ${response.jobDescription}`;
+        priceContainer.innerText = `Pay Price : ${response.payPrice}`;
+        countryContainer.innerText = `Job Country : ${response.jobCountry}`;
+        currencyContainer.innerText = `Pay Currency : ${response.payCurrency}`;
+        skillContainer.innerText = `Skill Level : ${response.skillLevel}`;
+
+        jobLevel = convertToNumber(
+          response.skillLevel.toString().toLowerCase()
+        );
+
+        await getUserSkillLevel().then((response) => {
+          userLevel = convertToNumber(response.toString().toLowerCase());
+        });
+
+        if (jobLevel > userLevel) {
+          applyButton.disabled = true;
+          skillContainer.style.color = "red";
+        } else {
+          applyButton.disabled = false;
+          skillContainer.style.color = "black";
+        }
+
+        removeClass(overlayCard, "hide");
+        removeClass(wrapperOverlay, "hide");
+      });
+    }
+  });
 }
 
 function registerInfoMain() {
@@ -475,7 +1092,7 @@ function registerInfoMain() {
   if (userType == "seller") {
     // / Skills info
     let skills = document.querySelectorAll(".skills-checkbox");
-
+    let skillLevel = document.querySelector(".skill-drop");
     // Languages Info
     let languages = document.querySelectorAll(".languages-checkbox");
     // Education Info
@@ -529,6 +1146,7 @@ function registerInfoMain() {
       inputForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        console.log(firstName);
         // Function to Find Selected Gender
 
         // Function to Find Selected Checkbox
@@ -568,6 +1186,7 @@ function registerInfoMain() {
           description: descriptionText.value,
           currency: currency.value,
           avatar: selectedAvatarValue,
+          skillLevel: skillLevel.value,
         };
 
         addUserDetail(userDetail);
@@ -746,6 +1365,8 @@ function registerInfoMain() {
       // Getting Class value for storage
       selectedAvatarValue = e.target.classList[1];
     });
+    let firstName = document.querySelector(".first-name-input");
+    let lastName = document.querySelector(".last-name-input");
     inputForm.addEventListener("submit", (e) => {
       e.preventDefault();
       let userDetail = {
@@ -761,6 +1382,8 @@ function registerInfoMain() {
         currency: currency.value,
         avatar: selectedAvatarValue,
       };
+
+      console.log(firstName);
 
       addUserDetail(userDetail);
     });
@@ -784,9 +1407,12 @@ function explorePage() {
   let sortContainer = document.querySelector(".sort-section");
 
   sortContainer.addEventListener("click", (e) => {
+    // When Clearing Filter
     if (e.target.classList.contains("clear-button")) {
       console.log("Clearing");
-    } else if (e.target.classList.contains("apply-button")) {
+    }
+    // Applying Filter
+    else if (e.target.classList.contains("apply-button")) {
       let inputForms = e.target.parentElement.parentElement.parentElement;
       if (inputForms.classList.contains("sortBy")) {
         let values = [];
@@ -990,6 +1616,22 @@ function explorePage() {
         }
       }
       // If Deadline
+      else if (inputForms[0].classList.contains("deadline")) {
+        let containers = Array.from(inputForms[0].parentElement);
+        let values = [];
+        containers.forEach((container) => {
+          values.push(container);
+        });
+
+        //   console.log(values);
+        deadline = getChecked(values);
+        inputForms[0].parentElement.parentElement.parentElement.children[0].classList.add(
+          "activated-filter"
+        );
+        //   console.log(checked);
+
+        createFilterTag("Deadline", "Deadline");
+      }
     } else {
       console.log("Out");
     }
@@ -1195,31 +1837,25 @@ function explorePage() {
 
   function displayTasks(dataToDisplay) {
     dataToDisplay.forEach((data) => {
-      let descData = data.jobDescription;
-      contentSection.children[0].innerHTML += `
-        
-        <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
-                      <div class="single-job-box">
-                        <div class="job-box-header">${data.jobCategory}</div>
-                        <div class="job-box-sub-header">${data.jobAddedBy}</div>
+      contentSection.children[0].innerHTML += `  
+                   
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3">
+                      <div class="single-job-box" job=${data.id}>
+                        <div class="job-box-header">${data.jobName}</div>
+                        <div class="job-box-sub-header">Username</div>
                         <p class="job-box-description">
-                          ${descData.slice(0, 120)}
+                          ${data.jobCategory}
                         </p>
 
                         <div class="job-box-container">
-                          <div class="job-bookmark-container">
-                            <i class="far fa-bookmark"></i>
-                          </div>
+                         
                           <div class="job-pricing-container">
                             Starting At
-                            <span class="job-pricing-container-price">$${
-                              data.payPrice
-                            }</span>
+                            <span class="job-pricing-container-price">$${data.payPrice}</span>
                           </div>
                         </div>
                       </div>
-                    </div>
-      `;
+                    </div>`;
     });
   }
 
@@ -1228,10 +1864,11 @@ function explorePage() {
     contentSection.children[0].innerHTML = "";
   }
 }
-
 function addPage() {
   const urlParams = new URLSearchParams(window.location.search);
   const userName = String(urlParams.get("id"));
+
+  setDeadlineDate();
 
   // UI Variables
   let inputForm = document.querySelector(".user-detail-container");
@@ -1244,6 +1881,7 @@ function addPage() {
   let DescriptionInput = document.querySelector(".description-input");
   let currencyInput = document.querySelector(".currency-drop");
   let countryInput = document.querySelector(".country-input");
+  let skillLevel = document.querySelector(".skill-drop");
 
   inputForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -1259,13 +1897,453 @@ function addPage() {
       payCurrency: currencyInput.value,
       jobCountry: countryInput.value,
       jobLanguage: findSelected(languageCheckbox),
+      skill,
     };
-    addJobToDB(job, userName, "buyer").then((response) => {
-      console.log("Added");
-    });
+
+    if (addJobFormValidate()) {
+      addJobToDB(job, userName, "buyer").then((response) => {
+        console.log("Added");
+      });
+    }
   });
+
+  let descriptionInput = document.querySelector(".description-input");
+  let categoryInputs = Array.from(
+    document.querySelectorAll(".skills-checkbox")
+  );
+  let skillsTitle = document.querySelector(".skill-title");
+  let categoryInputsContainers = Array.from(
+    document.querySelectorAll(".skills-container-main")
+  );
+
+  let languageInputs = document.querySelectorAll(".languages-checkbox");
+  let languageInputsContainers = Array.from(
+    document.querySelectorAll(".language-container-inner")
+  );
+  let languagesTitle = document.querySelector(".language-title");
+
+  // Validating Job Name
+  function validateJobName() {
+    let isValidated;
+    // Check Job Name Input
+    let jobNameRegEx = /^[a-zA-Z]{6,18}$/;
+    if (jobNameRegEx.test(jobNameInput.value)) {
+      removeClass(jobNameInput, "is-danger");
+      addClass(jobNameInput, "is-success");
+      isValidated = true;
+    } else {
+      removeClass(jobNameInput, "is-success");
+      addClass(jobNameInput, "is-danger");
+      isValidated = false;
+    }
+    return isValidated;
+  }
+
+  // Validating Email
+  function validateEmail() {
+    let isValidated;
+    let emailRegEx = /^([A-Za-z0-9_\-\.]){1,}\@([A-Za-z0-9_\-\.]){1,}\.([A-Za-z]){2,4}$/;
+    if (emailRegEx.test(emailInput.value)) {
+      removeClass(emailInput, "is-danger");
+      addClass(emailInput, "is-success");
+      isValidated = true;
+    } else {
+      removeClass(emailInput, "is-success");
+      addClass(emailInput, "is-danger");
+      isValidated = false;
+    }
+    return isValidated;
+  }
+
+  // Validating Description
+  function validateDescription() {
+    let isValidated;
+    if (descriptionInput.value.length >= 10) {
+      removeClass(descriptionInput, "is-danger");
+      addClass(descriptionInput, "is-success");
+      isValidated = true;
+    } else {
+      removeClass(descriptionInput, "is-success");
+      addClass(descriptionInput, "is-danger");
+      isValidated = false;
+    }
+    return isValidated;
+  }
+
+  // Validating Skill Selection
+  function validateSkills() {
+    let isValidated;
+    if (checkSelection(categoryInputs)) {
+      skillsTitle.style.color = "black";
+      isValidated = true;
+    } else {
+      skillsTitle.style.color = "red";
+      isValidated = false;
+    }
+    return isValidated;
+  }
+
+  // Validating Languages Selection
+  function validateLanguages() {
+    let isValidated;
+    if (checkSelection(languageInputs)) {
+      languagesTitle.style.color = "black";
+      isValidated = true;
+    } else {
+      languagesTitle.style.color = "red";
+      isValidated = false;
+    }
+    return isValidated;
+  }
+
+  // Validating Price Input
+  function validatePrice() {
+    let isValidated;
+    if (priceInput.value.length <= 0) {
+      removeClass(priceInput, "is-success");
+      addClass(priceInput, "is-danger");
+      isValidated = false;
+    } else {
+      removeClass(priceInput, "is-danger");
+      addClass(priceInput, "is-success");
+      isValidated = true;
+    }
+    return isValidated;
+  }
+
+  // Deadline Validation
+  function validateDeadline() {
+    let isValidated;
+    if (deadlineInput.value) {
+      removeClass(deadlineInput, "is-danger");
+      addClass(deadlineInput, "is-success");
+      isValidated = true;
+    } else {
+      removeClass(deadlineInput, "is-success");
+      addClass(deadlineInput, "is-danger");
+      isValidated = false;
+    }
+    return isValidated;
+  }
+
+  languageInputsContainers.forEach((languageInputsContainer) => {
+    languageInputsContainer.addEventListener("input", validateLanguages);
+  });
+
+  categoryInputsContainers.forEach((categoryInputsContainer) => {
+    categoryInputsContainer.addEventListener("input", validateSkills);
+  });
+
+  // Job Name Validation
+  jobNameInput.addEventListener("keyup", validateJobName);
+
+  //  Email Input Validation
+  emailInput.addEventListener("keyup", validateEmail);
+
+  priceInput.addEventListener("keyup", validatePrice);
+  deadlineInput.addEventListener("input", validateDeadline);
+
+  descriptionInput.addEventListener("keyup", validateDescription);
+
+  function addJobFormValidate() {
+    let v1 = validateDescription();
+    let v2 = validateEmail();
+    let v3 = validateJobName();
+    let v4 = validateSkills();
+    let v5 = validateLanguages();
+    let v6 = validatePrice();
+    let v7 = validateDeadline();
+
+    return v1 && v2 && v3 && v4 && v5 && v6 && v7;
+  }
 }
 
+function profilePage() {
+  let editIcon = document.querySelector(".fa-edit");
+  editIcon.addEventListener("click", enableFormElements);
+  let firstNameInput = document.querySelector(".first-name-input");
+  let lastNameInput = document.querySelector(".last-name-input");
+  let emailInput = document.querySelector(".email-input");
+  let dateOfBirth = document.querySelector(".date-of-birth-input");
+  let countryDrop = document.querySelector(".country-input");
+  let genderRadios = Array.from(document.querySelectorAll(".gender-radio"));
+  let skillsCheckboxes = Array.from(
+    document.querySelectorAll(".skills-checkbox")
+  );
+  let languagesCheckboxes = Array.from(
+    document.querySelectorAll(".languages-checkbox")
+  );
+  let educationInstitution = document.querySelector(
+    ".education-institution-input"
+  );
+
+  let educationLevel = document.querySelector(".level-of-study");
+  let educationNameOfCertification = document.querySelector(
+    ".education-certification-input"
+  );
+
+  let educationPreview = document.querySelector(".education-preview");
+
+  let experienceInstitution = document.querySelector(
+    ".experience-institution-input"
+  );
+
+  let experiencePosition = document.querySelector(".experience-position-input");
+
+  let experienceDateFrom = document.querySelector(".experience-from");
+  let experienceDateTo = document.querySelector(".experience-to");
+  let experiencePreview = document.querySelector(".experience-preview");
+
+  let descriptionInput = document.querySelector(".description-input");
+  let currencyField = document.querySelector(".currency-drop");
+  let skillLevel = document.querySelector(".skill-drop");
+
+  let avatarContainer = document.querySelector(".more-info-avatar-container");
+
+  let educationUploadForm = document.querySelector(".education-upload-file");
+
+  let experienceUploadFrom = document.querySelector(".experience-file-upload");
+
+  let buttonContainer = document.querySelector(".button-container");
+
+  let avatarValue;
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = String(urlParams.get("id"));
+  const userType = String(urlParams.get("type"));
+  let saveButton = document.querySelectorAll(".submit-detail-button")[0];
+  saveButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await putUserDetail(
+      collectData(avatarValue.classList[avatarValue.classList.length - 1])
+    );
+    console.log(collectData());
+    disableFormElements();
+  });
+
+  let cancelButton = document.querySelectorAll(".submit-detail-button")[1];
+  cancelButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    fillData();
+    disableFormElements();
+  });
+
+  // Function to disable all form elements
+  function disableFormElements() {
+    firstNameInput.disabled = true;
+    lastNameInput.disabled = true;
+    emailInput.disabled = true;
+    dateOfBirth.disabled = true;
+    countryDrop.disabled = true;
+    educationInstitution.disabled = true;
+    educationLevel.disabled = true;
+    educationNameOfCertification.disabled = true;
+    experienceInstitution.disabled = true;
+    experiencePosition.disabled = true;
+    experienceDateFrom.disabled = true;
+    experienceDateTo.disabled = true;
+    descriptionInput.disabled = true;
+    currencyField.disabled = true;
+    skillLevel.disabled = true;
+    educationUploadForm.disabled = true;
+    experienceUploadFrom.disabled = true;
+    genderRadios.forEach((genderRadio) => {
+      genderRadio.disabled = true;
+    });
+
+    languagesCheckboxes.forEach((languagesCheckbox) => {
+      languagesCheckbox.disabled = true;
+    });
+
+    skillsCheckboxes.forEach((skillsCheckbox) => {
+      skillsCheckbox.disabled = true;
+    });
+  }
+  disableFormElements();
+
+  // Function to enable all form Elements
+  function enableFormElements() {
+    firstNameInput.disabled = false;
+    lastNameInput.disabled = false;
+    emailInput.disabled = false;
+    dateOfBirth.disabled = false;
+    countryDrop.disabled = false;
+    educationInstitution.disabled = false;
+    educationLevel.disabled = false;
+    educationNameOfCertification.disabled = false;
+    experienceInstitution.disabled = false;
+    experiencePosition.disabled = false;
+    experienceDateFrom.disabled = false;
+    experienceDateTo.disabled = false;
+    descriptionInput.disabled = false;
+    currencyField.disabled = false;
+    skillLevel.disabled = false;
+    educationUploadForm.disabled = false;
+    experienceUploadFrom.disabled = false;
+    genderRadios.forEach((genderRadio) => {
+      genderRadio.disabled = false;
+    });
+
+    languagesCheckboxes.forEach((languagesCheckbox) => {
+      languagesCheckbox.disabled = false;
+    });
+
+    skillsCheckboxes.forEach((skillsCheckbox) => {
+      skillsCheckbox.disabled = false;
+    });
+
+    removeClass(buttonContainer, "hide");
+  }
+
+  // Function to fill user Data
+  async function fillData() {
+    let userDetail = await getUserDetail(userName);
+    firstNameInput.value = userDetail.fullName[0];
+    lastNameInput.value = userDetail.fullName[1];
+    emailInput.value = userDetail.email;
+    dateOfBirth.value = userDetail.dateOfBirth;
+    countryDrop.value = userDetail.country;
+    educationInstitution.value = userDetail.education.educationInstitution;
+    educationLevel.value = userDetail.education.educationLevelOfStudy;
+    educationNameOfCertification.value =
+      userDetail.education.educationCertification;
+    educationPreview.setAttribute(
+      "src",
+      userDetail.education.educationUploadFileUrl
+    );
+
+    experienceDateFrom.value = userDetail.experience.experienceFromDate;
+    experienceDateTo.value = userDetail.experience.experienceToDate;
+    experiencePosition.value = userDetail.experience.experiencePosition;
+    experienceInstitution.value = userDetail.experience.experienceInstitution;
+    experiencePreview.setAttribute(
+      "src",
+      userDetail.experience.experienceUploadFileUrl
+    );
+    descriptionInput.value = userDetail.description;
+    currencyField.value = userDetail.currency;
+    skillLevel.value = userDetail.experienceLevel;
+
+    genderRadios.forEach((genderRadio) => {
+      if (genderRadio.value == userDetail.gender) {
+        genderRadio.checked = true;
+      }
+    });
+
+    let userSkills = userDetail.skills;
+    userSkills.forEach((userSkill) => {
+      skillsCheckboxes.forEach((skillsCheckbox) => {
+        if (skillsCheckbox.value == userSkill) {
+          skillsCheckbox.checked = true;
+        }
+      });
+    });
+
+    let userLanguages = userDetail.languages;
+    userLanguages.forEach((userLanguage) => {
+      languagesCheckboxes.forEach((languageCheckbox) => {
+        if (languageCheckbox.value == userLanguage) {
+          languageCheckbox.checked = true;
+        }
+      });
+    });
+
+    console.log(userDetail.avatar);
+    let avatars = Array.from(avatarContainer.children);
+    avatars.forEach((avatar) => {
+      if (avatar.classList.contains(userDetail.avatar)) {
+        avatarValue = avatar;
+        removeClass(avatar, "hide");
+      }
+    });
+  }
+
+  function collectData(avatarValue) {
+    let userDetail = {
+      // To Find ID from User DB
+      userName: userName,
+      // Profile Info
+      fullName: [firstNameInput.value, lastNameInput.value],
+      email: emailInput.value,
+      dateOfBirth: dateOfBirth.value,
+      dateOfRegistration: new Date(),
+      country: countryDrop.value,
+      gender: findCheckedGender(genderRadios),
+      accountType: userType,
+
+      skills: findSelected(skillsCheckboxes),
+      languages: findSelected(languagesCheckboxes),
+
+      education: {
+        educationInstitution: educationInstitution.value,
+        educationLevelOfStudy: educationLevel.value,
+        educationCertification: educationNameOfCertification.value,
+        educationUploadFileUrl: educationUploadForm,
+      },
+
+      experience: {
+        experienceInstitution: experienceInstitution.value,
+        experiencePosition: experiencePosition.value,
+        experienceFromDate: experienceDateFrom.value,
+        experienceToDate: experienceDateTo.value,
+        experienceUploadFileUrl: experienceUploadFrom,
+      },
+
+      experienceLevel: skillLevel.value,
+
+      description: descriptionInput.value,
+      currency: currencyField.value,
+      avatar: avatarValue,
+    };
+    console.log(typeof userDetail);
+
+    return userDetail;
+  }
+
+  fillData();
+
+  // console.log(
+  //   firstNameInput,
+  //   lastNameInput,
+  //   emailInput,
+  //   dateOfBirth,
+  //   countryDrop,
+  //   genderRadios,
+  //   skillsCheckboxes,
+  //   languagesCheckboxes,
+  //   educationInstitution,
+  //   educationLevel,
+  //   educationNameOfCertification,
+  //   educationPreview,
+  //   experienceInstitution,
+  //   experiencePosition,
+  //   experienceDateFrom,
+  //   experienceDateTo,
+  //   experiencePreview,
+  //   descriptionInput,
+  //   currencyField,
+  //   skillLevel,
+  //   avatarContainer,
+  //   editIcon
+  // );
+}
+
+function setDeadlineDate() {
+  let unformattedDate = new Date();
+  let fullYear = unformattedDate.getFullYear();
+  let month = unformattedDate.getMonth() + 1;
+  if (month < 10) {
+    month = "0" + month;
+  }
+
+  let day = unformattedDate.getDate();
+  if (day < 10) {
+    day = "0" + day;
+  }
+  let formattedDate = `${fullYear}-${month}-${day}`;
+  let deadlineInput = document.querySelector(".deadline-input");
+
+  deadlineInput.setAttribute("min", formattedDate);
+}
 function findSelected(checkboxes) {
   let selected = [];
   checkboxes.forEach((checkbox) => {
@@ -1287,6 +2365,33 @@ function findCheckedGender(gender) {
   }
 }
 
+function checkSelection(checkboxes) {
+  let oneSelected = false;
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      oneSelected = true;
+    }
+  });
+  return oneSelected;
+}
+
+// function setDeadlineDate() {
+//   let unformattedDate = new Date();
+//   let fullYear = unformattedDate.getFullYear();
+//   let month = unformattedDate.getMonth() + 1;
+//   if (month < 10) {
+//     month = "0" + month;
+//   }
+
+//   let day = unformattedDate.getDate();
+//   if (day < 10) {
+//     day = "0" + day;
+//   }
+//   let formattedDate = `${fullYear}-${month}-${day}`;
+//   let deadlineInput = document.querySelector(".deadline-input");
+
+//   deadlineInput.setAttribute("min", formattedDate);
+// }
 export {
   signUpMain,
   loginMain,
@@ -1294,4 +2399,5 @@ export {
   registerInfoMain,
   explorePage,
   addPage,
+  profilePage,
 };

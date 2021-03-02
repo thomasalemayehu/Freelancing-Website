@@ -430,10 +430,25 @@
 .inputs-requirements {
   width: 75%;
 }
+.user-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-detail-container {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.164);
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
 
 /* Registration page */
+<<<<<<< HEAD
 @media screen and (min-width: 300px) and (max-width: 574px){
   .user-detail-container{
+=======
+@media screen and (min-width: 349px) and (max-width: 576px) {
+  .user-detail-container {
+>>>>>>> a1032e4442a20e4ee59f08903bbe3c88ee3efd42
     width: 100%;
     padding-right: 15vh;
     margin: 0%;
@@ -471,10 +486,11 @@
   .language-detail-field{
     width: 40%;
   }
-  .footer{
+  .footer {
     margin-top: 10vh;
     padding-top: 5vh;
   }
+<<<<<<< HEAD
   
 }
 @media screen and (min-width: 575px) and (max-width: 855px){
@@ -508,8 +524,37 @@
   }
   .language-detail-field{
     width: 40%;
+=======
+  .user-detail-name-container {
+    padding-top: 2vh;
   }
-  .footer{
+  .more-info-bottom-container {
+    padding-top: 2vh;
+  }
+  .skills-container-main {
+    font-size: 14px;
+  }
+  .language-container-main {
+    font-size: 14px;
+  }
+  .date-of-birth-detail-field {
+    width: 20%;
+    height: 20%;
+  }
+}
+@media screen and (min-width: 655px) and (max-width: 895px) {
+  .user-detail-container {
+    width: 100%;
+  }
+  .user-detail-name-container {
+    padding-right: 20vh;
+    width: 80%;
+  }
+  .skills-container-main {
+    font-size: 20px;
+>>>>>>> a1032e4442a20e4ee59f08903bbe3c88ee3efd42
+  }
+  .footer {
     margin-top: 10vh;
     padding-top: 5vh;
   }
@@ -520,73 +565,60 @@
 
 }
 
-@media screen and (min-width: 1200px){
-  .user-detail-container{
+@media screen and (min-width: 1200px) {
+  .user-detail-container {
     width: 100%;
-   
   }
-  .footer{
+  .footer {
     margin-top: 20vh;
     padding-top: 5vh;
   }
+}
+
+/* explore page media */
+@media screen and (min-width: 100px) and (max-width: 900px) {
+  .filter-sort-navigation {
+    padding-top: 9vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
-
-
-
-  /* explore page media */
-@media screen and (min-width: 100px) and (max-width: 900px){
-    .filter-sort-navigation{
-      padding-top: 9vh; 
-      width: 100%;
-      display: flex;
-      flex-direction: column;    
-}
-  .tag-section{
-  width: 100%;
-}
+  .tag-section {
+    width: 100%;
+  }
   .dropdown {
     height: 1px;
     width: 1px;
-
   }
-  .dropdown-toggle{
+  .dropdown-toggle {
     width: 18vh;
     font-size: 12px;
-    
-    
   }
-  .dropdown-menu{
+  .dropdown-menu {
     height: 10px;
     width: 10px;
   }
-  .inner-menu-container-price{
+  .inner-menu-container-price {
     width: 20px;
   }
-  .apply-container{
+  .apply-container {
     height: 10px;
     width: 10px;
   }
-  .filter-section{
+  .filter-section {
     width: 50%;
     padding-left: 10vh;
-
   }
-  .sort-section{
+  .sort-section {
     width: 50%;
-    
   }
-  .filter-tag-section{
+  .filter-tag-section {
     width: 20%;
   }
-  .sort-tag-section{
+  .sort-tag-section {
     width: 20%;
   }
-  }
-
-
-
-
-
+}
 
 /* Seller Home Page Styles */
 .navbar {
@@ -594,7 +626,7 @@
 }
 
 .page-wrapper {
-  margin-top: 2%;
+  margin-top: 7%;
   width: 100%;
   padding: 0;
 }
@@ -647,6 +679,7 @@
   font-size: 40px;
 }
 .cards-container {
+  margin-top: 3%;
   padding-left: 4%;
   padding-right: 4%;
   margin-bottom: 5%;
@@ -681,9 +714,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
-  padding-left: 7%;
-  padding-right: 7%;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
 
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -695,6 +729,17 @@
 .job-pricing-container-price {
   font-size: 22px;
   font-weight: 400;
+}
+
+.apply-job-button {
+  background-color: red;
+  color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  outline: none !important;
+  border: none !important;
 }
 .carousel-control-prev {
   transform: translateX(-100%);
@@ -1487,4 +1532,43 @@
 
   margin-right: 5%;
   margin-top: 5%;
+}
+
+/* Profile Page */
+.user-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-detail-container {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.164);
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.wrapper-overlay {
+  width: 100%;
+  height: 180vh;
+  background-color: rgba(0, 0, 0, 0.625);
+  position: absolute;
+}
+.job-info-display {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 72vh;
+  background-color: rgb(218, 218, 218);
+  box-shadow: 1px 2px 6px white;
+  margin-top: 3%;
+  font-size: 20px;
+}
+.job-info-display div {
+  /* margin-top: 3%; */
+  padding-left: 3%;
+  padding-top: 2.5%;
+}
+.apply-info-box,
+.cancel-info-box {
+  margin-top: 3.5%;
+  align-self: flex-end;
 }

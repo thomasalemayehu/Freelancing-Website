@@ -33,12 +33,18 @@ async function addUserToDB(
         autoIncrement: true,
       });
 
-      let objectStore2 = db.createObjectStore("NotificationsCenter", {
+      let objectStore2 = db.createObjectStore("NotificationsCenterAdmin", {
+        keyPath: "id",
+        autoIncrement: true,
+      });
+
+      let objectStore3 = db.createObjectStore("NotificationsCenterUser", {
         keyPath: "id",
         autoIncrement: true,
       });
 
       objectStore2.createIndex("Status", "Status", { unique: false });
+      objectStore3.createIndex("Status", "Status", { unique: false });
 
       objectStore.createIndex("Category", "jobCategory", { unique: false });
       objectStore.createIndex("Price", "payPrice", { unique: false });
@@ -117,9 +123,9 @@ async function addJobToDB(itemToAdd, userName, userType) {
   }
 }
 
-async function getAllJobs(filterValue) {
+async function getAllJobs(indexName, filterValue) {
   let db = await openDB("Jobber", 1);
-  let allJobs = await db.getAllFromIndex("Jobs", "Category", filterValue);
+  let allJobs = await db.getAllFromIndex("Jobs", indexName, filterValue);
   return allJobs;
 }
 
@@ -127,6 +133,12 @@ async function getAllDBJobs() {
   let db = await openDB("Jobber", 1);
   let values = await db.getAll("Jobs");
   return values;
+}
+
+async function getJobById(id) {
+  let db = await openDB("Jobber", 1);
+  let allJobs = await db.getAll("Jobs", id);
+  return allJobs;
 }
 
 async function saveFiltered(itemToSave) {
@@ -141,6 +153,13 @@ async function getFiltered() {
   let value = await db.getAll("FilterSave");
 
   return value;
+}
+
+async function putUserDetail(userDetail) {
+  let db = await openDB("Jobber", 1);
+  await db.delete("UserDetails", userDetail.userName).then(() => {
+    console.log("Deleted");
+  });
 }
 // Clearing Function
 
@@ -218,6 +237,7 @@ export {
   setLabel,
   setInput,
   addClass,
+  removeClass,
   addUserToDB,
   addUserDetail,
   getUser,
@@ -227,4 +247,6 @@ export {
   saveFiltered,
   getFiltered,
   getAllDBJobs,
+  putUserDetail,
+  getJobById,
 };
