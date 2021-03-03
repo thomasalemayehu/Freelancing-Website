@@ -138,6 +138,7 @@ async function getAllDBJobs() {
 async function getJobById(id) {
   let db = await openDB("Jobber", 1);
   let allJobs = await db.getAll("Jobs", id);
+
   return allJobs;
 }
 
@@ -166,6 +167,12 @@ async function addItemToDB(objectStore, item) {
   let db = await openDB("Jobber", 1);
   await db.add(objectStore, item);
   console.log("Added Item");
+}
+
+async function getItemFromDB(objectStore, indexName, filterValue) {
+  let db = await openDB("Jobber", 1);
+  let allItems = await db.getAllFromIndex(objectStore, indexName, filterValue);
+  return allItems;
 }
 // Clearing Function
 
@@ -256,4 +263,5 @@ export {
   putUserDetail,
   getJobById,
   addItemToDB,
+  getItemFromDB,
 };

@@ -589,6 +589,18 @@
   color: black;
 }
 
+.fa-user-circle {
+  font-size: 30px;
+}
+.fa-bell {
+  font-size: 30px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: flex-start;
+}
+
 /* More Info Page */
 .user-detail-container {
   /* background-color: red; */

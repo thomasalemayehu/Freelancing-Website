@@ -19,6 +19,7 @@ import {
   putUserDetail,
   getJobById,
   addItemToDB,
+  getItemFromDB,
 } from "./Model.js";
 
 function signUpMain() {
@@ -217,7 +218,7 @@ function loginMain() {
   });
 }
 
-function homeMain() {
+async function homeMain() {
   // Array of Quotes
   let quotes = [
     [
@@ -250,6 +251,9 @@ function homeMain() {
   const timeSpace = document.querySelector(".welcome-card-time");
   const quoteSpace = document.querySelector(".welcome-card-quote");
   const quoteAuthorSpace = document.querySelector(".welcome-card-quote-person");
+  let badgeItem = document.querySelector(".badge");
+  let notificationButton = document.querySelector(".notifications-redirect");
+  notificationButton.setAttribute("href", `../../notification.html?id=test`);
   //   Get Quote
   let quoteOfTheDay = getQuote();
   quoteSpace.innerHTML = quoteOfTheDay[0];
@@ -308,6 +312,20 @@ function homeMain() {
 
   // If Admin
   if (userType == "buyer") {
+    // Checking for Notifiactions
+    let notifications = await getItemFromDB(
+      "NotificationsCenterAdmin",
+      "Status",
+      "Unresolved"
+    );
+
+    if (notifications.length == 0) {
+      badgeItem.classList.add("hide");
+    } else {
+      badgeItem.innerText = notifications.length;
+    }
+
+    console.log(notifications);
     let cardsContainer = Array.from(
       document.querySelectorAll(".cards-container")
     );
@@ -849,6 +867,21 @@ function homeMain() {
   }
   // If User
   else {
+    async function updateNotifiaction() {
+      // Checking for Notifiactions
+      let notifications = await getItemFromDB(
+        "NotificationsCenterUser",
+        "Status",
+        "Unresolved"
+      );
+
+      if (notifications.length != 0) {
+        badgeItem.innerText = notifications.length;
+        badgeItem.classList.remove("hide");
+      }
+    }
+    updateNotifiaction();
+
     (async function getUserSkills() {
       let i = 0;
       let userDetail = await getUserDetail(userName);
@@ -1010,9 +1043,33 @@ function homeMain() {
       applyButton.addEventListener("click", async (e) => {
         e.preventDefault();
         pageWrapper.classList.add("no-pointer");
-        console.log(userName);
-        console.log(jobId);
-        await addItemToDB("NotificationsCenterAdmin", { userName, jobId });
+        let userDetails = await getUserDetail(userName);
+        let jobDetails = (await getJobById(Number(jobId)))[0];
+        console.log(jobDetails);
+        let notificationData = {
+          applicantName: userDetails.fullName,
+          applicantEmail: userDetails.email,
+          applicantSkills: userDetails.skills,
+          applicantSkillLevel: userDetails.skillLevel,
+          applicantDescription: userDetails.description,
+          applicantLanguages: userDetails.languages,
+
+          jobId: jobId,
+          jobName: jobDetails.jobName,
+          jobPrice: `${jobDetails.payPrice} ${jobDetails.payCurrency} `,
+          jobCategory: jobDetails.jobCategory,
+          jobLanguage: jobDetails.jobLanguage,
+          jobSkillLevel: jobDetails.skillLevel,
+          jobDescription: jobDetails.jobDescription,
+
+          Status: "Unresolved",
+        };
+
+        await addItemToDB("NotificationsCenterAdmin", notificationData);
+        console.log(notificationData);
+        // console.log(job);
+        // console.log(userDetails, job);
+        // await addItemToDB("NotificationsCenterAdmin", {});
       });
 
       cancelButton.addEventListener("click", (e) => {
@@ -2332,6 +2389,25 @@ function profilePage() {
   fillData();
 }
 
+// function updateNotificationsPage(itemToAdd) {
+//   let jobNameArea = document.querySelectorAll(".job-name-container-text");
+//   let jobCategoryArea = document.querySelectorAll(
+//     ".job-category-container-text"
+//   );
+//   let jobLanguageArea = document.querySelectorAll(
+//     ".job-languages-container-text"
+//   );
+//   let jobPriceArea = document.querySelectorAll(".job-price-container-text");
+//   let jobSkillArea = document.querySelectorAll(".job-skill-level-container");
+//   let deadlineArea = document.querySelectorAll(".deadline-container-text");
+//   let jobDescriptionArea = document.querySelectorAll(
+//     ".description-container-text"
+//   );
+//   let viewListingButton = document.querySelectorAll(".view-job");
+
+//   // Setting Values
+//   jobName.innerText = `Job Name : ${itemToAdd.applicantName}`;
+// }
 function setDeadlineDate() {
   let unformattedDate = new Date();
   let fullYear = unformattedDate.getFullYear();
