@@ -157,9 +157,15 @@ async function getFiltered() {
 
 async function putUserDetail(userDetail) {
   let db = await openDB("Jobber", 1);
-  await db.delete("UserDetails", userDetail.userName).then(() => {
+  await db.put("UserDetails", userDetail).then(() => {
     console.log("Deleted");
   });
+}
+
+async function addItemToDB(objectStore, item) {
+  let db = await openDB("Jobber", 1);
+  await db.add(objectStore, item);
+  console.log("Added Item");
 }
 // Clearing Function
 
@@ -249,4 +255,5 @@ export {
   getAllDBJobs,
   putUserDetail,
   getJobById,
+  addItemToDB,
 };

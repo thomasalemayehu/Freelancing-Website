@@ -1385,3 +1385,60 @@
   margin-top: 3.5%;
   align-self: flex-end;
 }
+/* Notifiaction-center */
+.notification-container {
+  margin-top: 5%;
+  width: 100%;
+  background-color: red;
+  display: flex;
+}
+
+.notification-job,
+.notification-user {
+  width: 50%;
+  padding-left: 2%;
+  padding-top: 2%;
+  padding-bottom: 3%;
+}
+.notification-job {
+  background-color: yellow;
+}
+
+.notification-user {
+  background-color: greenyellow;
+}
+
+.notification-center-text {
+  margin-top: 2%;
+}
+.notification-center-title {
+  text-align: center;
+  margin-bottom: 4%;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.view-job,
+.view-applicant {
+  margin-top: 4%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  width: 18%;
+  margin-left: 77%;
+}
+.main-buttons-container {
+  margin-top: 1%;
+  width: 100%;
+  background-color: red;
+  text-align: center;
+}
+.accept-request-button,
+.reject-request-button {
+  padding-top: 0.2%;
+  padding-bottom: 0.2%;
+  width: 12%;
+  margin-right: 2%;
+}
+.no-pointer {
+  pointer-events: none;
+}

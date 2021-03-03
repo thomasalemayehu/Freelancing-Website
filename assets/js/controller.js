@@ -18,6 +18,7 @@ import {
   getAllDBJobs,
   putUserDetail,
   getJobById,
+  addItemToDB,
 } from "./Model.js";
 
 function signUpMain() {
@@ -217,6 +218,7 @@ function loginMain() {
 }
 
 function homeMain() {
+  // Array of Quotes
   let quotes = [
     [
       "All our dreams can come true, if we have the courage to pursue them.",
@@ -273,7 +275,6 @@ function homeMain() {
   })();
 
   //   Fill Username space
-
   getUserDetail(userName).then((userDetail) => {
     let timeOfDay = getTimeOfDay();
     let firstName = userDetail.fullName[0];
@@ -305,6 +306,7 @@ function homeMain() {
     }
   }
 
+  // If Admin
   if (userType == "buyer") {
     let cardsContainer = Array.from(
       document.querySelectorAll(".cards-container")
@@ -844,11 +846,14 @@ function homeMain() {
         addHelper(job);
       });
     });
-  } else {
+  }
+  // If User
+  else {
     (async function getUserSkills() {
       let i = 0;
       let userDetail = await getUserDetail(userName);
       let userSkills = userDetail.skills;
+
       userSkills.forEach(async function (userSkill) {
         let allJobs = await getAllJobs("Category", userSkill);
         displayAllJobs(allJobs, i);
@@ -1002,9 +1007,12 @@ function homeMain() {
 
       let jobId = e.target.parentElement.children[1].innerText;
 
-      applyButton.addEventListener("click", (e) => {
+      applyButton.addEventListener("click", async (e) => {
         e.preventDefault();
-        console.log("Applying");
+        pageWrapper.classList.add("no-pointer");
+        console.log(userName);
+        console.log(jobId);
+        await addItemToDB("NotificationsCenterAdmin", { userName, jobId });
       });
 
       cancelButton.addEventListener("click", (e) => {
@@ -1897,9 +1905,8 @@ function addPage() {
       payCurrency: currencyInput.value,
       jobCountry: countryInput.value,
       jobLanguage: findSelected(languageCheckbox),
-      skill,
+      skillLevel: skillLevel.value,
     };
-
     if (addJobFormValidate()) {
       addJobToDB(job, userName, "buyer").then((response) => {
         console.log("Added");
@@ -2106,6 +2113,31 @@ function profilePage() {
 
   let buttonContainer = document.querySelector(".button-container");
 
+  // Other Var
+  let educationUploadFileUrl;
+  let experienceUploadFileUrl;
+  // Event Listsner for image upload forms
+  educationUploadForm.addEventListener("change", function (e) {
+    const reader = new FileReader();
+    educationPreview.classList.add("preview");
+
+    reader.addEventListener("load", () => {
+      educationUploadFileUrl = reader.result;
+      educationPreview.setAttribute("src", educationUploadFileUrl);
+    });
+    reader.readAsDataURL(this.files[0]);
+  });
+
+  experienceUploadFrom.addEventListener("change", function (e) {
+    const reader = new FileReader();
+    experiencePreview.classList.add("preview");
+    reader.addEventListener("load", () => {
+      experienceUploadFileUrl = reader.result;
+      experiencePreview.setAttribute("src", experienceUploadFileUrl);
+    });
+    reader.readAsDataURL(this.files[0]);
+  });
+
   let avatarValue;
   const urlParams = new URLSearchParams(window.location.search);
   const userName = String(urlParams.get("id"));
@@ -2116,7 +2148,6 @@ function profilePage() {
     await putUserDetail(
       collectData(avatarValue.classList[avatarValue.classList.length - 1])
     );
-    console.log(collectData());
     disableFormElements();
   });
 
@@ -2247,7 +2278,6 @@ function profilePage() {
       });
     });
 
-    console.log(userDetail.avatar);
     let avatars = Array.from(avatarContainer.children);
     avatars.forEach((avatar) => {
       if (avatar.classList.contains(userDetail.avatar)) {
@@ -2277,7 +2307,7 @@ function profilePage() {
         educationInstitution: educationInstitution.value,
         educationLevelOfStudy: educationLevel.value,
         educationCertification: educationNameOfCertification.value,
-        educationUploadFileUrl: educationUploadForm,
+        educationUploadFileUrl,
       },
 
       experience: {
@@ -2285,7 +2315,7 @@ function profilePage() {
         experiencePosition: experiencePosition.value,
         experienceFromDate: experienceDateFrom.value,
         experienceToDate: experienceDateTo.value,
-        experienceUploadFileUrl: experienceUploadFrom,
+        experienceUploadFileUrl,
       },
 
       experienceLevel: skillLevel.value,
@@ -2293,38 +2323,13 @@ function profilePage() {
       description: descriptionInput.value,
       currency: currencyField.value,
       avatar: avatarValue,
+      skillLevel: skillLevel.value,
     };
-    console.log(typeof userDetail);
 
     return userDetail;
   }
 
   fillData();
-
-  // console.log(
-  //   firstNameInput,
-  //   lastNameInput,
-  //   emailInput,
-  //   dateOfBirth,
-  //   countryDrop,
-  //   genderRadios,
-  //   skillsCheckboxes,
-  //   languagesCheckboxes,
-  //   educationInstitution,
-  //   educationLevel,
-  //   educationNameOfCertification,
-  //   educationPreview,
-  //   experienceInstitution,
-  //   experiencePosition,
-  //   experienceDateFrom,
-  //   experienceDateTo,
-  //   experiencePreview,
-  //   descriptionInput,
-  //   currencyField,
-  //   skillLevel,
-  //   avatarContainer,
-  //   editIcon
-  // );
 }
 
 function setDeadlineDate() {
@@ -2357,7 +2362,6 @@ function findSelected(checkboxes) {
 
 function findCheckedGender(gender) {
   if (gender[0].checked) {
-    console.log(gender[0].value);
     return gender[0].value;
   } else {
     console.log(gender[1].value);
@@ -2375,23 +2379,6 @@ function checkSelection(checkboxes) {
   return oneSelected;
 }
 
-// function setDeadlineDate() {
-//   let unformattedDate = new Date();
-//   let fullYear = unformattedDate.getFullYear();
-//   let month = unformattedDate.getMonth() + 1;
-//   if (month < 10) {
-//     month = "0" + month;
-//   }
-
-//   let day = unformattedDate.getDate();
-//   if (day < 10) {
-//     day = "0" + day;
-//   }
-//   let formattedDate = `${fullYear}-${month}-${day}`;
-//   let deadlineInput = document.querySelector(".deadline-input");
-
-//   deadlineInput.setAttribute("min", formattedDate);
-// }
 export {
   signUpMain,
   loginMain,
