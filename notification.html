@@ -32,7 +32,7 @@
   <body>
     <!-- Navigation Section -->
     <nav
-      class="navbar navbar-expand-lg py-0 m-0 navbar-dark fixed-top bg-white"
+      class="navbar navbar-expand-lg py-0 m-0 navbar-dark fixed-top bg-light"
     >
       <div class="container-fluid py-3 px-4 navigation-container">
         <img class="navbar-brand" src="./assets/image/Jobber Logo.svg" />
@@ -52,97 +52,42 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
-                class="nav-link nav-link-transparent"
+                class="nav-link nav-link-transparent dashboard-link"
                 aria-current="page"
-                href="#home-section"
-                >Home</a
+                >Dashboard</a
               >
             </li>
 
             <li class="nav-item">
+              <a class="nav-link nav-link-transparent explore-link">Explore</a>
+            </li>
+            <li class="nav-item">
               <a
-                class="nav-link nav-link-transparent"
-                href="#how-it-works-section"
-                >How it works</a
+                class="nav-link nav-link-transparent notifications-redirect"
+                href="#"
               >
+                <i class="far fa-bell"></i>
+                <span class="badge rounded-pill bg-danger hide">1</span>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="#explore-section"
-                >Explore</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="#about-us-section"
-                >About us</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="./login.html"
-                >Login</a
-              >
-            </li>
-            <li class="nav-item sign-up-item">
-              <a
-                class="nav-link n av-link-transparent sign-up-link"
-                href="./signUp.html"
-                style="color: black"
-                >Sign Up</a
-              >
+              <a class="nav-link nav-link-transparent profile-redirect">
+                <i class="fas fa-user-circle"></i>
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <section class="notification-container">
-      <div class="notification-job">
-        <h1 class="notification-center-title">Job Listing</h1>
-        <div class="job-name-container-text notification-center-text">
-          Job Name :
-        </div>
-        <div class="job-category-container-text notification-center-text">
-          Job Category :
-        </div>
-        <div class="job-languages-container-text notification-center-text">
-          Job Languages :
-        </div>
-        <div class="job-price-container-text notification-center-text">
-          Job Price :
-        </div>
-        <div class="job-skill-level-container notification-center-text">
-          Required Skills :
-        </div>
-        <div class="deadline-container-text">Deadline :</div>
-        <div class="description-container-text notification-center-text">
-          Description :
-        </div>
-
-        <button class="view-job">View Listing</button>
-      </div>
-
-      <div class="notification-user">
-        <h1 class="notification-center-title">Job Applicant</h1>
-        <div class="applicant-name notification-center-text">Full Name :</div>
-        <div class="applicant-skill notification-center-text">Skills :</div>
-        <div class="applicant-langauges notification-center-text">
-          Languages :
-        </div>
-        <div class="applicant-email notification-center-text">Email :</div>
-        <div class="applicant-skill-level notification-center-text">
-          Skill Level :
-        </div>
-        <div class="applicant-description notification-center-text">
-          Description :
-        </div>
-        <button class="view-applicant notification-center-text">
-          View Applicant
-        </button>
-      </div>
+    <section class="outer empty">
+      <img
+        src="./assets/image/empty-white-box.svg"
+        alt=""
+        class="img-fluid empty-icon"
+      />
+      <div class="empty-class">You have no Notifications</div>
     </section>
-    <div class="main-buttons-container">
-      <button class="accept-request-button">Accept Request</button>
-      <button class="reject-request-button">Reject Request</button>
-    </div>
 
     <!-- Footer Section -->
     <footer class="footer mt-3">
@@ -246,6 +191,10 @@
 
     <script src="./assets/js/Controller.js" type="module"></script>
     <script src="./assets/js/model.js" type="module"></script>
-    <script type="module"></script>
+    <script type="module">
+      import { notificationPage, common } from "./assets/js/controller.js";
+      notificationPage();
+      common();
+    </script>
   </body>
 </html>

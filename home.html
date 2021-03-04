@@ -68,15 +68,15 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
-                class="nav-link nav-link-transparent"
+                class="nav-link nav-link-transparent dashboard-link"
                 aria-current="page"
-                href="./home.html"
+                
                 >Dashboard</a
               >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="./explore.html"
+              <a class="nav-link nav-link-transparent explore-link" 
                 >Explore</a
               >
             </li>
@@ -87,7 +87,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-transparent" href="#">
+              <a class="nav-link nav-link-transparent profile-redirect" >
                 <i class="fas fa-user-circle"></i>
               </a>
             </li>
@@ -460,8 +460,9 @@
     <script src="./assets/js/model.js" type="module"></script>
 
     <script type="module">
-      import {homeMain} from "./assets/js/controller.js"
+      import {homeMain,common} from "./assets/js/controller.js"
       homeMain()
+      common()
     </script> 
   </body>
 </html>

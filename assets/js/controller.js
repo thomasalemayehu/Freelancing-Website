@@ -20,6 +20,7 @@ import {
   getJobById,
   addItemToDB,
   getItemFromDB,
+  putData,
 } from "./Model.js";
 
 function signUpMain() {
@@ -253,7 +254,7 @@ async function homeMain() {
   const quoteAuthorSpace = document.querySelector(".welcome-card-quote-person");
   let badgeItem = document.querySelector(".badge");
   let notificationButton = document.querySelector(".notifications-redirect");
-  notificationButton.setAttribute("href", `../../notification.html?id=test`);
+
   //   Get Quote
   let quoteOfTheDay = getQuote();
   quoteSpace.innerHTML = quoteOfTheDay[0];
@@ -312,6 +313,10 @@ async function homeMain() {
 
   // If Admin
   if (userType == "buyer") {
+    notificationButton.setAttribute(
+      "href",
+      `../../notification.html?type=buyer`
+    );
     // Checking for Notifiactions
     let notifications = await getItemFromDB(
       "NotificationsCenterAdmin",
@@ -319,554 +324,48 @@ async function homeMain() {
       "Unresolved"
     );
 
-    if (notifications.length == 0) {
-      badgeItem.classList.add("hide");
+    console.log(notifications.length);
+    if (notifications.length != 0) {
+      badgeItem.innerText = notifications.length;
+      badgeItem.classList.remove("hide");
     } else {
       badgeItem.innerText = notifications.length;
     }
 
-    console.log(notifications);
     let cardsContainer = Array.from(
       document.querySelectorAll(".cards-container")
     );
     cardsContainer.forEach((cardContainer) => {
       cardContainer.innerHTML = "";
     });
-
-    let pageWrapper = document.querySelector(".page-wrapper");
-    pageWrapper.innerHTML += '<button class="post-new-button">Post</button" ';
-
-    let postButton = document.querySelector(".post-new-button");
-    let jobs = [
-      {
-        jobName: "Photo Editor",
-        jobCategory: "Graphics and Design",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "04/30/2021",
-        payPrice: "4,000",
-        jobLanguage: "[Amharic,English]",
-        jobDescription:
-          "we are small company looking for a photoEditor someone that has a good communication skill",
-        payCurrency: "Birr",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Apparel Graphics Designer",
-        jobCategory: "Graphics ",
-        jobCountry: "kenya",
-        jobAddedBy: "rediateadmin",
-        deadline: "03/05/2021",
-        payPrice: "8,000",
-        jobLanguage: "[Swahili,English",
-        jobDescription:
-          "We need an Apparel graphic designers create individual, original images for clothing. ",
-        payCurrency: "kenyan shiling",
-        skillLevel: "Intermediate",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Computer system Analyst",
-        jobCategory: "Programming and Development",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "rediateadmin",
-        deadline: "05/06/2021",
-        payPrice: "15,000",
-        jobLanguage: "[Rwandian,English]",
-        jobDescription:
-          "We need Computer systems engineers that is responsible for identifying solutions to complex applications problems",
-        payCurrency: "Rwandan Franc",
-        skillLevel: "Advanced",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Database Administrator",
-        jobCategory: "Programming and Development",
-        jobCountry: "Ethipoia",
-        jobAddedBy: "bekenadmin",
-        deadline: "03/05/2021",
-        payPrice: "10,000",
-        jobLanguage: "[Amharic,English,Afan Oromo] ",
-        jobDescription:
-          " we want a Database administrators that is tasked with securing, organizing and troubleshooting storage for large amounts of information for our company",
-        payCurrency: "Birr",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Recording Engineer",
-        jobCategory: "Music and Audio",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "bekenadmin",
-        deadline: "03/05/2021",
-        payPrice: "12,000",
-        jobLanguage: "[Amharic,English,Afan Oromo]",
-        jobDescription:
-          "An audio engineer that is responsible for capturing sound and manipulating it in the studio.",
-        payCurrency: "Birr",
-        skillLevel: "Intermediate",
-        jobAddedDate: new Date(),
-      },
-
-      {
-        jobName: "Artist Manager",
-        jobCategory: "Music and Audio",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "rediateadmin",
-        deadline: "24/04/2021",
-        payPrice: "18,000",
-        jobLanguage: "[Amharic,English,Tigrigna]",
-        jobDescription:
-          "An artist manager that exists to create opportunities, connect, and propel the Music and Audio and Audioal act forward in the Music and Audio and Audio business",
-        payCurrency: "Birr",
-        skillLevel: "Advanced",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Ecommerce Manager.",
-        jobCategory: "Digital Marketing",
-        jobCountry: "Sudan",
-        jobAddedBy: "thomasadmin",
-        deadline: "17/04/2021",
-        payPrice: "9,000",
-        jobLanguage: "[English,Sudanese]",
-        jobDescription:
-          "An Ecommerce Manager whose main areas of responsibilities, typical tasks, technical and management skills needed ",
-        payCurrency: "Sudanese pound",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Article Document",
-        jobCategory: "Writing and Translation",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "24/05/2021",
-        payPrice: "6,000",
-        jobLanguage: "[Amharic,English,Afan Oromo]",
-        jobDescription:
-          "We need someone who is qualifying to write articles that have to do writing articles as a ghost writer",
-        payCurrency: "Birr",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Recording Engineer",
-        jobCategory: "Music and Audio",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "bekenadmin",
-        deadline: "03/05/2021",
-        payPrice: "12,000",
-        jobLanguage: "[Amharic,English,Afan Oromo]",
-        jobDescription:
-          "An audio engineer is responsible for capturing sound and manipulating it in the studio.",
-        payCurrency: "Birr",
-        skillLevel: "Intermediate",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Yoga Teacher",
-        jobCategory: "Lifestyle",
-        jobCountry: "Uganda",
-        jobAddedBy: "bekenadmin",
-        deadline: "02/29/2021",
-        payPrice: "12,000",
-        jobLanguage: "[French,English]",
-        jobDescription:
-          "We need someone who can yoga practices and Lifestyle choices, making them as accessible as possible, and sharing them with clients",
-        payCurrency: "Us Dollar",
-        skillLevel: "Advanced",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Wellness Coach",
-        jobCategory: "Lifestyle",
-        jobCountry: "Somalia",
-        jobAddedBy: "rediateadmin",
-        deadline: "15/04/2021",
-        payPrice: "10,000",
-        jobLanguage: "[Somali,English]",
-        jobDescription:
-          "We need someone teach how to change their minds and create powerful new habits allowing them to be healthy, feel good, and live a fulfilled life,",
-        payCurrency: "US dollar",
-        skillLevel: "Intermediate",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Freelance Writer",
-        jobCategory: "Writing and Translation",
-        jobCountry: "kenya",
-        jobAddedBy: "thomasadmin",
-        deadline: "03/07/2021",
-        payPrice: "8,000",
-        jobLanguage: "[Swahili,English,Afan Oromo]",
-        jobDescription: "We need someone with good writing ablility ",
-        payCurrency: "Kenyan Shiling",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Software QA",
-        jobCategory: "Programming and Development",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "bekenadmin",
-        deadline: "03/05/2021",
-        payPrice: "12,200",
-        jobLanguage: "[Amharic,English,Afan Oromo]",
-        jobDescription:
-          "We need a software QA engineers who can documenting defects, designing tests and scenarios, and creating manuals for new software.",
-        payCurrency: "Birr",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Tour Manager",
-        jobCategory: "Music and Audio",
-        jobCountry: "Tanzania",
-        jobAddedBy: "rediateadmin",
-        deadline: "01/06/2021",
-        payPrice: "15,220",
-        jobLanguage: "[Portuguese,English]",
-        jobDescription:
-          "As a tour manager, you’ll be involved in every aspect of a band’s career on the road.",
-        payCurrency: "Birr",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Music and Audio and Audio Publicist",
-        jobCategory: "Music and Audio",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "03/05/2021",
-        payPrice: "14,400",
-        jobLanguage: "[Amharic,English,Afan Oromo]",
-        jobDescription:
-          "we need Music and Audio and Audio publicist who works closely with media outlets, marketers, and venues. Publicists ensure that their Music and Audio and Audioians’ concerts, releases,",
-        payCurrency: "Birr",
-        skillLevel: "Advanced",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Social Media Manager or Community Manager",
-        jobCategory: "Digital Marketing",
-        jobCountry: "Uganda",
-        jobAddedBy: "rediateadmin",
-        deadline: "29/02/2021",
-        payPrice: "19,000",
-        jobLanguage: "[French,English]",
-        jobDescription:
-          "We need someone who structure a digital team to work as an integrated part of marketing is a key challenge",
-        payCurrency: "Franc",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Dietitian",
-        jobCategory: "Lifestyle",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "bekenadmin",
-        deadline: "23/0/2021",
-        payPrice: "12,300",
-        jobLanguage: "[Amhraric,English,Afan Oromo]",
-        jobDescription:
-          "we need someone with a degree in nutrition, completing an internship and passing your state’s dietetics examination",
-        payCurrency: "Birr",
-        skillLevel: "Advanced",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Consultant",
-        jobCategory: "Lifestyle",
-        jobCountry: "North Sudan",
-        jobAddedBy: "thomasadmin",
-        deadline: "28/02/2021",
-        payPrice: "8,500",
-        jobLanguage: "[Sudanese,English]",
-        jobDescription: "We need someone who can work remotely.",
-        payCurrency: "Birr",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Computer programmers",
-        jobCategory: "Programing",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "rediateadmin",
-        deadline: "08/04/2021",
-        payPrice: "14,000",
-        jobLanguage: "[Amharic,English,Afan Oromo,Afar]",
-        jobDescription:
-          "we need a Computer programmers who write programs and rewrite programs until they are free of errors.",
-        payCurrency: "Birr",
-        skillLevel: "Intermediate",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Composer",
-        jobCategory: "Music and Audio",
-        jobCountry: "kenya",
-        jobAddedBy: "thomasadmin",
-        deadline: "23/04/2021",
-        payPrice: "17,500",
-        jobLanguage: "[English,Swahili]",
-        jobDescription:
-          " we need a Composers aren’t just tied down to the classical Music and Audio genre, nut also they can write for film, TV, and video games.",
-        payCurrency: "Kenyan Shiling",
-        skillLevel: "Advanced",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Web designer",
-        jobCategory: "Graphics and Design",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "27/03/2021",
-        payPrice: "15,500",
-        jobLanguage: "[Amharic,English,Tigrigna]",
-        jobDescription:
-          " We need a Web designers who can assist in developing websites by creating individual web pages, designing page layouts and developing Graphics and Design for the website.",
-        payCurrency: "Birr",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Network system administrator",
-        jobCategory: "Programming and Development",
-        jobCountry: "south Sudan",
-        jobAddedBy: "rediateadmin",
-        deadline: "03/03/2021",
-        payPrice: "21,000",
-        jobLanguage: "[English,Sudanese]",
-        jobDescription:
-          "We need a Network system administrators who can maintain computing environments in their networks and prevent disasters by backing up data",
-        payCurrency: "Sudanese Pound",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Multimedia designer",
-        jobCategory: "Graphics and Design",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "03/05/2021",
-        payPrice: "24,000",
-        jobLanguage: "[Amharic,English,Afan Oromo,Tigrigna]",
-        jobDescription:
-          "We need a Multimedia designers who can create complex animated images and videos using art and computerized animation programs.",
-        payCurrency: "Birr",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: " Music and Audio Producer",
-        jobCategory: "Music and Audio",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "bekenadmin",
-        deadline: "03/05/2021",
-        payPrice: "22,000",
-        jobLanguage: "[Amharic,English,Afan Oromo]",
-        jobDescription:
-          "We need a Music and Audio producer who can understands both the creative and commercial side of the business and develops relationships with both Music and Audioians and the record label",
-        payCurrency: "Birr",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Software developers",
-        jobCategory: "Programing",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "rediateadmin",
-        deadline: "08/03/2021",
-        payPrice: "38,000",
-        jobLanguage: "[Amharic,English,Afan Oromo,Afar]",
-        jobDescription:
-          "we need Software developers who is responsible for creating and enhancing applications for cell phones, tablets and other mobile devices..",
-        payCurrency: "Birr",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: " Advertising designer",
-        jobCategory: "Graphics and Design ",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "021/03/2021",
-        payPrice: "5,000",
-        jobLanguage: "[Amharic,English,Tigrigna]",
-        jobDescription:
-          "we need an advertising designers who can do sketching and photography to create visually compelling marketing materials for a brand or company.",
-        payCurrency: "Birr",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Business intelligence analyst",
-        jobCategory: "Programing",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "bekenadmin",
-        deadline: "018/03/2021",
-        payPrice: "5,000",
-        jobLanguage: "[Amharic,English,Afan Oromo,Afar]",
-        jobDescription:
-          "This position is for the behind-the-scenes marketer who gathers all the cold facts about software products and trends to determine which software can help solve business initiatives.",
-        payCurrency: "Birr",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Art director",
-        jobCategory: "Graphics and Design ",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "rediateadmin",
-        deadline: "08/04/2021",
-        payPrice: "38,000",
-        jobLanguage: "[Amharic,English,Afar]",
-        jobDescription:
-          "we need an art director who is responsible for guiding the design team's vision, directing the theme concept and overseeing all design artwork.",
-        payCurrency: "Birr",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Computer systems engineer",
-        jobCategory: "Programing",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "15/03/2021",
-        payPrice: "38,000",
-        jobLanguage: "[Amharic,English,Afan Oromo]",
-        jobDescription:
-          "we need a Computer systems engineers who is responsible for identifying solutions to complex applications problems, systems administration issues or network concerns",
-        payCurrency: "Birr",
-        skillLevel: "Ninja",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: " User interface (UI) designer",
-        jobCategory: "Graphics and Design ",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "bekenadmin",
-        deadline: "28/04/2021",
-        payPrice: "5,000",
-        jobLanguage: "[Amharic,English,Afan Oromo,Afar]",
-        jobDescription:
-          "we need a user interface designer who is responsible for ensuring every webpage or operational step of the final product follows the user experience (UX) designer's intent.",
-        payCurrency: "Birr",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Digital Motion",
-        jobCategory: "Video and Animation",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "rediateadmin",
-        deadline: "01/03/2021",
-        payPrice: "5,000",
-        jobLanguage: "[Amharic,English]",
-        jobDescription:
-          "we need someone who can use complex computer software like Adobe After Effects, Maya or AutoCAD is right up your alley, you might enjoy creating videos and visual effects (VFX).",
-        payCurrency: "Birr",
-        skillLevel: "Intermediate",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Design Movie Character",
-        jobCategory: "Video and Animation",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "01/03/2021",
-        payPrice: "8,000",
-        jobLanguage: "[Amharic,English,Swahili]",
-        jobDescription:
-          "we need someone who can use complex computer software like Adobe After Effects, Maya or AutoCAD is right up your alley, you might enjoy creating videos and visual effects (VFX).",
-        payCurrency: "Birr",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Design Movie Character",
-        jobCategory: "Video and Animation",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "01/03/2021",
-        payPrice: "8,000",
-        jobLanguage: "[Amharic,English,Swahili]",
-        jobDescription:
-          "we need someone who can use complex computer software like Adobe After Effects, Maya or AutoCAD is right up your alley, you might enjoy creating videos and visual effects (VFX).",
-        payCurrency: "Birr",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Design Movie Character",
-        jobCategory: "Video and Animation",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "01/03/2021",
-        payPrice: "8,000",
-        jobLanguage: "[Amharic,English,Swahili]",
-        jobDescription:
-          "we need someone who can use complex computer software like Adobe After Effects, Maya or AutoCAD is right up your alley, you might enjoy creating videos and visual effects (VFX).",
-        payCurrency: "Birr",
-        skillLevel: "Intermediate",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: " Publication designer",
-        jobCategory: "Graphics and Design ",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "thomasadmin",
-        deadline: "24/0/2021",
-        payPrice: "5,000",
-        jobLanguage: "[Amharic,English,Afan Oromo,Afar]",
-        jobDescription:
-          "Publication designers develop the layout, visual appearance and Graphics and Design for a range of printed publications",
-        payCurrency: "Birr",
-        skillLevel: "Beginner",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: " User experience (UX) designer",
-        jobCategory: "Graphics and Design ",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "rediateadmin",
-        deadline: "01/05/2021",
-        payPrice: "38,000",
-        jobLanguage: "[Amharic,English]",
-        jobDescription:
-          "We need a UX designers who can make products, services and websites enjoyable and accessible for users.",
-        payCurrency: "Birr",
-        skillLevel: "Intermediate",
-        jobAddedDate: new Date(),
-      },
-      {
-        jobName: "Mobile app developer",
-        jobCategory: "Programing and Development",
-        jobCountry: "Ethiopia",
-        jobAddedBy: "bekenadmin",
-        deadline: "11/03/2021",
-        payPrice: "38,000",
-        jobLanguage: "[Amharic,English]",
-        jobDescription:
-          "we need a mobile app developer who can  design and code software for mobile devices like cell phones and tablets. The programs they create are determined by the needs of their specific clients and are frequently available to the public.",
-        payCurrency: "Birr",
-        skillLevel: "Intermediate",
-        jobAddedDate: new Date(),
-      },
-    ];
-    async function addHelper(job) {
-      await addJobToDB(job, job.jobAddedBy, "buyer");
-    }
-    postButton.addEventListener("click", () => {
-      jobs.forEach((job) => {
-        addHelper(job);
-      });
+    let container = document.querySelector(".cards-container");
+    container.classList.add("row");
+    container.innerHTML = `<h1> Your Posts</h1>`;
+    let userPosts = await getItemFromDB("Jobs", "User", userName);
+    userPosts.forEach((jobs) => {
+      container.innerHTML += `
+          <!-- Card 1 -->
+          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3 job-box-main">
+            <div class="single-job-box">
+              <div class="job-box-header">${jobs.jobName}</div>
+              <div class="job-box-sub-header">${jobs.jobAddedBy}</div>
+              <p class="job-box-description">
+                ${jobs.jobDescription.substr(0, 120)}
+              </p>
+               <p class="job-box-description">
+                Level : ${jobs.skillLevel}
+              </p>
+            <div>
+          </div>
+`;
     });
   }
   // If User
   else {
+    notificationButton.setAttribute(
+      "href",
+      `../../notification.html?type=seller`
+    );
     async function updateNotifiaction() {
       // Checking for Notifiactions
       let notifications = await getItemFromDB(
@@ -889,7 +388,7 @@ async function homeMain() {
 
       userSkills.forEach(async function (userSkill) {
         let allJobs = await getAllJobs("Category", userSkill);
-        displayAllJobs(allJobs, i);
+        displayAllJobs(allJobs.reverse(), i);
 
         i++;
       });
@@ -981,33 +480,7 @@ async function homeMain() {
             </div>
           </div>
 
-          <!-- Card 4 -->
-          <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 mt-3 job-box-main">
-            <div class="single-job-box">
-              <div class="job-box-header">${jobs[3].jobName}</div>
-              <div class="job-box-sub-header">${jobs[3].jobAddedBy}</div>
-              <p class="job-box-description">
-                ${jobs[3].jobDescription.substr(0, 100)}
-              </p>
-
-               <p class="job-box-description">
-                Level : ${jobs[3].skillLevel}
-              </p>
-              
-
-              <div class="job-box-container">
-                <button class="apply-job-button">Apply</button>
-                <p class="id-box hide" >${jobs[3].id} </p>
-                <div class="job-pricing-container">
-                  Starting At
-                  <span class="job-pricing-container-price">$${
-                    jobs[3].payPrice
-                  }</span>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
+         
           
         </div>
     `;
@@ -1047,13 +520,6 @@ async function homeMain() {
         let jobDetails = (await getJobById(Number(jobId)))[0];
         console.log(jobDetails);
         let notificationData = {
-          applicantName: userDetails.fullName,
-          applicantEmail: userDetails.email,
-          applicantSkills: userDetails.skills,
-          applicantSkillLevel: userDetails.skillLevel,
-          applicantDescription: userDetails.description,
-          applicantLanguages: userDetails.languages,
-
           jobId: jobId,
           jobName: jobDetails.jobName,
           jobPrice: `${jobDetails.payPrice} ${jobDetails.payCurrency} `,
@@ -1061,6 +527,15 @@ async function homeMain() {
           jobLanguage: jobDetails.jobLanguage,
           jobSkillLevel: jobDetails.skillLevel,
           jobDescription: jobDetails.jobDescription,
+          jobDeadline: jobDetails.deadline,
+
+          applicantID: userName,
+          applicantName: userDetails.fullName,
+          applicantEmail: userDetails.email,
+          applicantSkills: userDetails.skills,
+          applicantSkillLevel: userDetails.skillLevel,
+          applicantDescription: userDetails.description,
+          applicantLanguages: userDetails.languages,
 
           Status: "Unresolved",
         };
@@ -2389,25 +1864,151 @@ function profilePage() {
   fillData();
 }
 
-// function updateNotificationsPage(itemToAdd) {
-//   let jobNameArea = document.querySelectorAll(".job-name-container-text");
-//   let jobCategoryArea = document.querySelectorAll(
-//     ".job-category-container-text"
-//   );
-//   let jobLanguageArea = document.querySelectorAll(
-//     ".job-languages-container-text"
-//   );
-//   let jobPriceArea = document.querySelectorAll(".job-price-container-text");
-//   let jobSkillArea = document.querySelectorAll(".job-skill-level-container");
-//   let deadlineArea = document.querySelectorAll(".deadline-container-text");
-//   let jobDescriptionArea = document.querySelectorAll(
-//     ".description-container-text"
-//   );
-//   let viewListingButton = document.querySelectorAll(".view-job");
+async function notificationPage() {
+  let container = document.querySelector(".outer");
+  let badgeItem = document.querySelector(".badge");
 
-//   // Setting Values
-//   jobName.innerText = `Job Name : ${itemToAdd.applicantName}`;
-// }
+  const urlParams = new URLSearchParams(window.location.search);
+
+  const userType = String(urlParams.get("type"));
+
+  // Setting Values
+
+  if (userType == "buyer") {
+    let notificationData = await getItemFromDB(
+      "NotificationsCenterAdmin",
+      "Status",
+      "Unresolved"
+    );
+
+    if (notificationData.length != 0) {
+      badgeItem.innerText = notificationData.length;
+      badgeItem.classList.remove("hide");
+      container.classList.remove("empty");
+      container.innerHTML = ``;
+      notificationData.forEach((data) => {
+        container.innerHTML += `
+    <section class="notification-container">
+      <div class="notification-job">
+        <h1 class="notification-center-title">Job Listing</h1>
+        <div class="job-id hid">${data.jobId}</div>
+        <div class="job-name-container-text notification-center-text">
+          Job Name : ${data.jobName}
+        </div>
+        <div class="job-category-container-text notification-center-text">
+          Job Category : ${data.jobCategory}
+        </div>
+        <div class="job-languages-container-text notification-center-text">
+          Job Languages : ${data.jobLanguage}
+        </div>
+        <div class="job-price-container-text notification-center-text">
+          Job Price : ${data.jobPrice} 
+        </div>
+        <div class="job-skill-level-container notification-center-text">
+          Required Skills : ${data.jobSkillLevel}
+        </div>
+        <div class="deadline-container-text notification-center-text">Deadline : ${data.jobDeadline}</div>
+        <div class="description-container-text notification-center-text">
+          Description : ${data.jobDescription}
+        </div>
+
+      </div>
+
+      <div class="notification-user">
+        <h1 class="notification-center-title">Job Applicant</h1>
+        <div class = "applicant-id hid">${data.applicantID}</div>
+        <div class="applicant-name notification-center-text">Full Name : ${data.applicantName[0]} ${data.applicantName[1]}</div>
+        <div class="applicant-skill notification-center-text">Skills : ${data.applicantSkills}</div>
+        <div class="applicant-langauges notification-center-text">
+          Languages : ${data.applicantLanguages}
+        </div>
+        <div class="applicant-email notification-center-text">Email :${data.applicantEmail}</div>
+        <div class="applicant-skill-level notification-center-text">
+          Skill Level : ${data.applicantSkillLevel}
+        </div>
+        <div class="applicant-description notification-center-text">
+          Description : ${data.applicantDescription}
+        </div>
+        
+      </div>
+    </section>
+    <div class="main-buttons-container">
+      <button class="accept-request-button" userId=${data.applicantID} jobId =${data.jobId}>Accept Request</button>
+      <button class="reject-request-button" userId=${data.applicantID} jobId =${data.jobId}>Reject Request</button>
+    </div>`;
+      });
+    } else {
+      container.classList.add("empty");
+    }
+
+    // Adding event Listener
+    container.addEventListener("click", (e) => {
+      let targetValue = e.target.classList;
+
+      if (targetValue.contains("accept-request-button")) {
+        // putUserDetail("NotificationsCenterAdmin", notificationData);
+        let notif;
+        for (let i = 0; i < notificationData.length; i++) {
+          if (
+            Number(notificationData[i].jobId) ==
+            Number(e.target.getAttribute("jobId"))
+          ) {
+            notif = notificationData[i];
+            console.log("Found");
+            break;
+          } else {
+            notif = null;
+          }
+        }
+
+        notif.Status = "Resolved";
+
+        putData("NotificationsCenterAdmin", notif);
+        putData("NotificationsCenterUser", notif);
+        location.reload();
+      } else if (targetValue.contains("reject-request-button")) {
+        let notif;
+        for (let i = 0; i < notificationData.length; i++) {
+          if (
+            Number(notificationData[i].jobId) ==
+            Number(e.target.getAttribute("jobId"))
+          ) {
+            notif = notificationData[i];
+            console.log("Found");
+            break;
+          } else {
+            notif = null;
+          }
+        }
+
+        notif.Status = "Rejected";
+
+        putData("NotificationsCenterAdmin", notif);
+        putData("NotificationsCenterUser", notif);
+        location.reload();
+      } else if (targetValue.contains("view-applicant")) {
+        console.log("Applicant");
+      } else if (targetValue.contains("view-job")) {
+        console.log("Job");
+      }
+    });
+  } else {
+    // let notificationData = await getItemFromDB(
+    //   "NotificationsCenterUser",
+    //   "Status",
+    //   "Resolved"
+    // );
+
+    // // if (notificationData.length != 0) {
+    // //   badgeItem.innerText = notificationData.length;
+    // //   badgeItem.classList.remove("hide");
+    // //   container.classList.remove("empty");
+    // //   container.innerHTML = ``;
+    // // }
+    // console.log(notificationData);
+    console.log("Here");
+  }
+}
 function setDeadlineDate() {
   let unformattedDate = new Date();
   let fullYear = unformattedDate.getFullYear();
@@ -2455,6 +2056,63 @@ function checkSelection(checkboxes) {
   return oneSelected;
 }
 
+async function common() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = String(urlParams.get("id"));
+  const userType = String(urlParams.get("type"));
+
+  let dashboardLink = document.querySelector(".dashboard-link");
+  dashboardLink.addEventListener("click", (e) => {
+    dashboardLink.setAttribute(
+      "href",
+      `../../home.html?id=${userName}&type=${userType}`
+    );
+  });
+
+  let exploreLink = document.querySelector(".explore-link");
+  exploreLink.addEventListener("click", (e) => {
+    exploreLink.setAttribute(
+      "href",
+      `../../explore.html?id=${userName}&type=${userType}`
+    );
+  });
+
+  let profileRedirect = document.querySelector(".profile-redirect");
+  profileRedirect.addEventListener("click", (e) => {
+    profileRedirect.setAttribute(
+      "href",
+      `../../profile.html?id=${userName}&type=${userType}`
+    );
+  });
+
+  let notificationRedirect = document.querySelector(".notifications-redirect");
+  notificationRedirect.addEventListener("click", (e) => {
+    notificationRedirect.setAttribute(
+      "href",
+      `../../notification.html?id=${userName}&type=${userType}`
+    );
+  });
+
+  if (userType == "buyer") {
+    let badgeItem = document.querySelector(".badge");
+
+    // Checking for Notifiactions
+    let notifications = await getItemFromDB(
+      "NotificationsCenterAdmin",
+      "Status",
+      "Unresolved"
+    );
+
+    console.log(notifications.length);
+    if (notifications.length != 0) {
+      badgeItem.innerText = notifications.length;
+      badgeItem.classList.remove("hide");
+    } else {
+      badgeItem.innerText = notifications.length;
+    }
+  }
+}
+
 export {
   signUpMain,
   loginMain,
@@ -2463,4 +2121,6 @@ export {
   explorePage,
   addPage,
   profilePage,
+  notificationPage,
+  common,
 };

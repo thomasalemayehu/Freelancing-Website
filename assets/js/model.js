@@ -163,6 +163,13 @@ async function putUserDetail(userDetail) {
   });
 }
 
+async function putData(storeName, item) {
+  let db = await openDB("Jobber", 1);
+  await db.put(storeName, item).then(() => {
+    console.log("Deleted");
+  });
+}
+
 async function addItemToDB(objectStore, item) {
   let db = await openDB("Jobber", 1);
   await db.add(objectStore, item);
@@ -264,4 +271,5 @@ export {
   getJobById,
   addItemToDB,
   getItemFromDB,
+  putData,
 };

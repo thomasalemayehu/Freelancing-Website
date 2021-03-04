@@ -170,9 +170,6 @@
   color: black;
   text-align: center;
 }
-/* .card-deck {
-  margin-top: 200px;
-} */
 
 /* About Us Page */
 .illustration {
@@ -272,70 +269,7 @@
   border-left: 1px solid;
   height: 100px;
 }
-/* .miss-title {
-  font-family: Raleway, sans-serif;
-  background-color: yellow;
-} */
-/* .badge-pill {
-  padding-right: 0.6em;
-  padding-left: 0.6em;
-  border-radius: 10rem;
-  -webkit-border-radius: 10rem;
-  -moz-border-radius: 10rem;
-  -ms-border-radius: 10rem;
-  -o-border-radius: 10rem;
-} */
-/* .badge {
-  display: inline-block;
-  padding: 0.25em 0.4em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border: solid black;
-} */
-/* .home-section.wg-experience .card-body {
-  padding: 0.5rem;
-} */
-/* .m-2 .border.exp-fill {
-  border-radius: 100%;
-  border: solid black;
-} */
-/* counter up*/
 
-/* .one .container {
-  z-index: 10;
-  position: relative;
-} */
-/*profile page css*/
-.profile-card {
-  width: 400px;
-  margin: auto;
-  background: #fff;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
-}
-.pro-ic {
-  color: #3aabab;
-  margin-right: 15px;
-  margin-left: 10px;
-}
-.pro-name {
-  color: #3aabab;
-  text-align: center;
-}
-.progress {
-  color: #3aabab;
-  border-radius: 16px;
-}
-.progress-bar {
-  padding: 0.1em 16px;
-  border-radius: 16px;
-  text-align: center;
-  color: #fff;
-  background-color: rgba(#3aabab, 0, 0, 1);
-}
 /*Footer Section */
 .footer-social-icons {
   fill: rgba(0, 0, 0, 0.65);
@@ -442,89 +376,82 @@
 }
 
 /* Registration page */
-<<<<<<< HEAD
-@media screen and (min-width: 300px) and (max-width: 574px){
-  .user-detail-container{
-=======
+
 @media screen and (min-width: 349px) and (max-width: 576px) {
   .user-detail-container {
->>>>>>> a1032e4442a20e4ee59f08903bbe3c88ee3efd42
     width: 100%;
     padding-right: 15vh;
     margin: 0%;
   }
-  .user-detail-name-container{
-    display:flex;
+  .user-detail-name-container {
+    display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
     width: 100%;
   }
-  .user-detail-field{
+  .user-detail-field {
     height: 20vh;
     width: 60vh;
-  
   }
-  .control{
+  .control {
     width: 100%;
   }
 
-  .email-detail-field{
+  .email-detail-field {
     width: 30%;
   }
-  .date-of-birth-detail-field{
+  .date-of-birth-detail-field {
     width: 30%;
   }
-  .label{
-    font-size:14px ;
+  .label {
+    font-size: 14px;
   }
-  .country-detail-field{
+  .country-detail-field {
     width: 20vh;
   }
-  .skills-detail-field{
+  .skills-detail-field {
     width: 40%;
   }
-  .language-detail-field{
+  .language-detail-field {
     width: 40%;
   }
   .footer {
     margin-top: 10vh;
     padding-top: 5vh;
   }
-<<<<<<< HEAD
-  
 }
-@media screen and (min-width: 575px) and (max-width: 855px){
-  .user-detail-container{
+@media screen and (min-width: 575px) and (max-width: 855px) {
+  .user-detail-container {
     width: 100%;
     margin: 0%;
   }
-.user-detail-field{
+  .user-detail-field {
     height: 20vh;
     width: 60%;
-  
   }
-  .control{
+  .control {
     width: 100%;
   }
 
-  .email-detail-field{
+  .email-detail-field {
     width: 30%;
   }
-  .date-of-birth-detail-field{
+  .date-of-birth-detail-field {
     width: 20vh;
   }
-  .label{
-    font-size:14px ;
+  .label {
+    font-size: 14px;
   }
-  .country-detail-field{
+  .country-detail-field {
     width: 30vh;
   }
-  .skills-detail-field{
+  .skills-detail-field {
     width: 40%;
   }
-  .language-detail-field{
+  .language-detail-field {
     width: 40%;
-=======
+  }
+
   .user-detail-name-container {
     padding-top: 2vh;
   }
@@ -552,17 +479,11 @@
   }
   .skills-container-main {
     font-size: 20px;
->>>>>>> a1032e4442a20e4ee59f08903bbe3c88ee3efd42
   }
   .footer {
     margin-top: 10vh;
     padding-top: 5vh;
   }
-  
-
-
-
-
 }
 
 @media screen and (min-width: 1200px) {
@@ -1587,24 +1508,22 @@
 /* Notifiaction-center */
 .notification-container {
   margin-top: 5%;
-  width: 100%;
-  background-color: red;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
   display: flex;
 }
 
+.notification-user {
+  border-left: 1px solid rgba(0, 0, 0, 0.205);
+}
 .notification-job,
 .notification-user {
   width: 50%;
   padding-left: 2%;
   padding-top: 2%;
   padding-bottom: 3%;
-}
-.notification-job {
-  background-color: yellow;
-}
-
-.notification-user {
-  background-color: greenyellow;
 }
 
 .notification-center-text {
@@ -1622,22 +1541,40 @@
   margin-top: 4%;
   padding-top: 0.5%;
   padding-bottom: 0.5%;
-  width: 18%;
-  margin-left: 77%;
+  width: 22%;
+  margin-left: 75%;
 }
 .main-buttons-container {
   margin-top: 1%;
-  width: 100%;
-  background-color: red;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+
   text-align: center;
 }
 .accept-request-button,
 .reject-request-button {
   padding-top: 0.2%;
   padding-bottom: 0.2%;
-  width: 12%;
+  width: 15%;
   margin-right: 2%;
 }
 .no-pointer {
   pointer-events: none;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-icon {
+  width: 10%;
+  opacity: 0.45;
+}
+.apply-job-button {
+  background-color: #3aabab;
 }
